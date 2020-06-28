@@ -43,12 +43,6 @@ module FSharpFunctionSandbox =
         let inchToFoot (inch: decimal<Imperial.Name.inch>) = inch / inchesPerFoot
         let thouToFoot = thouToInch >> inchToFoot
 
-
-        
-
-
-
-
     module TemperatureConversion =
         let FahrenheitToCelsius fahrenheit = (fahrenheit - 32m) * (5m/ 9m) //0.55 repeating
         let CelsiusToFahrenheit celsius = (celsius * (9m/5m)) + 32m

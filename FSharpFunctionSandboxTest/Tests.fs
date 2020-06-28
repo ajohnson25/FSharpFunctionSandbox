@@ -1,9 +1,5 @@
 module Tests
 
-
-
-
-
 open System
 open Xunit
 open Microsoft.FSharp.Data.UnitSystems.SI.UnitNames

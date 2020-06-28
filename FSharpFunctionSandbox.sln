@@ -7,7 +7,13 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FSharpFunctionSandbox", "FS
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FSharpFunctionSandboxExecute", "FSharpFunctionSandboxExecute\FSharpFunctionSandboxExecute.fsproj", "{9A721B14-39A5-488B-8094-C6CFB4E903C8}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpFunctionSandboxTest", "FSharpFunctionSandboxTest\FSharpFunctionSandboxTest.fsproj", "{DFD979C5-CDCE-43D2-B05E-8634797D85AE}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FSharpFunctionSandboxTest", "FSharpFunctionSandboxTest\FSharpFunctionSandboxTest.fsproj", "{DFD979C5-CDCE-43D2-B05E-8634797D85AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FDEEF5AB-A881-4FFF-9EA7-70AAE4EF8BB6}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
