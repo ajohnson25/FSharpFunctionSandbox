@@ -1,4 +1,4 @@
-module Tests
+module LibraryTests
 
 open System
 open Xunit
@@ -41,7 +41,7 @@ let ``Imperial conversions give different results`` () =
 let ``Imperial to Imperial`` () =
     Assert.Equal(inchToThou(1m<inch>),1000m<thou>)
     Assert.Equal(footToInch(1m<foot>),12m<inch>)
- 
+
     Assert.Equal(thouToInch(1000m<thou>),1m<inch>)
     Assert.Equal(inchToFoot(12m<inch>),1m<foot>)
     Assert.Equal(thouToFoot(1000m<thou>),(1000m/12000m)*1m<foot>)

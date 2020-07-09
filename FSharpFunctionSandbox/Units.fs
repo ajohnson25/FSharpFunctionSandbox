@@ -44,3 +44,4 @@ module SIUF =
 
         //Length
         [<Measure>] type centimeter
+        [<Measure>] type millimeter
