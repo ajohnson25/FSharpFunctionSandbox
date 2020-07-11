@@ -8,10 +8,6 @@ open FSharpFunctionSandbox.FSharpFunctionSandbox.TemperatureConversion
 open Units.Imperial.Name
 open Units.SIUF.Name
 
-[<Fact>]
-let ``My test`` () =
-    Assert.True(true)
-
 
 [<Fact>]
 let ``Metric Weight convert up`` () = 
@@ -26,11 +22,39 @@ let ``Metric Weight convert down`` () =
     Assert.Equal(kgToMg(1m<kilogram>),1000000m<milligram>)
 
 [<Fact>]
+let ``Metric Length convert up`` () =
+    Assert.Equal(mmToCm(1000m<millimeter>),100m<centimeter>)
+    Assert.Equal(cmToMeter(100m<centimeter>),1m<meter>)
+    Assert.Equal(mmToMeter(1000m<millimeter>),1m<meter>)
+
+[<Fact>]
+let ``Metric Length convert down`` () =
+    Assert.Equal(meterToCm(1m<meter>),100m<centimeter>)
+    Assert.Equal(cmToMm(100m<centimeter>),1000m<millimeter>)
+    Assert.Equal(meterToMm(1m<meter>),1000m<millimeter>)
+
+[<Fact>]
 let ``Metric to Imperial`` () =
 //This conversion will always be lossy
     Assert.Equal(cmToIn(100m<centimeter>),(100m / 2.54m)*1m<inch>)
     Assert.Equal(cmToThou(100m<centimeter>),39400m<thou>)
     Assert.Equal(cmToFoot(100m<centimeter>),(100m / 30.48m)*1m<foot>)
+
+[<Fact>] 
+let ``Imperial length convert down`` () =
+    Assert.Equal(yardToFeet(1m<yard>),3m<foot>)
+    Assert.Equal(footToInch(1m<foot>),12m<inch>)
+    Assert.Equal(inchToThou(1m<inch>),1000m<thou>)
+    Assert.Equal(yardToInch(1m<yard>),36m<inch>)
+    Assert.Equal(yardToThou(1m<yard>),36000m<thou>)
+
+[<Fact>]
+let ``Imperial length convert up`` () =
+    Assert.Equal(footToYard(1.5m<foot>), (1.5m/3m)*1m<yard>)
+    Assert.Equal(thouToInch(555m<thou>), (555m/1000m)*1m<inch>)
+    Assert.Equal(inchToFoot(13m<inch>), (13m/12m)*1m<foot>)
+    Assert.Equal(thouToFoot(12000m<thou>),1m<foot>)
+    Assert.Equal(thouToYard(36000m<thou>),1m<yard>)
 
 [<Fact>]
 let ``Imperial conversions give different results`` () =

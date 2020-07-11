@@ -9,6 +9,8 @@ module FSharpFunctionSandbox =
         let hello name =
             printfn "Hello %s" name
 
+        let want = nameof nameof
+
     module MeasureConversion =
         //Metric to metric weight
         let gramsPerKilogram : decimal<SIUF.Name.gram/UnitNames.kilogram> = 1000m<SIUF.Name.gram/UnitNames.kilogram>
@@ -38,10 +40,12 @@ module FSharpFunctionSandbox =
         let cmToMm (centimeter: decimal<SIUF.Name.centimeter>) = centimeter * mmPerCm
         let meterToMm = meterToCm >> cmToMm
         
+        //Metric Weight convert up
         let mgToG (mg : decimal<SIUF.Name.milligram>) = mg / milligramsPerGram
         let gToKg (g: decimal<SIUF.Name.gram>) = g  / gramsPerKilogram
         let mgToKg = mgToG >> gToKg
 
+        //Metric Weight convert down
         let kgToG (kg : decimal<UnitNames.kilogram>) = kg * gramsPerKilogram
         let gToMg (g : decimal<SIUF.Name.gram>) = g * milligramsPerGram
         let kgToMg = kgToG >> gToMg
@@ -50,6 +54,7 @@ module FSharpFunctionSandbox =
         let cmToThou (cm: decimal<SIUF.Name.centimeter>) = cm * cmPerThou
         let cmToFoot (cm: decimal<SIUF.Name.centimeter>) = cm / cmPerFoot
 
+        //Imperial conversion down
         let yardToFeet (yard: decimal<Imperial.Name.yard>) = yard * feetPerYard
         let footToInch (foot: decimal<Imperial.Name.foot>) = foot * inchesPerFoot
         let inchToThou (inch: decimal<Imperial.Name.inch>) = inch * thousPerInch
@@ -57,6 +62,7 @@ module FSharpFunctionSandbox =
         let yardToThou = yardToInch >> inchToThou
         
         //lossy conversions because of irrational division
+        //Imperial conversion up
         let footToYard (foot: decimal<Imperial.Name.foot>) = foot / feetPerYard
         let thouToInch (thou: decimal<Imperial.Name.thou>) = thou / thousPerInch
         let inchToFoot (inch: decimal<Imperial.Name.inch>) = inch / inchesPerFoot

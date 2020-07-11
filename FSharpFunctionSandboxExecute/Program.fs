@@ -7,7 +7,7 @@ open FSharpFunctionSandbox
 
 [<EntryPoint>]
 let main argv =
-    FSharpFunctionSandbox.Say.hello "bob"
-    let temperature = FSharpFunctionSandbox.FSharpFunctionSandbox.MeasureConversion.cmToFoot(100m<Units.SIUF.Name.centimeter>)
-    printfn "%A" temperature
+    printfn "%A" FSharpFunctionSandbox.Say.want
+    //let temperature = FSharpFunctionSandbox.FSharpFunctionSandbox.MeasureConversion.cmToFoot(100m<Units.SIUF.Name.centimeter>)
+    //printfn "%A" temperature
     0 // return an integer exit code
