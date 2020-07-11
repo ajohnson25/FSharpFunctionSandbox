@@ -36,12 +36,15 @@ module Imperial =
         [<Measure>] type slug
 
 //User friendly representation of the derived SI units
-module SIUF =
+module SI =
     module Name =
         //Weight
         [<Measure>] type gram
         [<Measure>] type milligram
+        [<Measure>] type kilogram = UnitNames.kilogram
+
 
         //Length
         [<Measure>] type centimeter
         [<Measure>] type millimeter
+        [<Measure>] type meter = UnitNames.meter

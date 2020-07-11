@@ -2,7 +2,6 @@ module LibraryTests
 
 open System
 open Xunit
-open Microsoft.FSharp.Data.UnitSystems.SI.UnitNames
 open FSharpFunctionSandbox.FSharpFunctionSandbox.MeasureConversion
 open FSharpFunctionSandbox.FSharpFunctionSandbox.TemperatureConversion
 open Units.Imperial.Name
@@ -41,7 +40,7 @@ let ``Metric to Imperial`` () =
     Assert.Equal(cmToFoot(100m<centimeter>),(100m / 30.48m)*1m<foot>)
 
 [<Fact>] 
-let ``Imperial length convert down`` () =
+let ``Imperial Length convert down`` () =
     Assert.Equal(yardToFeet(1m<yard>),3m<foot>)
     Assert.Equal(footToInch(1m<foot>),12m<inch>)
     Assert.Equal(inchToThou(1m<inch>),1000m<thou>)
@@ -49,7 +48,7 @@ let ``Imperial length convert down`` () =
     Assert.Equal(yardToThou(1m<yard>),36000m<thou>)
 
 [<Fact>]
-let ``Imperial length convert up`` () =
+let ``Imperial Length convert up`` () =
     Assert.Equal(footToYard(1.5m<foot>), (1.5m/3m)*1m<yard>)
     Assert.Equal(thouToInch(555m<thou>), (555m/1000m)*1m<inch>)
     Assert.Equal(inchToFoot(13m<inch>), (13m/12m)*1m<foot>)
@@ -60,15 +59,6 @@ let ``Imperial length convert up`` () =
 let ``Imperial conversions give different results`` () =
     //Converting from cm to imperial will provide different values
     Assert.NotEqual(inchToThou(cmToIn(100m<centimeter>)),cmToThou(100m<centimeter>)) //Off by 30-31 thou
-
-[<Fact>]
-let ``Imperial to Imperial`` () =
-    Assert.Equal(inchToThou(1m<inch>),1000m<thou>)
-    Assert.Equal(footToInch(1m<foot>),12m<inch>)
-
-    Assert.Equal(thouToInch(1000m<thou>),1m<inch>)
-    Assert.Equal(inchToFoot(12m<inch>),1m<foot>)
-    Assert.Equal(thouToFoot(1000m<thou>),(1000m/12000m)*1m<foot>)
 
 [<Fact>]
 let ``Can convert from FtoC and CtoF`` () =

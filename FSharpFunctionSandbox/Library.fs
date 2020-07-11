@@ -1,7 +1,7 @@
 ﻿namespace FSharpFunctionSandbox
 
-open Microsoft.FSharp.Data.UnitSystems.SI
-open Units
+open Units.Imperial.Name
+open Units.SI.Name
 
 module FSharpFunctionSandbox =
 
@@ -13,59 +13,59 @@ module FSharpFunctionSandbox =
 
     module MeasureConversion =
         //Metric to metric weight
-        let gramsPerKilogram : decimal<SIUF.Name.gram/UnitNames.kilogram> = 1000m<SIUF.Name.gram/UnitNames.kilogram>
-        let milligramsPerGram : decimal<SIUF.Name.milligram/SIUF.Name.gram> = 1000m<SIUF.Name.milligram/SIUF.Name.gram>
+        let gramsPerKilogram : decimal<gram/kilogram> = 1000m<gram/kilogram>
+        let milligramsPerGram : decimal<milligram/gram> = 1000m<milligram/gram>
 
         //Metric to metric length
-        let mmPerCm: decimal<SIUF.Name.millimeter/SIUF.Name.centimeter> = 10m<SIUF.Name.millimeter/SIUF.Name.centimeter>
-        let cmPerMeter: decimal<SIUF.Name.centimeter/UnitNames.meter> = 100m<SIUF.Name.centimeter/UnitNames.meter>
+        let mmPerCm: decimal<millimeter/centimeter> = 10m<millimeter/centimeter>
+        let cmPerMeter: decimal<centimeter/meter> = 100m<centimeter/meter>
 
         //Metric to Imperial length, this conversion is lossy
-        let cmPerInch : decimal<SIUF.Name.centimeter/Imperial.Name.inch> = 2.54m<SIUF.Name.centimeter/Imperial.Name.inch>
-        let cmPerThou : decimal<Imperial.Name.thou/SIUF.Name.centimeter> = 394m<Imperial.Name.thou/SIUF.Name.centimeter>
-        let cmPerFoot : decimal<SIUF.Name.centimeter/Imperial.Name.foot> = 30.48m<SIUF.Name.centimeter/Imperial.Name.foot>
+        let cmPerInch : decimal<centimeter/inch> = 2.54m<centimeter/inch>
+        let cmPerThou : decimal<thou/centimeter> = 394m<thou/centimeter>
+        let cmPerFoot : decimal<centimeter/foot> = 30.48m<centimeter/foot>
 
         //Imperial Length Up
-        let thousPerInch : decimal<Imperial.Name.thou/Imperial.Name.inch> = 1000m<Imperial.Name.thou/Imperial.Name.inch>
-        let inchesPerFoot : decimal<Imperial.Name.inch/Imperial.Name.foot> = 12m<Imperial.Name.inch/Imperial.Name.foot>
-        let feetPerYard : decimal<Imperial.Name.foot/Imperial.Name.yard> = 3m<Imperial.Name.foot/Imperial.Name.yard>
+        let thousPerInch : decimal<thou/inch> = 1000m<thou/inch>
+        let inchesPerFoot : decimal<inch/foot> = 12m<inch/foot>
+        let feetPerYard : decimal<foot/yard> = 3m<foot/yard>
 
         //Metric Length Up
-        let mmToCm (mm: decimal<SIUF.Name.millimeter>) = mm / mmPerCm
-        let cmToMeter (cm: decimal<SIUF.Name.centimeter>) = cm / cmPerMeter
+        let mmToCm (mm: decimal<millimeter>) = mm / mmPerCm
+        let cmToMeter (cm: decimal<centimeter>) = cm / cmPerMeter
         let mmToMeter = mmToCm >> cmToMeter
 
         //Metric Length Down
-        let meterToCm (meter: decimal<UnitNames.meter>) = meter * cmPerMeter
-        let cmToMm (centimeter: decimal<SIUF.Name.centimeter>) = centimeter * mmPerCm
+        let meterToCm (meter: decimal<meter>) = meter * cmPerMeter
+        let cmToMm (centimeter: decimal<centimeter>) = centimeter * mmPerCm
         let meterToMm = meterToCm >> cmToMm
         
         //Metric Weight convert up
-        let mgToG (mg : decimal<SIUF.Name.milligram>) = mg / milligramsPerGram
-        let gToKg (g: decimal<SIUF.Name.gram>) = g  / gramsPerKilogram
+        let mgToG (mg : decimal<milligram>) = mg / milligramsPerGram
+        let gToKg (g: decimal<gram>) = g  / gramsPerKilogram
         let mgToKg = mgToG >> gToKg
 
         //Metric Weight convert down
-        let kgToG (kg : decimal<UnitNames.kilogram>) = kg * gramsPerKilogram
-        let gToMg (g : decimal<SIUF.Name.gram>) = g * milligramsPerGram
+        let kgToG (kg : decimal<kilogram>) = kg * gramsPerKilogram
+        let gToMg (g : decimal<gram>) = g * milligramsPerGram
         let kgToMg = kgToG >> gToMg
 
-        let cmToIn (cm: decimal<SIUF.Name.centimeter>) = cm / cmPerInch
-        let cmToThou (cm: decimal<SIUF.Name.centimeter>) = cm * cmPerThou
-        let cmToFoot (cm: decimal<SIUF.Name.centimeter>) = cm / cmPerFoot
+        let cmToIn (cm: decimal<centimeter>) = cm / cmPerInch
+        let cmToThou (cm: decimal<centimeter>) = cm * cmPerThou
+        let cmToFoot (cm: decimal<centimeter>) = cm / cmPerFoot
 
         //Imperial conversion down
-        let yardToFeet (yard: decimal<Imperial.Name.yard>) = yard * feetPerYard
-        let footToInch (foot: decimal<Imperial.Name.foot>) = foot * inchesPerFoot
-        let inchToThou (inch: decimal<Imperial.Name.inch>) = inch * thousPerInch
+        let yardToFeet (yard: decimal<yard>) = yard * feetPerYard
+        let footToInch (foot: decimal<foot>) = foot * inchesPerFoot
+        let inchToThou (inch: decimal<inch>) = inch * thousPerInch
         let yardToInch = yardToFeet >> footToInch
         let yardToThou = yardToInch >> inchToThou
         
         //lossy conversions because of irrational division
         //Imperial conversion up
-        let footToYard (foot: decimal<Imperial.Name.foot>) = foot / feetPerYard
-        let thouToInch (thou: decimal<Imperial.Name.thou>) = thou / thousPerInch
-        let inchToFoot (inch: decimal<Imperial.Name.inch>) = inch / inchesPerFoot
+        let footToYard (foot: decimal<foot>) = foot / feetPerYard
+        let thouToInch (thou: decimal<thou>) = thou / thousPerInch
+        let inchToFoot (inch: decimal<inch>) = inch / inchesPerFoot
         let thouToFoot = thouToInch >> inchToFoot
         let thouToYard = thouToFoot >> footToYard
 
