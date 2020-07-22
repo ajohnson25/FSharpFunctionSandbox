@@ -63,6 +63,19 @@ let ``Imperial Length convert up`` () =
     Assert.Equal(thouToYard(36000m<thou>),1m<yard>)
 
 [<Fact>]
+let ``Imperial Weight convert up`` () =
+    Assert.Equal(grainsToPounds(7000m<grain>),1m<pound>)
+    Assert.Equal(drachmToOunce(16m<drachm>),1m<ounce>)
+    Assert.Equal(ouncesToPounds(16m<ounce>),1m<pound>)
+    Assert.Equal(poundsToStone(14m<pound>),1m<stone>)
+    Assert.Equal(stonesToQuarter(2m<stone>),1m<quarter_wt>)
+    Assert.Equal(poundsToQuarter(28m<pound>),1m<quarter_wt>)
+    Assert.Equal(quartersToHundredweight(4m<quarter_wt>),1m<hundredweight>)
+    Assert.Equal(poundsToHundredweight(112m<pound>),1m<hundredweight>)
+    Assert.Equal(hundredweightToTon(20m<hundredweight>),1m<ton>)
+    Assert.Equal(poundsToTon(2240m<pound>),1m<ton>)
+
+[<Fact>]
 let ``Imperial conversions give different results`` () =
     //Converting from cm to imperial will provide different values
     Assert.NotEqual(inchToThou(cmToIn(100m<centimeter>)),cmToThou(100m<centimeter>)) //Off by 30-31 thou

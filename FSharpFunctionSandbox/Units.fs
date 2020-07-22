@@ -6,16 +6,16 @@ module Imperial =
     module UnitNames =
         //Length
         [<Measure>] type thou
-        [<Measure>] type inch
+        [<Measure>] type inch //25.4mm international
         [<Measure>] type foot
-        [<Measure>] type yard //.9144m
+        [<Measure>] type yard //.9144m international
         [<Measure>] type chain
         [<Measure>] type furlong
         [<Measure>] type mile
         [<Measure>] type league
 
         //Volume
-        [<Measure>] type minim_US
+        [<Measure>] type minim_us
         [<Measure>] type fluidDram_us //60 min
         [<Measure>] type teaspoon_us // 80 min
         [<Measure>] type tablespoon_us // 3 tsp
@@ -26,9 +26,11 @@ module Imperial =
         [<Measure>] type pint_us // 2 cups
         [<Measure>] type quart_us // 2 pint
         [<Measure>] type pottle_us // 2 qt
-        [<Measure>] type gallon_us // 4 qt
+        [<Measure>] type gallon_us // 4 qt, 231 in^3
         [<Measure>] type barrel //31.5 gal
         [<Measure>] type hogshead //63 gal
+
+        [<Measure>] type cubicInch = inch ^ 3
         
         [<Measure>] type minim_uk // 1/60 fl drachm
         [<Measure>] type fluidDrachm_uk // 1/8 fl oz
@@ -45,7 +47,7 @@ module Imperial =
         [<Measure>] type grain
         [<Measure>] type drachm
         [<Measure>] type ounce
-        [<Measure>] type pound // 0.45359237kg
+        [<Measure>] type pound // 0.45359237kg international
         [<Measure>] type stone
         [<Measure>] type quarter_wt
         [<Measure>] type hundredweight
