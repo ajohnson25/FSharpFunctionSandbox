@@ -2,35 +2,42 @@ module LibraryTests
 
 open System
 open Xunit
-open FSharpFunctionSandbox.FSharpFunctionSandbox.MeasureConversion
+open FSharpFunctionSandbox.FSharpFunctionSandbox.LengthConversion
+open FSharpFunctionSandbox.FSharpFunctionSandbox.WeightConversion
 open FSharpFunctionSandbox.FSharpFunctionSandbox.TemperatureConversion
-open Units.Imperial.Name
-open Units.SIUF.Name
+open FSharpFunctionSandbox.FSharpFunctionSandbox.VolumeConversion
+open Units.Imperial.UnitNames
+open Units.SI.UnitNames
 
 
 [<Fact>]
-let ``Metric Weight convert up`` () = 
+let ``Metric Weight convert milligram to kilogram`` () = 
     Assert.Equal(mgToG(1000m<milligram>),1m<gram>)
     Assert.Equal(gToKg(1000m<gram>),1m<kilogram>)
     Assert.Equal(mgToKg(1000000m<milligram>),1m<kilogram>)
 
 [<Fact>]
-let ``Metric Weight convert down`` () =
+let ``Metric Weight convert kilogram to gram`` () =
     Assert.Equal(kgToG(1m<kilogram>),1000m<gram>)
     Assert.Equal(gToMg(1m<gram>),1000m<milligram>)
     Assert.Equal(kgToMg(1m<kilogram>),1000000m<milligram>)
 
 [<Fact>]
-let ``Metric Length convert up`` () =
+let ``Metric Length convert millimeter to meter`` () =
     Assert.Equal(mmToCm(1000m<millimeter>),100m<centimeter>)
     Assert.Equal(cmToMeter(100m<centimeter>),1m<meter>)
     Assert.Equal(mmToMeter(1000m<millimeter>),1m<meter>)
 
 [<Fact>]
-let ``Metric Length convert down`` () =
+let ``Metric Length convert meter to millimeter`` () =
     Assert.Equal(meterToCm(1m<meter>),100m<centimeter>)
     Assert.Equal(cmToMm(100m<centimeter>),1000m<millimeter>)
     Assert.Equal(meterToMm(1m<meter>),1000m<millimeter>)
+
+[<Fact>]
+let ``Using ml per US Floz converts up to gallons losslessly`` () =
+    //Assert.Equal(usGallonToUkGallon(2.404m<gallon_us>),2m<gallon_uk>)
+    Assert.Equal(mlPerUSGallon,(3.785411784m*1000m)*1m<milliliter>)
 
 [<Fact>]
 let ``Metric to Imperial`` () =

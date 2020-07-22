@@ -1,7 +1,8 @@
 ﻿namespace FSharpFunctionSandbox
 
-open Units.Imperial.Name
-open Units.SI.Name
+open Units.Imperial.UnitNames
+open Units.SI.UnitNames
+
 
 module FSharpFunctionSandbox =
 
@@ -11,10 +12,44 @@ module FSharpFunctionSandbox =
 
         let want = nameof nameof
 
-    module MeasureConversion =
+    module WeightConversion =
         //Metric to metric weight
         let gramsPerKilogram : decimal<gram/kilogram> = 1000m<gram/kilogram>
         let milligramsPerGram : decimal<milligram/gram> = 1000m<milligram/gram>
+        
+        let grainsPerPound: decimal<grain/pound> = 7000m<grain/pound>
+        let drachmPerPound: decimal<drachm/pound> = 256m<drachm/pound>
+        let drachmPerOunce: decimal<drachm/ounce> = 16m<drachm/ounce>
+        let ouncesPerPound: decimal<ounce/pound> = 16m<ounce/pound>
+        let poundsPerStone: decimal<pound/stone> = 14m<pound/stone>
+        let quarterPerStone: decimal<quarter_wt/stone> = 2m<quarter_wt/stone>
+        let poundsPerQuarter: decimal<pound/quarter_wt> = 28m<pound/quarter_wt>
+        let poundsPerHundredweight: decimal<pound/hundredweight> = 112m<pound/hundredweight>
+        let stonesPerHundredweight: decimal<stone/hundredweight> = 8m<stone/hundredweight>
+        let poundsPerTon: decimal<pound/ton> = 2240m<pound/ton>
+        let hundredweightPerTon: decimal<hundredweight/ton> = 20m<hundredweight/ton>
+
+
+        //Metric Weight convert up
+        let mgToG (mg : decimal<milligram>) = mg / milligramsPerGram
+        let gToKg (g: decimal<gram>) = g  / gramsPerKilogram
+        let mgToKg = mgToG >> gToKg
+
+        //Metric Weight convert down
+        let kgToG (kg : decimal<kilogram>) = kg * gramsPerKilogram
+        let gToMg (g : decimal<gram>) = g * milligramsPerGram
+        let kgToMg = kgToG >> gToMg
+
+    module VolumeConversion =
+        //based on international yard
+        let litersPerUKGallon:decimal<liter/gallon_uk> = 4.5609m<liter/gallon_uk>
+        let mlPerFlOzUS:decimal<milliliter/fluidOunce_us> = 29.5735295625m<milliliter/fluidOunce_us>
+        let usGallonsPerUkGallon:decimal<gallon_us/gallon_uk> = 1.201m<gallon_us/gallon_uk>
+
+        let usGallonToUkGallon (usGallon: decimal<gallon_us>) = usGallon / usGallonsPerUkGallon
+        let mlPerUSGallon = mlPerFlOzUS * 128m<fluidOunce_us>
+
+    module LengthConversion =
 
         //Metric to metric length
         let mmPerCm: decimal<millimeter/centimeter> = 10m<millimeter/centimeter>
@@ -39,16 +74,6 @@ module FSharpFunctionSandbox =
         let meterToCm (meter: decimal<meter>) = meter * cmPerMeter
         let cmToMm (centimeter: decimal<centimeter>) = centimeter * mmPerCm
         let meterToMm = meterToCm >> cmToMm
-        
-        //Metric Weight convert up
-        let mgToG (mg : decimal<milligram>) = mg / milligramsPerGram
-        let gToKg (g: decimal<gram>) = g  / gramsPerKilogram
-        let mgToKg = mgToG >> gToKg
-
-        //Metric Weight convert down
-        let kgToG (kg : decimal<kilogram>) = kg * gramsPerKilogram
-        let gToMg (g : decimal<gram>) = g * milligramsPerGram
-        let kgToMg = kgToG >> gToMg
 
         let cmToIn (cm: decimal<centimeter>) = cm / cmPerInch
         let cmToThou (cm: decimal<centimeter>) = cm * cmPerThou
