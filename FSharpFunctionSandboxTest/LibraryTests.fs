@@ -9,7 +9,6 @@ open FSharpFunctionSandbox.FSharpFunctionSandbox.VolumeConversion
 open Units.Imperial.UnitNames
 open Units.SI.UnitNames
 
-
 [<Fact>]
 let ``Metric Weight convert milligram to kilogram`` () = 
     Assert.Equal(mgToG(1000m<milligram>),1m<gram>)
@@ -33,6 +32,11 @@ let ``Metric Length convert meter to millimeter`` () =
     Assert.Equal(meterToCm(1m<meter>),100m<centimeter>)
     Assert.Equal(cmToMm(100m<centimeter>),1000m<millimeter>)
     Assert.Equal(meterToMm(1m<meter>),1000m<millimeter>)
+
+[<Fact>]
+let ``Metric Milliter To Liter`` () =
+    Assert.Equal(milliliterToLiter(1000m<milliliter>),1m<liter>)
+    Assert.Equal(literToMilliliter(1m<liter>),1000m<milliliter>)
 
 [<Fact>]
 let ``Using ml per US Floz converts up to gallons losslessly`` () =

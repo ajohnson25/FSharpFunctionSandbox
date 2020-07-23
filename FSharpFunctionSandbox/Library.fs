@@ -13,6 +13,7 @@ module FSharpFunctionSandbox =
         let want = nameof nameof
 
     module WeightConversion =
+
         //Metric to metric weight
         let gramsPerKilogram : decimal<gram/kilogram> = 1000m<gram/kilogram>
         let milligramsPerGram : decimal<milligram/gram> = 1000m<milligram/gram>
@@ -40,7 +41,6 @@ module FSharpFunctionSandbox =
         let hundredweightToTon (cwt: decimal<hundredweight>) = cwt / hundredweightPerTon
         let poundsToTon = poundsToHundredweight >> hundredweightToTon
 
-
         //Metric Weight convert up
         let mgToG (mg : decimal<milligram>) = mg / milligramsPerGram
         let gToKg (g: decimal<gram>) = g  / gramsPerKilogram
@@ -56,6 +56,11 @@ module FSharpFunctionSandbox =
         let litersPerUKGallon:decimal<liter/gallon_uk> = 4.5609m<liter/gallon_uk>
         let mlPerFlOzUS:decimal<milliliter/fluidOunce_us> = 29.5735295625m<milliliter/fluidOunce_us>
         let usGallonsPerUkGallon:decimal<gallon_us/gallon_uk> = 1.201m<gallon_us/gallon_uk>
+
+        let millilitersPerLiter: decimal<milliliter/liter> = 1000m<milliliter/liter>
+        
+        let literToMilliliter (l: decimal<liter>) = l * millilitersPerLiter
+        let milliliterToLiter (ml: decimal<milliliter>) = ml / millilitersPerLiter
 
         let usGallonToUkGallon (usGallon: decimal<gallon_us>) = usGallon / usGallonsPerUkGallon
         let mlPerUSGallon = mlPerFlOzUS * 128m<fluidOunce_us>
