@@ -20,14 +20,15 @@ module FSharpFunctionSandbox =
         let gramsPerKilogram : decimal<gram/kilogram> = 1000m<gram/kilogram>
         let milligramsPerGram : decimal<milligram/gram> = 1000m<milligram/gram>
         
+        //Imperial weight constants
         let grainsPerPound: decimal<grain/pound> = 7000m<grain/pound>
         let drachmPerPound: decimal<drachm/pound> = 256m<drachm/pound>
         let drachmPerOunce: decimal<drachm/ounce> = 16m<drachm/ounce>
         let ouncesPerPound: decimal<ounce/pound> = 16m<ounce/pound>
         let poundsPerStone: decimal<pound/stone> = 14m<pound/stone>
-        let stonesPerQuarter: decimal<stone/quarter_wt> = 2m<stone/quarter_wt>
+        let stonesPerQuarter: decimal<stone/quarter_wt_lng> = 2m<stone/quarter_wt_lng>
         let poundsPerHundredweight: decimal<pound/hundredweight> = 112m<pound/hundredweight>
-        let quartersPerHundredweight: decimal<quarter_wt/hundredweight> = 4m<quarter_wt/hundredweight>
+        let quartersPerHundredweight: decimal<quarter_wt_lng/hundredweight> = 4m<quarter_wt_lng/hundredweight>
         let poundsPerTon: decimal<pound/ton> = 2240m<pound/ton>
         let hundredweightPerTon: decimal<hundredweight/ton> = 20m<hundredweight/ton>
 
@@ -38,10 +39,16 @@ module FSharpFunctionSandbox =
         let poundsToStone (lb: decimal<pound>) = lb / poundsPerStone
         let stonesToQuarter (st: decimal<stone>) = st / stonesPerQuarter
         let poundsToQuarter = poundsToStone >> stonesToQuarter
-        let quartersToHundredweight (qtr: decimal<quarter_wt>) = qtr / quartersPerHundredweight
+        let quartersToHundredweight (qtr: decimal<quarter_wt_lng>) = qtr / quartersPerHundredweight
         let poundsToHundredweight = poundsToQuarter >> quartersToHundredweight
         let hundredweightToTon (cwt: decimal<hundredweight>) = cwt / hundredweightPerTon
         let poundsToTon = poundsToHundredweight >> hundredweightToTon
+
+        //Imperial weight convert down
+        let stoneToPounds (st: decimal<stone>) = st * poundsPerStone
+        let quartersToStones (qtr: decimal<quarter_wt_lng>) = qtr * stonesPerQuarter
+        let hundredweightsToQuarters (cwt: decimal<hundredweight>) = cwt * quartersPerHundredweight
+        let tonsToHundredweights (t: decimal<ton>) = t * hundredweightPerTon
 
         //Metric Weight convert up
         let mgToG (mg : decimal<milligram>) = mg / milligramsPerGram
@@ -54,8 +61,18 @@ module FSharpFunctionSandbox =
         let kgToMg = kgToG >> gToMg
 
         //metric to imperial
-        let kilogramToPound (kg: decimal<kilogram>) = kg / kilogramsPerPound
-        let poundToKilogram (lb: decimal<pound>) = lb * kilogramsPerPound
+        let kilogramsToPound (kg: decimal<kilogram>) = kg / kilogramsPerPound
+        let poundsToKilogram (lb: decimal<pound>) = lb * kilogramsPerPound
+
+        //imperial to metric
+        let grainsToKilogram = grainsToPounds >> poundsToKilogram
+        let ouncesToKilogram = ouncesToPounds >> poundsToKilogram
+        let drachmToKilogram = drachmToOunce >> ouncesToKilogram
+        let stoneToKilogram = stoneToPounds >> poundsToKilogram
+        let quartersToKilogram = quartersToStones >> stoneToKilogram
+        let hundredweightToKilogram = hundredweightsToQuarters >> quartersToKilogram
+        let tonsToKilogram = tonsToHundredweights >> hundredweightToKilogram
+        
 
     module VolumeConversion =
         //based on international yard

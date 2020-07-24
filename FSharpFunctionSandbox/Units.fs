@@ -49,7 +49,7 @@ module Imperial =
         [<Measure>] type ounce
         [<Measure>] type pound // 0.45359237kg international
         [<Measure>] type stone
-        [<Measure>] type quarter_wt
+        [<Measure>] type quarter_wt_lng
         [<Measure>] type hundredweight
         [<Measure>] type ton
 

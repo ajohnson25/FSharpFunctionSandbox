@@ -44,7 +44,7 @@ let ``Using ml per US Floz converts up to gallons losslessly`` () =
     Assert.Equal((3.785411784m*1000m)*1m<milliliter>,mlPerUSGallon)
 
 [<Fact>]
-let ``Metric to Imperial`` () =
+let ``Metric to Imperial Length`` () =
 //This conversion will always be lossy
     Assert.Equal(1.0000000000000000000000000008m<inch>,cmToInch(2.54m<centimeter>))
     Assert.Equal(1.0936132983377077865266841645m<yard>,cmToYard(100m<centimeter>))
@@ -52,18 +52,27 @@ let ``Metric to Imperial`` () =
     Assert.Equal(3.2808398950131233595800524935m<foot>,cmToFoot(100m<centimeter>))
 
 [<Fact>]
-let ``Imperial to Metric`` () =
+let ``Imperial to Metric Length`` () =
     Assert.Equal(thouToMeter(1000m<thou>),0.0254m<meter>)
     Assert.Equal(inchToMeter(1m<inch>),0.0254m<meter>)
     Assert.Equal(footToMeter(3m<foot>),0.9144m<meter>)
 
+[<Fact>]
+let ``Imperial to Metric Weight`` () =
+    Assert.Equal(0.45359237m<kilogram>,grainsToKilogram(7000m<grain>))
+    Assert.Equal(0.45359237m<kilogram>,drachmToKilogram(256m<drachm>))
+    Assert.Equal(0.45359237m<kilogram>,ouncesToKilogram(16m<ounce>))
+    Assert.Equal(6.35029318m<kilogram>,stoneToKilogram(1m<stone>))
+    Assert.Equal(12.70058636m<kilogram>,quartersToKilogram(1m<quarter_wt_lng>))
+    Assert.Equal(50.80234544m<kilogram>,hundredweightToKilogram(1m<hundredweight>))
+    Assert.Equal(1016.04690880m<kilogram>,tonsToKilogram(1m<ton>))
 
 [<Fact>] 
 let ``Imperial Length convert down`` () =
-    Assert.Equal(yardToFoot(1m<yard>),3m<foot>)
-    Assert.Equal(footToInch(1m<foot>),12m<inch>)
-    Assert.Equal(inchToThou(1m<inch>),1000m<thou>)
-    Assert.Equal(yardToInch(1m<yard>),36m<inch>)
+    Assert.Equal(3m<foot>,yardToFoot(1m<yard>))
+    Assert.Equal(12m<inch>,footToInch(1m<foot>))
+    Assert.Equal(1000m<thou>,inchToThou(1m<inch>))
+    Assert.Equal(36m<inch>,yardToInch(1m<yard>))
     Assert.Equal(yardToThou(1m<yard>),36000m<thou>)
 
 [<Fact>]
@@ -80,9 +89,9 @@ let ``Imperial Weight convert up`` () =
     Assert.Equal(1m<ounce>,drachmToOunce(16m<drachm>))
     Assert.Equal(1m<pound>,ouncesToPounds(16m<ounce>))
     Assert.Equal(1m<stone>,poundsToStone(14m<pound>))
-    Assert.Equal(1m<quarter_wt>,stonesToQuarter(2m<stone>))
-    Assert.Equal(1m<quarter_wt>,poundsToQuarter(28m<pound>))
-    Assert.Equal(1m<hundredweight>,quartersToHundredweight(4m<quarter_wt>))
+    Assert.Equal(1m<quarter_wt_lng>,stonesToQuarter(2m<stone>))
+    Assert.Equal(1m<quarter_wt_lng>,poundsToQuarter(28m<pound>))
+    Assert.Equal(1m<hundredweight>,quartersToHundredweight(4m<quarter_wt_lng>))
     Assert.Equal(1m<hundredweight>,poundsToHundredweight(112m<pound>))
     Assert.Equal(1m<ton>,hundredweightToTon(20m<hundredweight>))
     Assert.Equal(1m<ton>,poundsToTon(2240m<pound>))
@@ -92,8 +101,8 @@ let ``International yard and pound conversions`` () =
     Assert.Equal(1m<yard>,meterToYard(0.9144m<meter>))
     Assert.Equal(0.9144m<meter>,yardToMeter(1m<yard>))
 
-    Assert.Equal(1m<pound>,kilogramToPound(0.45359237m<kilogram>))
-    Assert.Equal(0.45359237m<kilogram>,poundToKilogram(1m<pound>))
+    Assert.Equal(1m<pound>,kilogramsToPound(0.45359237m<kilogram>))
+    Assert.Equal(0.45359237m<kilogram>,poundsToKilogram(1m<pound>))
 
 
 [<Fact>]
