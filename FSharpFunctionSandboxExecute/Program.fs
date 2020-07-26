@@ -2,11 +2,11 @@
 
 open System
 open FSharpFunctionSandbox
+open Units.SI.UnitNames
 
 
 [<EntryPoint>]
 let main argv =
-    printfn "%A" FSharpFunctionSandbox.Say.want
-    //let temperature = FSharpFunctionSandbox.FSharpFunctionSandbox.MeasureConversion.cmToFoot(100m<Units.centimeter>)
-    //printfn "%A" temperature
+    let temperature = FSharpFunctionSandbox.FSharpFunctionSandbox.LengthConversion.cmToFoot(100m<centimeter>)
+    printfn "%A" temperature
     0 // return an integer exit code

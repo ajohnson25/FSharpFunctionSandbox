@@ -49,9 +49,15 @@ module Imperial =
         [<Measure>] type ounce
         [<Measure>] type pound // 0.45359237kg international
         [<Measure>] type stone
+
+        //The difference between lng and shrt is that shrt is
+        //hundredweight = 100 vs 112
         [<Measure>] type quarter_wt_lng
-        [<Measure>] type hundredweight
-        [<Measure>] type ton
+        [<Measure>] type quarter_wt_shrt
+        [<Measure>] type hundredweight_lng
+        [<Measure>] type hundredweight_shrt
+        [<Measure>] type ton_lng
+        [<Measure>] type ton_shrt
 
 //User friendly representation of the derived SI units
 module SI =
