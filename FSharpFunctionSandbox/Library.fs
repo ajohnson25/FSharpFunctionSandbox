@@ -27,24 +27,25 @@ module FSharpFunctionSandbox =
         let poundsPerQuarterShrt: decimal<pound/quarter_wt_shrt> = 25m<pound/quarter_wt_shrt>
         let stonesPerQuarterLng: decimal<stone/quarter_wt_lng> = 2m<stone/quarter_wt_lng>
         let quartersLngPerHundredweightLng: decimal<quarter_wt_lng/hundredweight_lng> = 4m<quarter_wt_lng/hundredweight_lng>
-        let quartersShrtPerHundredweightShrt: decimal<quarter_wt_shrt/hundredweight_shrt> = 4m<quarter_wt_shrt/hundredweight_shrt>
+        let quartersShrtPerHundredweightsShrt: decimal<quarter_wt_shrt/hundredweight_shrt> = 4m<quarter_wt_shrt/hundredweight_shrt>
         let poundsPerTonShrt: decimal<pound/ton_shrt> = 2000m<pound/ton_shrt>
         let hundredweightsLngPerTonLng: decimal<hundredweight_lng/ton_lng> = 20m<hundredweight_lng/ton_lng>
         let hundredweightsShrtPerTonShrt: decimal<hundredweight_shrt/ton_shrt> = 20m<hundredweight_shrt/ton_shrt>
-        let hundredweightShrtPerhundredweightLng: decimal<hundredweight_shrt/hundredweight_lng> = 1.12m<hundredweight_shrt/hundredweight_lng>
+        let hundredweightsShrtPerhundredweightsLng: decimal<hundredweight_shrt/hundredweight_lng> = 1.12m<hundredweight_shrt/hundredweight_lng>
         let shortTonsPerMetricTons: decimal<ton_shrt/ton_metric> = 0.90718474m<ton_shrt/ton_metric>
         let kilogramsPerMetricTon: decimal<kilogram/ton_metric> = 1000m<kilogram/ton_metric>
+        let poundsToOunces (lb: decimal<pound>) = lb * ouncesPerPound 
 
         //Imperial weight convert up
         let grainsToPounds (gr : decimal<grain>) = gr / grainsPerPound
-        let drachmToOunce (dr: decimal<drachm>) = dr / drachmPerOunce
+        let drachmsToOunces (dr: decimal<drachm>) = dr / drachmPerOunce
         let ouncesToPounds (oz: decimal<ounce>) = oz / ouncesPerPound
-        let poundsToStone (lb: decimal<pound>) = lb / poundsPerStone
+        let poundsToStones (lb: decimal<pound>) = lb / poundsPerStone
         let stonesToQuartersLng (st: decimal<stone>) = st / stonesPerQuarterLng
-        let poundsToQuartersLng = poundsToStone >> stonesToQuartersLng
+        let poundsToQuartersLng = poundsToStones >> stonesToQuartersLng
         let poundsToQuartersShrt (lb: decimal<pound>) = lb / poundsPerQuarterShrt
         let quartersLngToHundredweightsLng (qtr: decimal<quarter_wt_lng>) = qtr / quartersLngPerHundredweightLng
-        let quartersShrtToHundredweightsShrt (qtr: decimal<quarter_wt_shrt>) = qtr / quartersShrtPerHundredweightShrt
+        let quartersShrtToHundredweightsShrt (qtr: decimal<quarter_wt_shrt>) = qtr / quartersShrtPerHundredweightsShrt
         let poundsToHundredweightsLng = poundsToQuartersLng >> quartersLngToHundredweightsLng
         let poundsToHundredweightsShrt = poundsToQuartersShrt >> quartersShrtToHundredweightsShrt
         let hundredweightsLngToTonsLng (cwt: decimal<hundredweight_lng>) = cwt / hundredweightsLngPerTonLng
@@ -57,7 +58,7 @@ module FSharpFunctionSandbox =
         let stoneToPounds (st: decimal<stone>) = st * poundsPerStone
         let quartersShrtToPounds (qtr: decimal<quarter_wt_shrt>) = qtr * poundsPerQuarterShrt
         let quartersLngToStones (qtr: decimal<quarter_wt_lng>) = qtr * stonesPerQuarterLng
-        let hundredweightsShrtToQuartersShrt (cwt: decimal<hundredweight_shrt>) = cwt * quartersShrtPerHundredweightShrt
+        let hundredweightsShrtToQuartersShrt (cwt: decimal<hundredweight_shrt>) = cwt * quartersShrtPerHundredweightsShrt
         let hundredweightsLngToQuartersLng (cwt: decimal<hundredweight_lng>) = cwt * quartersLngPerHundredweightLng
         let tonsShrtToHundredweightsShrt (tons: decimal<ton_shrt>) = tons * hundredweightsShrtPerTonShrt
         let tonsLngToHundredweightsLng (t: decimal<ton_lng>) = t * hundredweightsLngPerTonLng
@@ -65,8 +66,8 @@ module FSharpFunctionSandbox =
         let tonsLngToStones = tonsLngToQuartersLng >> quartersLngToStones
 
         //Short to Long hundredweight
-        let hundredweightsLngToHundredweightsShrt (cwt: decimal<hundredweight_lng>) = cwt * hundredweightShrtPerhundredweightLng
-        let hundredweightsShrtToHundredweightsLng (cwt: decimal<hundredweight_shrt>) = cwt / hundredweightShrtPerhundredweightLng
+        let hundredweightsLngToHundredweightsShrt (cwt: decimal<hundredweight_lng>) = cwt * hundredweightsShrtPerhundredweightsLng
+        let hundredweightsShrtToHundredweightsLng (cwt: decimal<hundredweight_shrt>) = cwt / hundredweightsShrtPerhundredweightsLng
         //let shortTonsToMetricTons (t: decimal<ton_shrt>) = t / shortTonsPerMetricTons
 
         let quartersShrtToHundredweightsLng = quartersShrtToHundredweightsShrt >> hundredweightsShrtToHundredweightsLng
@@ -100,10 +101,10 @@ module FSharpFunctionSandbox =
         
 
         //Metric Weight convert up
-        let mgToG (mg : decimal<milligram>) = mg / milligramsPerGram
-        let gToKg (g: decimal<gram>) = g  / gramsPerKilogram
+        let milligramsToGrams (mg : decimal<milligram>) = mg / milligramsPerGram
+        let gramsToKilograms (g: decimal<gram>) = g  / gramsPerKilogram
         let kilogramsToTonsMetric (kg: decimal<kilogram>) = kg / kilogramsPerMetricTon
-        let mgToKg = mgToG >> gToKg
+        let milligramsToKilograms = milligramsToGrams >> gramsToKilograms
 
         //Metric Weight convert down
         let kilogramsToGrams (kg : decimal<kilogram>) = kg * gramsPerKilogram
@@ -111,45 +112,54 @@ module FSharpFunctionSandbox =
         let kilogramsToMilligrams = kilogramsToGrams >> gramsToMilligrams
 
         //metric to imperial
-        let kilogramsToPound (kg: decimal<kilogram>) = kg / kilogramsPerPound
+        let kilogramsToPounds (kg: decimal<kilogram>) = kg / kilogramsPerPound
         let poundsToKilogram (lb: decimal<pound>) = lb * kilogramsPerPound
 
         //imperial to metric
-        let grainsToKilogram = grainsToPounds >> poundsToKilogram
-        let ouncesToKilogram = ouncesToPounds >> poundsToKilogram
-        let drachmToKilogram = drachmToOunce >> ouncesToKilogram
-        let stoneToKilogram = stoneToPounds >> poundsToKilogram
-        let quartersShrtToKilogram = quartersShrtToPounds >> poundsToKilogram
-        let quartersLngToKilogram = quartersLngToStones >> stoneToKilogram
-        let hundredweightsShrtToKilogram = hundredweightsShrtToQuartersShrt >> quartersShrtToKilogram
-        let hundredweightLngToKilogram = hundredweightsLngToQuartersLng >> quartersLngToKilogram
-        let tonsShrtToKilogram = tonsShrtToHundredweightsShrt >> hundredweightsShrtToKilogram
-        let tonsLngToKilogram = tonsLngToHundredweightsLng >> hundredweightLngToKilogram
-        let tonsShrtToTonsMetric = tonsShrtToKilogram >> kilogramsToTonsMetric
-        let tonsLongToTonsMetric = tonsLngToKilogram >> kilogramsToTonsMetric
+        let grainsToKilograms = grainsToPounds >> poundsToKilogram
+        let ouncesToKilograms = ouncesToPounds >> poundsToKilogram
+        let drachmsToKilograms = drachmsToOunces >> ouncesToKilograms
+        let stonesToKilograms = stoneToPounds >> poundsToKilogram
+        let quartersShrtToKilograms = quartersShrtToPounds >> poundsToKilogram
+        let quartersLngToKilograms = quartersLngToStones >> stonesToKilograms
+        let hundredweightsShrtToKilograms = hundredweightsShrtToQuartersShrt >> quartersShrtToKilograms
+        let hundredweightsLngToKilograms = hundredweightsLngToQuartersLng >> quartersLngToKilograms
+        let tonsShrtToKilograms = tonsShrtToHundredweightsShrt >> hundredweightsShrtToKilograms
+        let tonsLngToKilograms = tonsLngToHundredweightsLng >> hundredweightsLngToKilograms
+        let tonsShrtToTonsMetric = tonsShrtToKilograms >> kilogramsToTonsMetric
+        let tonsLongToTonsMetric = tonsLngToKilograms >> kilogramsToTonsMetric
 
-        let grainsToGrams = grainsToKilogram >> kilogramsToGrams
-        let ouncesToGrams = ouncesToKilogram >> kilogramsToGrams
-        let drachmToGrams = drachmToKilogram >> kilogramsToGrams
-        let stoneToGrams = stoneToKilogram >> kilogramsToGrams
-        let quartersShrtToGrams = quartersShrtToKilogram >> kilogramsToGrams
-        let quartersLngToGrams = quartersLngToKilogram >> kilogramsToGrams
-        let hundredweightShrtToGrams = hundredweightsShrtToKilogram >> kilogramsToGrams
-        let hundredweightLngToGrams = hundredweightLngToKilogram >> kilogramsToGrams
-        let tonsShrtToGrams = tonsShrtToKilogram >> kilogramsToGrams
-        let tonsLngToGrams = tonsLngToKilogram >> kilogramsToGrams
+        let grainsToGrams = grainsToKilograms >> kilogramsToGrams
+        let ouncesToGrams = ouncesToKilograms >> kilogramsToGrams
+        let drachmsToGrams = drachmsToKilograms >> kilogramsToGrams
+        let stoneToGrams = stonesToKilograms >> kilogramsToGrams
+        let quartersShrtToGrams = quartersShrtToKilograms >> kilogramsToGrams
+        let quartersLngToGrams = quartersLngToKilograms >> kilogramsToGrams
+        let hundredweightsShrtToGrams = hundredweightsShrtToKilograms >> kilogramsToGrams
+        let hundredweightsLngToGrams = hundredweightsLngToKilograms >> kilogramsToGrams
+        let tonsShrtToGrams = tonsShrtToKilograms >> kilogramsToGrams
+        let tonsLngToGrams = tonsLngToKilograms >> kilogramsToGrams
 
         let grainsToMilligrams = grainsToGrams >> gramsToMilligrams
         let ouncesToMilligrams = ouncesToGrams >> gramsToMilligrams
-        let drachmToMilligrams = drachmToGrams >> gramsToMilligrams
+        let drachmToMilligrams = drachmsToGrams >> gramsToMilligrams
         let stoneToMilligrams = stoneToGrams >> gramsToMilligrams
         let quartersShrtToMilligrams = quartersShrtToGrams >> gramsToMilligrams
         let quartersLngToMilligrams = quartersLngToGrams >> gramsToMilligrams
-        let hundredweightShrtToMilligrams = hundredweightShrtToGrams >> gramsToMilligrams
-        let hundredweightLngToMilligrams = hundredweightLngToGrams >> gramsToMilligrams
+        let hundredweightsShrtToMilligrams = hundredweightsShrtToGrams >> gramsToMilligrams
+        let hundredweightsLngToMilligrams = hundredweightsLngToGrams >> gramsToMilligrams
         let tonsShrtToMilligrams = tonsShrtToGrams >> gramsToMilligrams
         let tonsLngToMilligrams = tonsLngToGrams >> gramsToMilligrams
+        let poundsToMetricTon = poundsToKilogram >> kilogramsToTonsMetric
+        
+        
 
+
+        let milligramsToPounds = milligramsToKilograms >> kilogramsToPounds
+        let milligramsToStone = milligramsToPounds >> poundsToStones
+        let milligramsToOunce = milligramsToPounds>> poundsToOunces
+        let milligramsToGrain = milligramsToKilograms
+        
 
     module VolumeConversion =
         //based on international yard

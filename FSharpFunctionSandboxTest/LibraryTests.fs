@@ -9,11 +9,11 @@ open FSharpFunctionSandbox.FSharpFunctionSandbox.VolumeConversion
 open Units.Imperial.UnitNames
 open Units.SI.UnitNames
 
+
+
 [<Fact>]
 let ``Metric Weight convert milligram to kilogram`` () = 
-    Assert.Equal(1m<gram>,mgToG(1000m<milligram>))
-    Assert.Equal(1m<kilogram>,gToKg(1000m<gram>))
-    Assert.Equal(1m<kilogram>,mgToKg(1000000m<milligram>))
+    Assert.Equal(1m<kilogram>,gramsToKilograms(1000m<gram>))
 
 [<Fact>]
 let ``Metric Weight convert kilogram to gram`` () =
@@ -59,29 +59,34 @@ let ``Imperial to Metric Length`` () =
 
 [<Fact>]
 let ``Imperial Weight to Kilogram`` () =
-    Assert.Equal(0.45359237m<kilogram>,grainsToKilogram(7000m<grain>))
-    Assert.Equal(0.45359237m<kilogram>,drachmToKilogram(256m<drachm>))
-    Assert.Equal(0.45359237m<kilogram>,ouncesToKilogram(16m<ounce>))
-    Assert.Equal(6.35029318m<kilogram>,stoneToKilogram(1m<stone>))
-    Assert.Equal(11.33980925m<kilogram>,quartersShrtToKilogram(1m<quarter_wt_shrt>))
-    Assert.Equal(12.70058636m<kilogram>,quartersLngToKilogram(1m<quarter_wt_lng>))
-    Assert.Equal(45.35923700m<kilogram>,hundredweightsShrtToKilogram(1m<hundredweight_shrt>))
-    Assert.Equal(50.80234544m<kilogram>,hundredweightLngToKilogram(1m<hundredweight_lng>))
-    Assert.Equal(907.18474000m<kilogram>,tonsShrtToKilogram(1m<ton_shrt>))
-    Assert.Equal(1016.04690880m<kilogram>,tonsLngToKilogram(1m<ton_lng>))
+    Assert.Equal(0.45359237m<kilogram>,grainsToKilograms(7000m<grain>))
+    Assert.Equal(0.45359237m<kilogram>,drachmsToKilograms(256m<drachm>))
+    Assert.Equal(0.45359237m<kilogram>,ouncesToKilograms(16m<ounce>))
+    Assert.Equal(6.35029318m<kilogram>,stonesToKilograms(1m<stone>))
+    Assert.Equal(11.33980925m<kilogram>,quartersShrtToKilograms(1m<quarter_wt_shrt>))
+    Assert.Equal(12.70058636m<kilogram>,quartersLngToKilograms(1m<quarter_wt_lng>))
+    Assert.Equal(45.35923700m<kilogram>,hundredweightsShrtToKilograms(1m<hundredweight_shrt>))
+    Assert.Equal(50.80234544m<kilogram>,hundredweightsLngToKilograms(1m<hundredweight_lng>))
+    Assert.Equal(907.18474000m<kilogram>,tonsShrtToKilograms(1m<ton_shrt>))
+    Assert.Equal(1016.04690880m<kilogram>,tonsLngToKilograms(1m<ton_lng>))
+
+
+[<Fact>]
+let ``Imperial Weight to Metric Ton`` () =
     Assert.Equal(0.90718474m<ton_metric>,tonsShrtToTonsMetric(1m<ton_shrt>))
     Assert.Equal(1.0160469088m<ton_metric>,tonsLongToTonsMetric(1m<ton_lng>))
+    Assert.Equal(0.999989738902m<ton_metric>,poundsToMetricTon(2204.6m<pound>))
 
 [<Fact>]
 let ``Imperial Weight to Gram`` () =
     Assert.Equal(1.6199727500000000000000000000m<gram>,grainsToGrams(25m<grain>))
     Assert.Equal(28.349523125000m<gram>,ouncesToGrams(1m<ounce>))
-    Assert.Equal(1.7718451953125000m<gram>,drachmToGrams(1m<drachm>))
+    Assert.Equal(1.7718451953125000m<gram>,drachmsToGrams(1m<drachm>))
     Assert.Equal(6350.29318000m<gram>,stoneToGrams(1m<stone>))
     Assert.Equal(11339.80925000m<gram>,quartersShrtToGrams(1m<quarter_wt_shrt>))
     Assert.Equal(12700.58636000m<gram>,quartersLngToGrams(1m<quarter_wt_lng>))
-    Assert.Equal(45359.23700000m<gram>,hundredweightShrtToGrams(1m<hundredweight_shrt>))
-    Assert.Equal(50802.34544000m<gram>,hundredweightLngToGrams(1m<hundredweight_lng>))
+    Assert.Equal(45359.23700000m<gram>,hundredweightsShrtToGrams(1m<hundredweight_shrt>))
+    Assert.Equal(50802.34544000m<gram>,hundredweightsLngToGrams(1m<hundredweight_lng>))
     Assert.Equal(907184.74000000m<gram>,tonsShrtToGrams(1m<ton_shrt>))
     Assert.Equal(1016046.90880000m<gram>,tonsLngToGrams(1m<ton_lng>))
 
@@ -93,17 +98,17 @@ let ``Imperial Weight to Milligram`` () =
     Assert.Equal(6350293.18m<milligram>,stoneToMilligrams(1m<stone>))
     Assert.Equal(11339809.25m<milligram>,quartersShrtToMilligrams(1m<quarter_wt_shrt>))
     Assert.Equal(12700586.36m<milligram>,quartersLngToMilligrams(1m<quarter_wt_lng>))
-    Assert.Equal(45359237m<milligram>,hundredweightShrtToMilligrams(1m<hundredweight_shrt>))
-    Assert.Equal(50802345.44m<milligram>,hundredweightLngToMilligrams(1m<hundredweight_lng>))
+    Assert.Equal(45359237m<milligram>,hundredweightsShrtToMilligrams(1m<hundredweight_shrt>))
+    Assert.Equal(50802345.44m<milligram>,hundredweightsLngToMilligrams(1m<hundredweight_lng>))
     Assert.Equal(907184740m<milligram>,tonsShrtToMilligrams(1m<ton_shrt>))
     Assert.Equal(1016046908.8m<milligram>,tonsLngToMilligrams(1m<ton_lng>))
 
 [<Fact>]
 let ``Imperial Weight convert up`` () =
     Assert.Equal(1m<pound>,grainsToPounds(7000m<grain>))
-    Assert.Equal(1m<ounce>,drachmToOunce(16m<drachm>))
+    Assert.Equal(1m<ounce>,drachmsToOunces(16m<drachm>))
     Assert.Equal(1m<pound>,ouncesToPounds(16m<ounce>))
-    Assert.Equal(1m<stone>,poundsToStone(14m<pound>))
+    Assert.Equal(1m<stone>,poundsToStones(14m<pound>))
     Assert.Equal(1m<quarter_wt_lng>,stonesToQuartersLng(2m<stone>))
     Assert.Equal(1m<quarter_wt_lng>,poundsToQuartersLng(28m<pound>))
     Assert.Equal(1m<quarter_wt_shrt>,poundsToQuartersShrt(25m<pound>))
@@ -131,6 +136,14 @@ let ``Imperial weight convert down`` () =
 //[<Fact>]
 //let ``Metric Ton(approx 2204.6lb, 1000kg)`` () =
 //    Assert.Equal(0.90718474m<ton_metric>,shortTonsToMetricTons(1m<ton_shrt>))
+
+[<Fact>]
+let ``Milligrams(1/1000g) To Other`` () =
+        Assert.Equal(1m<gram>,milligramsToGrams(1000m<milligram>))
+        Assert.Equal(1m<kilogram>,milligramsToKilograms(1000000m<milligram>))
+        Assert.Equal(1.0000013889122517647287585547m<pound>,milligramsToPounds(453593m<milligram>))
+        Assert.Equal(1.0000002866009408403408549399m<stone>,milligramsToStone(6350295m<milligram>))
+        Assert.Equal(1.0000168212706047061594091632m<ounce>,milligramsToOunce(28350m<milligram>))
 
 [<Fact>]
 let ``Quarters Short(25lb) to Long`` () =
@@ -183,7 +196,7 @@ let ``International yard conversions`` () =
 
 [<Fact>]
 let ``International pound conversions`` () =
-    Assert.Equal(1m<pound>,kilogramsToPound(0.45359237m<kilogram>))
+    Assert.Equal(1m<pound>,kilogramsToPounds(0.45359237m<kilogram>))
     Assert.Equal(0.45359237m<kilogram>,poundsToKilogram(1m<pound>))
     Assert.Equal(1m<ton_metric>,kilogramsToTonsMetric(1000m<kilogram>))
 
