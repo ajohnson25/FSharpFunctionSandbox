@@ -69,6 +69,8 @@ let ``Imperial Weight to Kilogram`` () =
     Assert.Equal(50.80234544m<kilogram>,hundredweightLngToKilogram(1m<hundredweight_lng>))
     Assert.Equal(907.18474000m<kilogram>,tonsShrtToKilogram(1m<ton_shrt>))
     Assert.Equal(1016.04690880m<kilogram>,tonsLngToKilogram(1m<ton_lng>))
+    Assert.Equal(0.90718474m<ton_metric>,tonsShrtToTonsMetric(1m<ton_shrt>))
+    Assert.Equal(1.0160469088m<ton_metric>,tonsLongToTonsMetric(1m<ton_lng>))
 
 [<Fact>]
 let ``Imperial Weight to Gram`` () =
@@ -126,6 +128,10 @@ let ``Imperial weight convert down`` () =
     Assert.Equal(80m<quarter_wt_lng>,tonsLngToQuartersLng(1m<ton_lng>))
     Assert.Equal(160m<stone>,tonsLngToStones(1m<ton_lng>))
 
+//[<Fact>]
+//let ``Metric Ton(approx 2204.6lb, 1000kg)`` () =
+//    Assert.Equal(0.90718474m<ton_metric>,shortTonsToMetricTons(1m<ton_shrt>))
+
 [<Fact>]
 let ``Quarters Short(25lb) to Long`` () =
     Assert.Equal(1.1160714285714285714285714286m<hundredweight_lng>,quartersShrtToHundredweightsLng(5m<quarter_wt_shrt>))
@@ -179,6 +185,7 @@ let ``International yard conversions`` () =
 let ``International pound conversions`` () =
     Assert.Equal(1m<pound>,kilogramsToPound(0.45359237m<kilogram>))
     Assert.Equal(0.45359237m<kilogram>,poundsToKilogram(1m<pound>))
+    Assert.Equal(1m<ton_metric>,kilogramsToTonsMetric(1000m<kilogram>))
 
 [<Fact>] 
 let ``Imperial Length convert down`` () =

@@ -32,7 +32,8 @@ module FSharpFunctionSandbox =
         let hundredweightsLngPerTonLng: decimal<hundredweight_lng/ton_lng> = 20m<hundredweight_lng/ton_lng>
         let hundredweightsShrtPerTonShrt: decimal<hundredweight_shrt/ton_shrt> = 20m<hundredweight_shrt/ton_shrt>
         let hundredweightShrtPerhundredweightLng: decimal<hundredweight_shrt/hundredweight_lng> = 1.12m<hundredweight_shrt/hundredweight_lng>
-
+        let shortTonsPerMetricTons: decimal<ton_shrt/ton_metric> = 0.90718474m<ton_shrt/ton_metric>
+        let kilogramsPerMetricTon: decimal<kilogram/ton_metric> = 1000m<kilogram/ton_metric>
 
         //Imperial weight convert up
         let grainsToPounds (gr : decimal<grain>) = gr / grainsPerPound
@@ -66,7 +67,8 @@ module FSharpFunctionSandbox =
         //Short to Long hundredweight
         let hundredweightsLngToHundredweightsShrt (cwt: decimal<hundredweight_lng>) = cwt * hundredweightShrtPerhundredweightLng
         let hundredweightsShrtToHundredweightsLng (cwt: decimal<hundredweight_shrt>) = cwt / hundredweightShrtPerhundredweightLng
-        
+        //let shortTonsToMetricTons (t: decimal<ton_shrt>) = t / shortTonsPerMetricTons
+
         let quartersShrtToHundredweightsLng = quartersShrtToHundredweightsShrt >> hundredweightsShrtToHundredweightsLng
         let quartersShrtToQuartersLng = quartersShrtToHundredweightsLng >> hundredweightsLngToQuartersLng
         let quartersShrtToTonsLng = quartersShrtToHundredweightsLng >> hundredweightsLngToTonsLng
@@ -100,6 +102,7 @@ module FSharpFunctionSandbox =
         //Metric Weight convert up
         let mgToG (mg : decimal<milligram>) = mg / milligramsPerGram
         let gToKg (g: decimal<gram>) = g  / gramsPerKilogram
+        let kilogramsToTonsMetric (kg: decimal<kilogram>) = kg / kilogramsPerMetricTon
         let mgToKg = mgToG >> gToKg
 
         //Metric Weight convert down
@@ -122,7 +125,8 @@ module FSharpFunctionSandbox =
         let hundredweightLngToKilogram = hundredweightsLngToQuartersLng >> quartersLngToKilogram
         let tonsShrtToKilogram = tonsShrtToHundredweightsShrt >> hundredweightsShrtToKilogram
         let tonsLngToKilogram = tonsLngToHundredweightsLng >> hundredweightLngToKilogram
-
+        let tonsShrtToTonsMetric = tonsShrtToKilogram >> kilogramsToTonsMetric
+        let tonsLongToTonsMetric = tonsLngToKilogram >> kilogramsToTonsMetric
 
         let grainsToGrams = grainsToKilogram >> kilogramsToGrams
         let ouncesToGrams = ouncesToKilogram >> kilogramsToGrams
@@ -145,8 +149,6 @@ module FSharpFunctionSandbox =
         let hundredweightLngToMilligrams = hundredweightLngToGrams >> gramsToMilligrams
         let tonsShrtToMilligrams = tonsShrtToGrams >> gramsToMilligrams
         let tonsLngToMilligrams = tonsLngToGrams >> gramsToMilligrams
-
-
 
 
     module VolumeConversion =

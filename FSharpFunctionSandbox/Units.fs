@@ -59,6 +59,9 @@ module Imperial =
         [<Measure>] type ton_lng
         [<Measure>] type ton_shrt
 
+        [<Measure>] type ton_metric
+        [<Measure>] type tonne = ton_metric
+
 //User friendly representation of the derived SI units
 module SI =
     module UnitNames =

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FSharpFunctionSandbox\FSharpFunctionSandbox.fsproj" />
+    <ProjectReference Include="..\FSharpFunctionSandbox\FSharpFunctions.fsproj" />
   </ItemGroup>
 
   <ItemGroup>
