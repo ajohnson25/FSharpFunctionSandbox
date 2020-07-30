@@ -111,6 +111,7 @@ module FSharpFunctionSandbox =
         let milligramsToGrams (mg : decimal<milligram>) = mg / milligramsPerGram
         let gramsToKilograms (g: decimal<gram>) = g  / gramsPerKilogram
         let kilogramsToTonsMetric (kg: decimal<kilogram>) = kg / kilogramsPerMetricTon
+        let metricTonsToKilograms (t: decimal<ton_metric>) = t * kilogramsPerMetricTon
         let milligramsToKilograms = milligramsToGrams >> gramsToKilograms
 
         //let milligramsToDrachms = milligramsToOunces >> ouncesToDrachms
@@ -157,9 +158,6 @@ module FSharpFunctionSandbox =
         let tonsShrtToMilligrams = tonsShrtToGrams >> gramsToMilligrams
         let tonsLngToMilligrams = tonsLngToGrams >> gramsToMilligrams
         let poundsToMetricTon = poundsToKilogram >> kilogramsToTonsMetric
-        
-        
-
 
         let milligramsToPounds = milligramsToKilograms >> kilogramsToPounds
         let milligramsToGrains = milligramsToPounds >> poundsToGrains
@@ -197,6 +195,22 @@ module FSharpFunctionSandbox =
         let kilogramsToHundredweightsShrt = kilogramsToGrams >> gramsToHundredweightsShrt
         let kilogramsToTonsLng = kilogramsToGrams >> gramsToTonsLng
         let kilogramsToTonsShrt = kilogramsToGrams >> gramsToTonsShrt
+
+        //All of this metric tons code is untested
+        //Test metricTonsToKilograms
+        let metricTonsToGrams = metricTonsToKilograms >> kilogramsToGrams
+        let metricTonsToMilligrams = metricTonsToGrams >> gramsToMilligrams
+        let metricTonsToGrains = metricTonsToKilograms >> kilogramsToGrains
+        let metricTonsToDrachms = metricTonsToKilograms >> kilogramsToDrachms
+        let metricTonsToOunces = metricTonsToKilograms >> kilogramsToOunces
+        let metricTonsToPounds = metricTonsToKilograms >> kilogramsToPounds
+        let metricTonsToStones = metricTonsToKilograms >> kilogramsToStones
+        let metricTonsToQuartersShrt = metricTonsToKilograms >> kilogramsToQuartersShrt
+        let metricTonsToQuartersLng = metricTonsToKilograms >> kilogramsToQuartersLng
+        let metricTonsToHundredweightLng = metricTonsToKilograms >> kilogramsToHundredweightsLng
+        let metricTonsToHundredweightShrt = metricTonsToKilograms >> kilogramsToHundredweightsShrt
+        let metricTonsToTonLng = metricTonsToKilograms >> kilogramsToTonsLng
+        let metricTonsToTonShrt = metricTonsToKilograms >> kilogramsToTonsShrt
 
 
 

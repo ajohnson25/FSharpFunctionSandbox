@@ -121,9 +121,23 @@ let ``Imperial weight convert down`` () =
     Assert.Equal(80m<quarter_wt_lng>,tonsLngToQuartersLng(1m<ton_lng>))
     Assert.Equal(160m<stone>,tonsLngToStones(1m<ton_lng>))
 
-//[<Fact>]
-//let ``Metric Ton(approx 2204.6lb, 1000kg)`` () =
-//    Assert.Equal(0.90718474m<ton_metric>,shortTonsToMetricTons(1m<ton_shrt>))
+[<Fact>]
+let ``Metric Ton(1000kg, approx 2204.6lb)`` () =
+    //Assert.Equal(0.90718474m<ton_metric>,shortTonsToMetricTons(1m<ton_shrt>))
+    Assert.Equal(1000000m<gram>,metricTonsToGrams(1m<ton_metric>))
+    Assert.Equal(1000m<kilogram>,metricTonsToKilograms(1m<ton_metric>))
+    Assert.Equal(1000000000m<milligram>,metricTonsToMilligrams(1m<ton_metric>))
+    Assert.Equal(15432358.352941430650608166094m<grain>,metricTonsToGrains(1m<ton_metric>))
+    Assert.Equal(564383.39119328660665081293146m<drachm>,metricTonsToDrachms(1m<ton_metric>))
+    Assert.Equal(35273.961949580412915675808216m<ounce>,metricTonsToOunces(1m<ton_metric>))
+    Assert.Equal(2204.6226218487758072297380135m<pound>,metricTonsToPounds(1m<ton_metric>))
+    Assert.Equal(157.47304441776970051640985811m<stone>,metricTonsToStones(1m<ton_metric>))
+    Assert.Equal(88.18490487395103228918952054m<quarter_wt_shrt>,metricTonsToQuartersShrt(1m<ton_metric>))
+    Assert.Equal(78.736522208884850258204929055m<quarter_wt_lng>,metricTonsToQuartersLng(1m<ton_metric>))
+    Assert.Equal(22.046226218487758072297380135m<hundredweight_shrt>,metricTonsToHundredweightShrt(1m<ton_metric>))
+    Assert.Equal(19.684130552221212564551232264m<hundredweight_lng>,metricTonsToHundredweightLng(1m<ton_metric>))
+    Assert.Equal(0.9842065276110606282275616132m<ton_lng>,metricTonsToTonLng(1m<ton_metric>))
+    Assert.Equal(1.1023113109243879036148690068m<ton_shrt>,metricTonsToTonShrt(1m<ton_metric>))
 
 [<Fact>]
 let ``Weight Conversion: Milligrams(1/1000g) to Other`` () =
