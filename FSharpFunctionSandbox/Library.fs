@@ -196,8 +196,6 @@ module FSharpFunctionSandbox =
         let kilogramsToTonsLng = kilogramsToGrams >> gramsToTonsLng
         let kilogramsToTonsShrt = kilogramsToGrams >> gramsToTonsShrt
 
-        //All of this metric tons code is untested
-        //Test metricTonsToKilograms
         let metricTonsToGrams = metricTonsToKilograms >> kilogramsToGrams
         let metricTonsToMilligrams = metricTonsToGrams >> gramsToMilligrams
         let metricTonsToGrains = metricTonsToKilograms >> kilogramsToGrains
@@ -212,6 +210,19 @@ module FSharpFunctionSandbox =
         let metricTonsToTonLng = metricTonsToKilograms >> kilogramsToTonsLng
         let metricTonsToTonShrt = metricTonsToKilograms >> kilogramsToTonsShrt
 
+        
+        let grainsToMetricTons = grainsToKilograms >> kilogramsToTonsMetric
+        //grains, imperial need to test
+        let grainsToOunces = grainsToPounds >> poundsToOunces
+        let grainsToDrachms = grainsToOunces >> ouncesToDrachms
+        let grainsToStones = grainsToPounds >> poundsToStones
+        let grainsToQuartersLng = grainsToStones >> stonesToQuartersLng
+        let grainsToQuartersShrt = grainsToStones >> stonesToQuartersShrt
+        let grainsToHundredweightsShrt = grainsToQuartersShrt >> quartersShrtToHundredweightsShrt
+        let grainsToHundredweightsLng = grainsToQuartersLng >> quartersLngToHundredweightsLng
+        let grainsToTonsShrt = grainsToHundredweightsShrt >> hundredweightsShrtToTonsShrt
+        let grainsToTonsLng = grainsToHundredweightsLng >> hundredweightsLngToTonsLng
+        let grainsToTonsMetric = grainsToKilograms >> kilogramsToTonsMetric
 
 
     module VolumeConversion =

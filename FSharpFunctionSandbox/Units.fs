@@ -9,6 +9,7 @@ module Imperial =
         [<Measure>] type inch //25.4mm international
         [<Measure>] type foot
         [<Measure>] type yard //.9144m international
+        [<Measure>] type football_field
         [<Measure>] type chain
         [<Measure>] type furlong
         [<Measure>] type mile
