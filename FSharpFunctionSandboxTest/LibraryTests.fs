@@ -193,9 +193,17 @@ let ``Weight Conversion: Grains(gr) to Other`` () =
     Assert.Equal(64.79891m<milligram>,grainsToMilligrams(1m<grain>))
     Assert.Equal(0.45359237m<kilogram>,grainsToKilograms(7000m<grain>))
     Assert.Equal(0.09998471813000000000000000m<ton_metric>,grainsToMetricTons(1543000m<grain>))
+    Assert.Equal(1.0000018285714285714285714176m<drachm>,grainsToDrachms(27.3438m<grain>))
     Assert.Equal(1m<ounce>,grainsToOunces(437.5m<grain>))
-
     Assert.Equal(1m<pound>,grainsToPounds(7000m<grain>))
+    Assert.Equal(1m<stone>,grainsToStones(98000m<grain>))
+    Assert.Equal(1m<quarter_wt_lng>,grainsToQuartersLng(196000m<grain>))
+    Assert.Equal(1m<quarter_wt_shrt>,grainsToQuartersShrt(175000m<grain>))
+    Assert.Equal(1m<hundredweight_lng>,grainsToHundredweightsLng(784000m<grain>))
+    Assert.Equal(1.0000014285714285714285714286m<hundredweight_shrt>,grainsToHundredweightsShrt(700001m<grain>))
+    Assert.Equal(1.00000050000000000000000000m<ton_shrt>,grainsToTonsShrt(14000007m<grain>))
+    Assert.Equal(1.0000004464285714285714285715m<ton_lng>,grainsToTonsLng(15680007m<grain>))
+    Assert.Equal(4.1988980891989999999999999999m<ton_metric>,grainsToTonsMetric(64798900m<grain>))
 
 [<Fact>]
 let ``Quarters Short(25lb) to Long`` () =

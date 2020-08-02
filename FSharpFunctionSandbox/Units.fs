@@ -7,13 +7,13 @@ module Imperial =
         //Length
         [<Measure>] type thou
         [<Measure>] type inch //25.4mm international
-        [<Measure>] type foot
-        [<Measure>] type yard //.9144m international
-        [<Measure>] type football_field
-        [<Measure>] type chain
-        [<Measure>] type furlong
-        [<Measure>] type mile
-        [<Measure>] type league
+        [<Measure>] type foot //12 in
+        [<Measure>] type yard //.9144m international, 3ft
+        [<Measure>] type chain //22 yards
+        [<Measure>] type football_field //100 yard
+        [<Measure>] type furlong //10 chains
+        [<Measure>] type mile //8 furlongs
+        [<Measure>] type league // 3 miles
 
         //Volume
         [<Measure>] type minim_us

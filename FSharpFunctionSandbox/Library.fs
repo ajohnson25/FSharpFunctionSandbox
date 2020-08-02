@@ -212,7 +212,6 @@ module FSharpFunctionSandbox =
 
         
         let grainsToMetricTons = grainsToKilograms >> kilogramsToTonsMetric
-        //grains, imperial need to test
         let grainsToOunces = grainsToPounds >> poundsToOunces
         let grainsToDrachms = grainsToOunces >> ouncesToDrachms
         let grainsToStones = grainsToPounds >> poundsToStones
@@ -223,7 +222,6 @@ module FSharpFunctionSandbox =
         let grainsToTonsShrt = grainsToHundredweightsShrt >> hundredweightsShrtToTonsShrt
         let grainsToTonsLng = grainsToHundredweightsLng >> hundredweightsLngToTonsLng
         let grainsToTonsMetric = grainsToKilograms >> kilogramsToTonsMetric
-
 
     module VolumeConversion =
         //based on international yard
