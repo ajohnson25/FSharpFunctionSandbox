@@ -133,12 +133,10 @@ module FSharpFunctionSandbox =
         let tonsShrtToKilograms = tonsShrtToHundredweightsShrt >> hundredweightsShrtToKilograms
         let tonsLngToKilograms = tonsLngToHundredweightsLng >> hundredweightsLngToKilograms
         let tonsShrtToTonsMetric = tonsShrtToKilograms >> kilogramsToTonsMetric
-        let tonsLongToTonsMetric = tonsLngToKilograms >> kilogramsToTonsMetric
 
         let grainsToGrams = grainsToKilograms >> kilogramsToGrams
         let ouncesToGrams = ouncesToKilograms >> kilogramsToGrams
         let drachmsToGrams = drachmsToKilograms >> kilogramsToGrams
-        let stoneToGrams = stonesToKilograms >> kilogramsToGrams
         let quartersShrtToGrams = quartersShrtToKilograms >> kilogramsToGrams
         let quartersLngToGrams = quartersLngToKilograms >> kilogramsToGrams
         let hundredweightsShrtToGrams = hundredweightsShrtToKilograms >> kilogramsToGrams
@@ -149,7 +147,6 @@ module FSharpFunctionSandbox =
         let grainsToMilligrams = grainsToGrams >> gramsToMilligrams
         let ouncesToMilligrams = ouncesToGrams >> gramsToMilligrams
         let drachmToMilligrams = drachmsToGrams >> gramsToMilligrams
-        let stoneToMilligrams = stoneToGrams >> gramsToMilligrams
         let quartersShrtToMilligrams = quartersShrtToGrams >> gramsToMilligrams
         let quartersLngToMilligrams = quartersLngToGrams >> gramsToMilligrams
         let hundredweightsShrtToMilligrams = hundredweightsShrtToGrams >> gramsToMilligrams
@@ -262,6 +259,39 @@ module FSharpFunctionSandbox =
         let quartersShrtToDrachms = quartersShrtToPounds >> poundsToDrachms
         let quartersShrtToOunces = quartersShrtToPounds >> poundsToOunces
         let quartersShrtToTonsShrt = quartersShrtToHundredweightsShrt >> hundredweightsShrtToTonsShrt
+
+        let quartersLngToTonsMetric = quartersLngToKilograms >> kilogramsToTonsMetric
+        let quartersLngToPounds = quartersLngToStones >> stonesToPounds
+        let quartersLngToGrains = quartersLngToPounds >> poundsToGrains
+        let quartersLngToDrachms = quartersLngToPounds >> poundsToDrachms
+        let quartersLngToOunces = quartersLngToPounds >> poundsToOunces
+        let quartersLngToTonsLng = quartersLngToHundredweightsLng >> hundredweightsLngToTonsLng
+
+        let hundredweightsShrtToTonsMetric = hundredweightsShrtToKilograms >> kilogramsToTonsMetric
+        let hundredweightsShrtToPounds = hundredweightsShrtToQuartersShrt >> quartersShrtToPounds
+        let hundredweightsShrtToGrains = hundredweightsShrtToPounds >> poundsToGrains
+        let hundredweightsShrtToDrachms = hundredweightsShrtToPounds >> poundsToDrachms
+        let hundredweightsShrtToOunces = hundredweightsShrtToPounds >> poundsToOunces
+
+        let hundredweightsLngToTonsMetric = hundredweightsLngToKilograms >> kilogramsToTonsMetric
+        let hundredweightsLngToPounds = hundredweightsLngToQuartersLng >> quartersLngToPounds
+        let hundredweightsLngToGrains = hundredweightsLngToPounds >> poundsToGrains
+        let hundredweightsLngToDrachms = hundredweightsLngToPounds >> poundsToDrachms
+        let hundredweightsLngToOunces = hundredweightsLngToPounds >> poundsToOunces
+        let hundredweightsLngToStones = hundredweightsLngToPounds >> poundsToStones
+
+        let tonsShrtToPounds = tonsShrtToStones >> stonesToPounds
+        let tonsShrtToGrains = tonsShrtToPounds >> poundsToGrains
+        let tonsShrtToDrachms = tonsShrtToPounds >> poundsToDrachms
+        let tonsShrtToOunces = tonsShrtToPounds >> poundsToOunces
+        let tonsShrtToQuartersShrt = tonsShrtToHundredweightsShrt >> hundredweightsShrtToQuartersShrt
+
+        let tonsLngToTonsMetric = tonsLngToKilograms >> kilogramsToTonsMetric
+        let tonsLngToPounds = tonsLngToStones >> stonesToPounds
+        let tonsLngToGrains = tonsLngToPounds >> poundsToGrains
+        let tonsLngToDrachms = tonsLngToPounds >> poundsToDrachms
+        let tonsLngToOunces = tonsLngToPounds >> poundsToOunces
+
 
     module VolumeConversion =
         //based on international yard
