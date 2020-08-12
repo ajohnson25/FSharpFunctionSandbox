@@ -75,6 +75,35 @@ module VolumeConversion =
         Assert.Equal(1m<gallon_uk>,usGallonToUkGallon(1.201m<gallon_us>))
         Assert.Equal((3.785411784m*1000m)*1m<milliliter>,mlPerUSGallon)
 
+    [<Fact>]
+    let ``Volume US`` () =
+        Assert.Equal(1m<fluidDram_us>,minimsToFluidDrams(60m<minim_us>))
+        Assert.Equal(60m<minim_us>,fluidDramsToMinims(1m<fluidDram_us>))
+        Assert.Equal(80m<minim_us>,teaspoonsUStoMinims(1m<teaspoon>))
+        Assert.Equal(1m<teaspoon>,minimsToTeaspoonUs(80m<minim_us>))
+        Assert.Equal(1m<tablespoon>,teaspoonsToTablespoons(3m<teaspoon>))
+        Assert.Equal(3m<teaspoon>,tablespoonsToTeaspoons(1m<tablespoon>))
+        Assert.Equal(2m<tablespoon>,fluidOuncesUsToTablespoons(1m<fluidOunce_us>))
+        Assert.Equal(1m<fluidOunce_us>,tablespoonsToFluidOuncesUs(2m<tablespoon>))
+        Assert.Equal(1m<shot>,tablespoonsToShots(3m<tablespoon>))
+        Assert.Equal(3m<tablespoon>,shotsToTablespoons(1m<shot>))
+        Assert.Equal(1m<gill_us>,fluidOuncesToGillsUs(4m<fluidOunce_us>))
+        Assert.Equal(4m<fluidOunce_us>,gillsUsToFluidOunces(1m<gill_us>))
+        Assert.Equal(2m<gill_us>,cupsToGillsUs(1m<cup>))
+        Assert.Equal(1m<cup>,gillUsToCups(2m<gill_us>))
+        Assert.Equal(1m<pint_us>,cupsToPintsUs(2m<cup>))
+        Assert.Equal(2m<cup>,pintsUsToCups(1m<pint_us>))
+        Assert.Equal(1m<quart_us>,pintsUsToQuartsUs(2m<pint_us>))
+        Assert.Equal(2m<pint_us>,QuartsUsToPintsUs(1m<quart_us>))
+        Assert.Equal(2m<quart_us>,pottlesToQuartsUs(1m<pottle>))
+        Assert.Equal(1m<pottle>,quartsUsToPottles(2m<quart_us>))
+        Assert.Equal(1m<gallon_us>,pottlesToGallonsUs(2m<pottle>))
+        Assert.Equal(2m<pottle>,gallonsUsToPottles(1m<gallon_us>))
+        Assert.Equal(31.5m<gallon_us>,barrelsToGallonsUs(1m<barrel>))
+        Assert.Equal(1m<barrel>,gallonsUsToBarrels(31.5m<gallon_us>))
+        Assert.Equal(1m<hogshead>,barrelsToHogshead(2m<barrel>))
+        Assert.Equal(2m<barrel>,hogsheadToBarrels(1m<hogshead>))
+
 
 module WeightConversion =
     [<Fact>]

@@ -302,16 +302,16 @@ module FSharpFunctionSandbox =
 
         //US Volume
         let minimPerFluidDramUs = 60m<minim_us/fluidDram_us>
-        let minimPerTeaspoonUs = 80m<minim_us/teaspoon_us>
-        let teaspoonPerTablespoonUs = 3m<teaspoon_us/tablespoon_us>
-        let tablespoonPerFluidOunceUs = 2m<tablespoon_us/fluidOunce_us>
-        let tablespoonPerShotUs = 3m<tablespoon_us/shot_us>
+        let minimPerTeaspoon = 80m<minim_us/teaspoon>
+        let teaspoonsPerTablespoon = 3m<teaspoon/tablespoon>
+        let tablespoonsPerFluidOunceUs = 2m<tablespoon/fluidOunce_us>
+        let tablespoonsPerShot = 3m<tablespoon/shot>
         let fluidOuncePerGillUs = 4m<fluidOunce_us/gill_us>
-        let gillsPerCupUs = 2m<gill_us/cup_us>
-        let cupsPerPintUs = 2m<cup_us/pint_us>
+        let gillsPerCupUs = 2m<gill_us/cup>
+        let cupsPerPintUs = 2m<cup/pint_us>
         let pintsPerQuartUs = 2m<pint_us/quart_us>
-        let quartsPerPottleUs = 2m<quart_us/pottle_us>
-        let pottlesPerGallonUs = 2m<pottle_us/gallon_us>
+        let quartsPerPottleUs = 2m<quart_us/pottle>
+        let pottlesPerGallonUs = 2m<pottle/gallon_us>
         let gallonsPerBarrelUs = 31.5m<gallon_us/barrel>
         let barrelsPerHogsheadUs = 2m<barrel/hogshead>
 
@@ -334,6 +334,34 @@ module FSharpFunctionSandbox =
 
         let usGallonToUkGallon (usGallon: decimal<gallon_us>) = usGallon / usGallonsPerUkGallon
         let mlPerUSGallon = mlPerFlOzUS * 128m<fluidOunce_us>
+
+        let minimsToFluidDrams (min: decimal<minim_us>) = min / minimPerFluidDramUs
+        let fluidDramsToMinims (fldr: decimal<fluidDram_us>) = fldr * minimPerFluidDramUs
+        let minimsToTeaspoonUs (min: decimal<minim_us>) = min / minimPerTeaspoon
+        let teaspoonsUStoMinims (tsp: decimal<teaspoon>) = tsp * minimPerTeaspoon
+        let teaspoonsToTablespoons (tsp: decimal<teaspoon>) = tsp / teaspoonsPerTablespoon
+        let tablespoonsToTeaspoons (tbsp: decimal<tablespoon>) = tbsp * teaspoonsPerTablespoon
+        let fluidOuncesUsToTablespoons (flozUs: decimal<fluidOunce_us>) = flozUs * tablespoonsPerFluidOunceUs
+        let tablespoonsToFluidOuncesUs (tbsp: decimal<tablespoon>) = tbsp / tablespoonsPerFluidOunceUs
+        let tablespoonsToShots (tbsp: decimal<tablespoon>) = tbsp / tablespoonsPerShot
+        let shotsToTablespoons (shot: decimal<shot>) = shot * tablespoonsPerShot
+        let fluidOuncesToGillsUs (flOzUs: decimal<fluidOunce_us>) = flOzUs / fluidOuncePerGillUs
+        let gillsUsToFluidOunces (gill_us: decimal<gill_us>) = gill_us * fluidOuncePerGillUs
+        let cupsToGillsUs (cup: decimal<cup>) = cup * gillsPerCupUs
+        let gillUsToCups (gill_us: decimal<gill_us>) = gill_us / gillsPerCupUs
+        let cupsToPintsUs (cup: decimal<cup>) = cup / cupsPerPintUs
+        let pintsUsToCups (pint: decimal<pint_us>) = pint * cupsPerPintUs
+        let pintsUsToQuartsUs (pint: decimal<pint_us>) = pint / pintsPerQuartUs
+        let QuartsUsToPintsUs (qt: decimal<quart_us>) = qt * pintsPerQuartUs
+        let pottlesToQuartsUs (pot: decimal<pottle>) = pot * quartsPerPottleUs
+        let quartsUsToPottles (qt: decimal<quart_us>) = qt / quartsPerPottleUs
+        let pottlesToGallonsUs (pot: decimal<pottle>) = pot / pottlesPerGallonUs
+        let gallonsUsToPottles (gal: decimal<gallon_us>) = gal * pottlesPerGallonUs
+        let gallonsUsToBarrels (gal: decimal<gallon_us>) = gal / gallonsPerBarrelUs
+        let barrelsToGallonsUs (bbl: decimal<barrel>) = bbl * gallonsPerBarrelUs
+        let barrelsToHogshead (bbl: decimal<barrel>) = bbl / barrelsPerHogsheadUs
+        let hogsheadToBarrels (hogs: decimal<hogshead>) = hogs * barrelsPerHogsheadUs
+
 
     module LengthConversion =
         //Metric to metric length
