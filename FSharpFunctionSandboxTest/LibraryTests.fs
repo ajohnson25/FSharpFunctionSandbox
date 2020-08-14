@@ -73,14 +73,17 @@ module VolumeConversion =
     [<Fact>]
     let ``Using ml per US Floz converts up to gallons losslessly`` () =
         Assert.Equal(1m<gallon_uk>,usGallonToUkGallon(1.201m<gallon_us>))
-        Assert.Equal((3.785411784m*1000m)*1m<milliliter>,mlPerUSGallon)
+        Assert.Equal(3.785411784m<liter>,gallonsUsToLiters(1m<gallon_us>))
+        Assert.Equal(1m<gallon_us>,litersToGallonsUs(3.785411784m<liter>))
+        Assert.Equal(4.54609m<liter>,gallonsUkToLiters(1m<gallon_uk>))
+        Assert.Equal(1m<gallon_uk>,litersToGallonsUk(4.54609m<liter>))
 
     [<Fact>]
     let ``Volume US`` () =
-        Assert.Equal(1m<fluidDram_us>,minimsToFluidDrams(60m<minim_us>))
-        Assert.Equal(60m<minim_us>,fluidDramsToMinims(1m<fluidDram_us>))
-        Assert.Equal(80m<minim_us>,teaspoonsUStoMinims(1m<teaspoon>))
-        Assert.Equal(1m<teaspoon>,minimsToTeaspoonUs(80m<minim_us>))
+        Assert.Equal(1m<fluidDram_us>,minimsUsToFluidDrams(60m<minim_us>))
+        Assert.Equal(60m<minim_us>,fluidDramsToMinimsUs(1m<fluidDram_us>))
+        Assert.Equal(80m<minim_us>,teaspoonsUStoMinimsUs(1m<teaspoon>))
+        Assert.Equal(1m<teaspoon>,minimsUsToTeaspoonUs(80m<minim_us>))
         Assert.Equal(1m<tablespoon>,teaspoonsToTablespoons(3m<teaspoon>))
         Assert.Equal(3m<teaspoon>,tablespoonsToTeaspoons(1m<tablespoon>))
         Assert.Equal(2m<tablespoon>,fluidOuncesUsToTablespoons(1m<fluidOunce_us>))
@@ -88,7 +91,7 @@ module VolumeConversion =
         Assert.Equal(1m<shot>,tablespoonsToShots(3m<tablespoon>))
         Assert.Equal(3m<tablespoon>,shotsToTablespoons(1m<shot>))
         Assert.Equal(1m<gill_us>,fluidOuncesToGillsUs(4m<fluidOunce_us>))
-        Assert.Equal(4m<fluidOunce_us>,gillsUsToFluidOunces(1m<gill_us>))
+        Assert.Equal(4m<fluidOunce_us>,gillsUsToFluidOuncesUs(1m<gill_us>))
         Assert.Equal(2m<gill_us>,cupsToGillsUs(1m<cup>))
         Assert.Equal(1m<cup>,gillUsToCups(2m<gill_us>))
         Assert.Equal(1m<pint_us>,cupsToPintsUs(2m<cup>))
@@ -103,7 +106,6 @@ module VolumeConversion =
         Assert.Equal(1m<barrel>,gallonsUsToBarrels(31.5m<gallon_us>))
         Assert.Equal(1m<hogshead>,barrelsToHogshead(2m<barrel>))
         Assert.Equal(2m<barrel>,hogsheadToBarrels(1m<hogshead>))
-
 
 module WeightConversion =
     [<Fact>]
