@@ -349,6 +349,10 @@ module FSharpFunctionSandbox =
         let barrelsToHogshead (bbl: decimal<barrel>) = bbl / barrelsPerHogshead
         let hogsheadToBarrels (hogs: decimal<hogshead>) = hogs * barrelsPerHogshead
 
+        let cubicInchesToGallonsUs (cuin: decimal<cubicInch>) = cuin / cubicInchesPerGallonUs
+        let gallonsUsToCubicInches (gal: decimal<gallon_us>) = gal * cubicInchesPerGallonUs
+        let gallonsUsToLiters (gal: decimal<gallon_us>) = gal * litersPerUSGallon
+        let litersToGallonsUs (l: decimal<liter>) = l / litersPerUSGallon
 
         //UK Volume
         let minimUkPerFluidDrachmUk = 60m<minim_uk/fluidDrachm_uk>
@@ -378,15 +382,10 @@ module FSharpFunctionSandbox =
         let bushelUkToPecksUk (bh: decimal<bushel_uk>) = bh * pecksPerBushelUk
         let bushelsToQuartersUk (bh: decimal<bushel_uk>) = bh / bushelsPerQuarterUk
         let quartersUkToBushels (qtr: decimal<quarter_vl_uk>) = qtr * bushelsPerQuarterUk
-
-        //Put back to US, Untested
-        let cubicInchesToGallonsUs (cuin: decimal<cubicInch>) = cuin / cubicInchesPerGallonUs
-        let gallonsUsTocubicInches (gal: decimal<gallon_us>) = gal * cubicInchesPerGallonUs
-
-        let gallonsUsToLiters (gal: decimal<gallon_us>) = gal * litersPerUSGallon
-        let litersToGallonsUs (l: decimal<liter>) = l / litersPerUSGallon
         let gallonsUkToLiters (gal: decimal<gallon_uk>) = gal * litersPerUKGallon
         let litersToGallonsUk (l: decimal<liter>) = l / litersPerUKGallon
+
+        //Untested
         let ukGallonToUsGallon (gal: decimal<gallon_uk>) = gal * usGallonsPerUkGallon
 
         //End untested
@@ -400,7 +399,7 @@ module FSharpFunctionSandbox =
         //Cross-conversions
         let usGallonToUkGallon (usGallon: decimal<gallon_us>) = usGallon / usGallonsPerUkGallon
         
-        //Untested
+
 
 
 
