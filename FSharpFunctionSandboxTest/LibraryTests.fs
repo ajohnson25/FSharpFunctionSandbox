@@ -133,6 +133,7 @@ module VolumeConversion =
         Assert.Equal(1m<gallon_uk>,litersToGallonsUk(4.54609m<liter>))
         Assert.Equal(4.54609m<liter>,gallonsUkToLiters(1m<gallon_uk>))
         Assert.Equal(1m<gallon_uk>,litersToGallonsUk(4.54609m<liter>))
+        Assert.Equal(1.201m<gallon_us>,gallonsUkToUsGallonsUs(1m<gallon_uk>))
 
 
 

@@ -385,10 +385,7 @@ module FSharpFunctionSandbox =
         let gallonsUkToLiters (gal: decimal<gallon_uk>) = gal * litersPerUKGallon
         let litersToGallonsUk (l: decimal<liter>) = l / litersPerUKGallon
 
-        //Untested
-        let ukGallonToUsGallon (gal: decimal<gallon_uk>) = gal * usGallonsPerUkGallon
-
-        //End untested
+        let gallonsUkToUsGallonsUs (gal: decimal<gallon_uk>) = gal * usGallonsPerUkGallon
 
         //Metric
         let millilitersPerLiter: decimal<milliliter/liter> = 1000m<milliliter/liter>
@@ -398,10 +395,6 @@ module FSharpFunctionSandbox =
 
         //Cross-conversions
         let usGallonToUkGallon (usGallon: decimal<gallon_us>) = usGallon / usGallonsPerUkGallon
-        
-
-
-
 
 
     module LengthConversion =
