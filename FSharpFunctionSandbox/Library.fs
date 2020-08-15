@@ -6,6 +6,13 @@ open Units.SI.UnitNames
 
 module FSharpFunctionSandbox =
 
+    module Dilution =
+        let diluteGetTotalSG startingSg endingSg startingVolume endingVolume = ((startingVolume * startingSg) + (endingVolume * endingSg))/startingVolume+endingVolume
+        let diluteFindBegVolume endingVolume endingSg startingSg = (endingVolume * endingSg) / startingSg
+        let diluteFindBegSg endingVolume endingSg startingVolume = (endingVolume * endingSg) / startingVolume
+        let diluteFindEndVolume startingVolume startingSg endingSg = (startingVolume * startingSg) /endingSg
+        let diluteFindEndSg startingVolume beginningSg endingVolume = (startingVolume * beginningSg) / endingVolume
+
     module Say =
         let hello name =
             printfn "Hello %s" name
@@ -349,32 +356,30 @@ module FSharpFunctionSandbox =
         let fluidOuncePerGillUk = 5m<fluidOunce_uk/gill_uk>
         let gillsPerPintUk = 4m<gill_uk/pint_uk>
         let pintsPerQuartUk = 2m<pint_uk/quart_uk>
-        let quartsPerGallonUk = 2m<quart_uk/gallon_uk>
+        let quartsPerGallonUk = 4m<quart_uk/gallon_uk>
         let gallonsPerPeckUk = 2m<gallon_uk/peck_uk>
         let pecksPerBushelUk = 4m<peck_uk/bushel_uk>
         let bushelsPerQuarterUk = 8m<bushel_uk/quarter_vl_uk>
-
-
-        //Untested
         let minimsUkToFluidDrachmsUk (min: decimal<minim_uk>) = min / minimUkPerFluidDrachmUk
         let fluidDrachmsUkToMinimsUk (fldr: decimal<fluidDrachm_uk>) = fldr * minimUkPerFluidDrachmUk
-        let fluidOuncesUkTofluidDrachm (fldr: decimal<fluidDrachm_uk>) = fldr / fluidDrachmPerFlOzUk
-        let fluidDrachmUkToFluidOuncesUk (flOzUk: decimal<fluidOunce_uk>) = flOzUk * fluidDrachmPerFlOzUk
-        let fluidOunceUkToFluidDrachmUk (fldr: decimal<fluidDrachm_uk>) = fldr / fluidDrachmPerFlOzUk
+        let fluidOuncesUkToFluidDrachmUk (flOzUk: decimal<fluidDrachm_uk>) = flOzUk / fluidDrachmPerFlOzUk
+        let fluidDrachmUkToFluidOuncesUk (fldrUk: decimal<fluidOunce_uk>) = fldrUk * fluidDrachmPerFlOzUk
+        let fluidOunceUkToGillUk (floz: decimal<fluidOunce_uk>) = floz / fluidOuncePerGillUk
+        let gillUkToFluidOunceUk (gil: decimal<gill_uk>) = gil * fluidOuncePerGillUk
         let pintsUkToGillsUk (pt: decimal<pint_uk>) = pt * gillsPerPintUk
         let gillsUkToPintsUk (gil: decimal<gill_uk>) = gil / gillsPerPintUk
         let pintsUkToQuartsUk (pt: decimal<pint_uk>) = pt / pintsPerQuartUk
         let quartsUkToPintsUk (qt: decimal<quart_uk>) = qt * pintsPerQuartUk
         let quartsUkToGallonsUk (qt: decimal<quart_uk>) = qt / quartsPerGallonUk
         let gallonsUkToQuartsUk (gal: decimal<gallon_uk>) = gal * quartsPerGallonUk
-        let peckUkToGallonsUk (qt: decimal<quart_uk>) = qt / gallonsPerPeckUk
-        let gallonsUkToPeckUk (gal: decimal<gallon_uk>) = gal * gallonsPerPeckUk
-        let peckUkToBushelUk (pk: decimal<peck_uk>) = pk / pecksPerBushelUk
-        let bushelUkToPeckUk (bh: decimal<bushel_uk>) = bh * pecksPerBushelUk
+        let pecksUkToGallonsUk (pk: decimal<peck_uk>) = pk * gallonsPerPeckUk
+        let gallonsUkToPecksUk (gal: decimal<gallon_uk>) = gal / gallonsPerPeckUk
+        let pecksUkToBushelUk (gal: decimal<peck_uk>) = gal / pecksPerBushelUk
+        let bushelUkToPecksUk (bh: decimal<bushel_uk>) = bh * pecksPerBushelUk
         let bushelsToQuartersUk (bh: decimal<bushel_uk>) = bh / bushelsPerQuarterUk
         let quartersUkToBushels (qtr: decimal<quarter_vl_uk>) = qtr * bushelsPerQuarterUk
-        
-        //Put back to US
+
+        //Put back to US, Untested
         let cubicInchesToGallonsUs (cuin: decimal<cubicInch>) = cuin / cubicInchesPerGallonUs
         let gallonsUsTocubicInches (gal: decimal<gallon_us>) = gal * cubicInchesPerGallonUs
 

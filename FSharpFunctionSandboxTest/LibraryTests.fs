@@ -107,6 +107,25 @@ module VolumeConversion =
         Assert.Equal(1m<hogshead>,barrelsToHogshead(2m<barrel>))
         Assert.Equal(2m<barrel>,hogsheadToBarrels(1m<hogshead>))
 
+    [<Fact>]
+    let ``Volume UK`` () = 
+        Assert.Equal(1m<fluidDrachm_uk>,minimsUkToFluidDrachmsUk(60m<minim_uk>))
+        Assert.Equal(60m<minim_uk>,fluidDrachmsUkToMinimsUk(1m<fluidDrachm_uk>))
+        Assert.Equal(1m<fluidOunce_uk>,fluidOuncesUkToFluidDrachmUk(8m<fluidDrachm_uk>))
+        Assert.Equal(8m<fluidDrachm_uk>,fluidDrachmUkToFluidOuncesUk(1m<fluidOunce_uk>))
+        Assert.Equal(4m<gill_uk>,pintsUkToGillsUk(1m<pint_uk>))
+        Assert.Equal(1m<pint_uk>,gillsUkToPintsUk(4m<gill_uk>))
+        Assert.Equal(2m<pint_uk>,quartsUkToPintsUk(1m<quart_uk>))
+        Assert.Equal(1m<quart_uk>,pintsUkToQuartsUk(2m<pint_uk>))
+        Assert.Equal(1m<gallon_uk>,quartsUkToGallonsUk(4m<quart_uk>))
+        Assert.Equal(4m<quart_uk>,gallonsUkToQuartsUk(1m<gallon_uk>))
+        Assert.Equal(2m<gallon_uk>,pecksUkToGallonsUk(1m<peck_uk>))
+        Assert.Equal(1m<peck_uk>,gallonsUkToPecksUk(2m<gallon_uk>))
+        Assert.Equal(1m<bushel_uk>,pecksUkToBushelUk(4m<peck_uk>))
+        Assert.Equal(8m<bushel_uk>,quartersUkToBushels(1m<quarter_vl_uk>));
+        Assert.Equal(1m<quarter_vl_uk>,bushelsToQuartersUk(8m<bushel_uk>));
+
+
 module WeightConversion =
     [<Fact>]
     let ``Metric Ton(1000kg, approx 2204.6lb)`` () =
