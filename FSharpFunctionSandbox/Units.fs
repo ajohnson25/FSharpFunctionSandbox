@@ -30,9 +30,7 @@ module Imperial =
         [<Measure>] type gallon_us // 4 qt, 231 in^3
         [<Measure>] type barrel //31.5 gal
         [<Measure>] type hogshead //63 gal
-
         [<Measure>] type cubicInch = inch ^ 3
-        
         [<Measure>] type minim_uk // 1/60 fl drachm
         [<Measure>] type fluidDrachm_uk // 1/8 fl oz
         [<Measure>] type fluidOunce_uk // 1/5 gill
@@ -40,7 +38,7 @@ module Imperial =
         [<Measure>] type pint_uk // 1/2 qt
         [<Measure>] type quart_uk // 1/4 gal, 1.201 us qt
         [<Measure>] type gallon_uk//4.5609 l (1985), 1.201 us gal
-        [<Measure>] type peck_uk// 2 gal, 24.02 us gal
+        [<Measure>] type peck// 2 gal, 24.02 us gal
         [<Measure>] type bushel_uk // 8 gal
         [<Measure>] type quarter_vl_uk
 
