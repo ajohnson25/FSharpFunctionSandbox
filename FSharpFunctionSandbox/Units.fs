@@ -39,8 +39,8 @@ module Imperial =
         [<Measure>] type quart_uk // 1/4 gal, 1.201 us qt
         [<Measure>] type gallon_uk//4.5609 l (1985), 1.201 us gal
         [<Measure>] type peck// 2 gal, 24.02 us gal
-        [<Measure>] type bushel_uk // 8 gal
-        [<Measure>] type quarter_vl_uk
+        [<Measure>] type bushel // 8 gal
+        [<Measure>] type quarter_vl
 
         //Weight
         [<Measure>] type grain
