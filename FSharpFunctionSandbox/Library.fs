@@ -366,9 +366,9 @@ module FSharpFunctionSandbox =
         let bushelsPerQuarterUk = 8m<bushel/quarter_vl>
         let minimsUkToFluidDrachmsUk (min: decimal<minim_uk>) = min / minimUkPerFluidDrachmUk
         let fluidDrachmsUkToMinimsUk (fldr: decimal<fluidDrachm_uk>) = fldr * minimUkPerFluidDrachmUk
-        let fluidDrachmUkToFluidOuncesUk (flDrUk: decimal<fluidDrachm_uk>) = flDrUk / fluidDrachmPerFlOzUk
+        let fluidDrachmsUkToFluidOuncesUk (flDrUk: decimal<fluidDrachm_uk>) = flDrUk / fluidDrachmPerFlOzUk
         let fluidOuncesUkToFluidDrachmsUk (flOzUk: decimal<fluidOunce_uk>) = flOzUk * fluidDrachmPerFlOzUk
-        let fluidOunceUkToGillUk (floz: decimal<fluidOunce_uk>) = floz / fluidOuncePerGillUk
+        let fluidOuncesUkToGillsUk (floz: decimal<fluidOunce_uk>) = floz / fluidOuncePerGillUk
         let gillsUkToFluidOuncesUk (gil: decimal<gill_uk>) = gil * fluidOuncePerGillUk
         let pintsUkToGillsUk (pt: decimal<pint_uk>) = pt * gillsPerPintUk
         let gillsUkToPintsUk (gil: decimal<gill_uk>) = gil / gillsPerPintUk
@@ -471,6 +471,32 @@ module FSharpFunctionSandbox =
         let minimsUsToHogshead = minimsUsToBarrels >> barrelsToHogshead
         let minimsUsToQuartersUk = minimsUsToBushels >> bushelsToQuartersUk
 
+        let minimsUkToFluidOuncesUk = minimsUkToFluidDrachmsUk >> fluidDrachmsUkToFluidOuncesUk
+        let minimsUkToGillsUk = minimsUkToFluidOuncesUk >> fluidOuncesUkToGillsUk
+        let minimsUkToPintsUk = minimsUkToGillsUk >> gillsUkToPintsUk
+        let minimsUkToQuartsUk = minimsUkToPintsUk >> pintsUkToQuartsUk
+        let minimsUkToGallonsUk = minimsUkToQuartsUk >> quartsUkToGallonsUk
+        let minimsUkToPecks = minimsUkToGallonsUk >> gallonsUkToPecks
+        let minimsUkToGallonsUs = minimsUkToGallonsUk >> gallonsUkToGallonsUs
+        let minimsUkToCubicInches = minimsUkToGallonsUs >> gallonsUsToCubicInches
+        let minimsUkToBarrels = minimsUkToGallonsUs >> gallonsUsToBarrels
+        let minimsUkToLiters = minimsUkToGallonsUs >> gallonsUsToLiters
+        let minimsUkToPottles = minimsUkToGallonsUs >> gallonsUsToPottles
+        let minimsUkToQuartsUs = minimsUkToPottles >> pottlesToQuartsUs
+        let minimsUkToPintsUs = minimsUkToQuartsUs >> QuartsUsToPintsUs
+        let minimsUkToCups = minimsUkToPintsUs >> pintsUsToCups
+        let minimsUkToGillsUs = minimsUkToCups >> cupsToGillsUs
+        let minimsUkToFluidOuncesUs = minimsUkToGillsUs >> gillsUsToFluidOuncesUs
+        let minimsUkToTablespoons = minimsUkToFluidOuncesUs >> fluidOuncesUsToTablespoons
+        let minimsUkToShots = minimsUkToTablespoons >> tablespoonsToShots
+        let minimsUkToTeaspoons = minimsUkToTablespoons >> tablespoonsToTeaspoons
+        let minimsUkToMinimsUs = minimsUkToTeaspoons >> teaspoonsUsToMinimsUs
+        let minimsUkToFluidDramsUs = minimsUkToMinimsUs >> minimsUsToFluidDramsUs
+        let minimsUkToHogshead = minimsUkToBarrels >> barrelsToHogshead
+        let minimsUkToBushels = minimsUkToPecks >> pecksToBushels
+        let minimsUkToQuarters = minimsUkToBushels >> bushelsToQuartersUk
+        let minimsUkToMilliliters = minimsUkToLiters >> litersToMilliliters
+
     module LengthConversion =
         //Metric to metric length
         let mmPerCm: decimal<millimeter/centimeter> = 10m<millimeter/centimeter>
@@ -525,12 +551,6 @@ module FSharpFunctionSandbox =
         let thouToMeter x = thouToYard x |> yardToMeter
         let inchToMeter x = inchToYard x |> yardToMeter
         let footToMeter x = footToYard x |> yardToMeter
-
-        
-
-
-
-
 
     module TemperatureConversion =
         let FahrenheitToCelsius fahrenheit = (fahrenheit - 32m) * (5m/ 9m) //0.55 repeating
