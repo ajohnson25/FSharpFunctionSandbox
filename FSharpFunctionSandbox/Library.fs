@@ -323,7 +323,7 @@ module FSharpFunctionSandbox =
         let barrelsPerHogshead = 2m<barrel/hogshead>
 
         let minimsUsToFluidDramsUs (min: decimal<minim_us>) = min / minimPerFluidDramUs
-        let fluidDramsToMinimsUs (fldr: decimal<fluidDram_us>) = fldr * minimPerFluidDramUs
+        let fluidDramsUsToMinimsUs (fldr: decimal<fluidDram_us>) = fldr * minimPerFluidDramUs
         let minimsUsToTeaspoons (min: decimal<minim_us>) = min / minimPerTeaspoon
         let teaspoonsUsToMinimsUs (tsp: decimal<teaspoon>) = tsp * minimPerTeaspoon
         let teaspoonsToTablespoons (tsp: decimal<teaspoon>) = tsp / teaspoonsPerTablespoon
@@ -496,6 +496,30 @@ module FSharpFunctionSandbox =
         let minimsUkToBushels = minimsUkToPecks >> pecksToBushels
         let minimsUkToQuarters = minimsUkToBushels >> bushelsToQuartersUk
         let minimsUkToMilliliters = minimsUkToLiters >> litersToMilliliters
+
+        let fluidDramsUsToTeaspoons = fluidDramsUsToMinimsUs >> minimsUsToTeaspoons
+        let fluidDramsUsToTablespoons = fluidDramsUsToTeaspoons >> teaspoonsToTablespoons
+        let fluidDramsUsToFluidOuncesUs = fluidDramsUsToTablespoons >> tablespoonsToFluidOuncesUs
+        let fluidDramsUsToShots = fluidDramsUsToTablespoons >> tablespoonsToShots
+        let fluidDramsUsToGillsUs = fluidDramsUsToFluidOuncesUs >> fluidOuncesUsToGillsUs
+        let fluidDramsUsToCups = fluidDramsUsToGillsUs >> gillsUsToCups
+        let fluidDramsUsToPintsUs = fluidDramsUsToCups >> cupsToPintsUs
+        let fluidDramsUsToQuartsUs = fluidDramsUsToPintsUs >> pintsUsToQuartsUs
+        let fluidDramsUsToPottles = fluidDramsUsToQuartsUs >> quartsUsToPottles
+        let fluidDramsUsToGallonsUs = fluidDramsUsToPottles >> pottlesToGallonsUs
+        let fluidDramsUsToBarrels = fluidDramsUsToGallonsUs >> gallonsUsToBarrels
+        let fluidDramsUsToHogshead = fluidDramsUsToBarrels >> barrelsToHogshead
+        let fluidDramsUsToCubicInch = fluidDramsUsToGallonsUs >> gallonsUsToCubicInches
+        let fluidDramsUsToMinimsUk = fluidDramsUsToMinimsUs >> minimsUsToMinimsUk
+        let fluidDramsUsToFluidDrachmsUk = fluidDramsUsToMinimsUk >> minimsUkToFluidDrachmsUk
+        let fluidDramsUsToFluidOuncesUk = fluidDramsUsToFluidDrachmsUk >> fluidDrachmsUkToFluidOuncesUk
+        let fluidDramsUsToGillsUk = fluidDramsUsToFluidOuncesUk >> fluidOuncesUkToGillsUk
+        let fluidDramsUsToPintsUk = fluidDramsUsToGillsUk >> gillsUkToPintsUk
+        let fluidDramsUsToQuartsUk = fluidDramsUsToPintsUk >> pintsUkToQuartsUk
+        let fluidDramsUsToGallonsUk = fluidDramsUsToQuartsUk >> quartsUkToGallonsUk
+        let fluidDramsUsToPecks = fluidDramsUsToGallonsUk >> gallonsUkToPecks
+        let fluidDramsUsToBushels = fluidDramsUsToPecks >> pecksToBushels
+        let fluidDramsUsToQuarters = fluidDramsUsToBushels >> bushelsToQuartersUk
 
     module LengthConversion =
         //Metric to metric length
