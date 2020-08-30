@@ -567,7 +567,6 @@ module FSharpFunctionSandbox =
         let teaspoonsToBushels = teaspoonsToPecks >> pecksToBushels
         let teaspoonsToQuarters = teaspoonsToBushels >> bushelsToQuarters
 
-        //Untested
         let tablespoonsToMinimsUs = tablespoonsToTeaspoons >> teaspoonsToMinimsUs
         let tablespoonsToFluidDramUs = tablespoonsToMinimsUs >> minimsUsToFluidDramsUs
         let tablespoonsToGillsUs = tablespoonsToFluidDramUs >> fluidDramsUsToGillsUs
@@ -589,6 +588,30 @@ module FSharpFunctionSandbox =
         let tablespoonsToPecks = tablespoonsToGallonsUk >> gallonsUkToPecks
         let tablespoonsToBushels = tablespoonsToPecks >> pecksToBushels
         let tablespoonsToQuarters = tablespoonsToBushels >> bushelsToQuarters
+
+        let fluidOuncesUsToMinimsUs = fluidOuncesUsToTablespoons >> tablespoonsToMinimsUs
+        let fluidOuncesUsToFluidDramsUs = fluidOuncesUsToMinimsUs >> minimsUsToFluidDramsUs
+        let fluidOuncesUsToTeaspoons = fluidOuncesUsToFluidDramsUs >> fluidDramsUsToTeaspoons
+        let fluidOuncesUsToShot = fluidOuncesUsToTeaspoons >> teaspoonsToShots
+        let fluidOuncesUsToCups = fluidOuncesUsToTablespoons >> tablespoonsToCups
+        let fluidOuncesUsToPintsUs = fluidOuncesUsToCups >> cupsToPintsUs
+        let fluidOuncesUsToQuartsUs = fluidOuncesUsToPintsUs >> pintsUsToQuartsUs
+        let fluidOuncesUsToPottles = fluidOuncesUsToQuartsUs >> quartsUsToPottles
+        let fluidOuncesUsToGallonsUs = fluidOuncesUsToPottles >> pottlesToGallonsUs
+        let fluidOuncesUsToBarrels = fluidOuncesUsToGallonsUs >> gallonsUsToBarrels
+        let fluidOuncesUsToHogsheads = fluidOuncesUsToBarrels >> barrelsToHogsheads
+        let fluidOuncesUsToCubicInches = fluidOuncesUsToGallonsUs >> gallonsUsToCubicInches
+        let fluidOuncesUsToMinimsUk = fluidOuncesUsToMinimsUs >> minimsUsToMinimsUk
+        let fluidOuncesUsToFluidDrachmsUk = fluidOuncesUsToMinimsUk >> minimsUkToFluidDrachmsUk
+        let fluidOuncesUsToFluidOuncesUk = fluidOuncesUsToFluidDrachmsUk >> fluidDrachmsUkToFluidOuncesUk
+        let fluidOuncesUsToGillsUk = fluidOuncesUsToFluidOuncesUk >> fluidOuncesUkToGillsUk
+        let fluidOuncesUsToPintsUk = fluidOuncesUsToGillsUk >> gillsUkToPintsUk
+        let fluidOuncesUsToQuartsUk = fluidOuncesUsToPintsUk >> pintsUkToQuartsUk
+        let fluidOuncesUsToGallonsUk = fluidOuncesUsToQuartsUk >> quartsUkToGallonsUk
+        let fluidOuncesUsToPecks = fluidOuncesUsToGallonsUk >> gallonsUkToPecks
+        let fluidOuncesUsToBushels = fluidOuncesUsToPecks >> pecksToBushels
+        let fluidOuncesUsToQuarters = fluidOuncesUsToBushels >> bushelsToQuarters
+
 
     module LengthConversion =
         //Metric to metric length
