@@ -74,10 +74,7 @@ module VolumeConversion =
 
     [<Fact>]
     let ``Volume US`` () =
-        Assert.Equal(3m<teaspoon>,tablespoonsToTeaspoons(1m<tablespoon>))
         Assert.Equal(2m<tablespoon>,fluidOuncesUsToTablespoons(1m<fluidOunce_us>))
-        Assert.Equal(1m<fluidOunce_us>,tablespoonsToFluidOuncesUs(2m<tablespoon>))
-        Assert.Equal(1m<shot>,tablespoonsToShots(3m<tablespoon>))
         Assert.Equal(3m<tablespoon>,shotsToTablespoons(1m<shot>))
         Assert.Equal(1m<gill_us>,fluidOuncesUsToGillsUs(4m<fluidOunce_us>))
         Assert.Equal(4m<fluidOunce_us>,gillsUsToFluidOuncesUs(1m<gill_us>))
@@ -93,9 +90,8 @@ module VolumeConversion =
         Assert.Equal(2m<pottle>,gallonsUsToPottles(1m<gallon_us>))
         Assert.Equal(31.5m<gallon_us>,barrelsToGallonsUs(1m<barrel>))
         Assert.Equal(1m<barrel>,gallonsUsToBarrels(31.5m<gallon_us>))
-        Assert.Equal(1m<hogshead>,barrelsToHogshead(2m<barrel>))
+        Assert.Equal(1m<hogshead>,barrelsToHogsheads(2m<barrel>))
         Assert.Equal(2m<barrel>,hogsheadToBarrels(1m<hogshead>))
-
         Assert.Equal(1m<gallon_us>,cubicInchesToGallonsUs(231m<cubicInch>))
         Assert.Equal(231m<cubicInch>,gallonsUsToCubicInches(1m<gallon_us>))
 
@@ -317,6 +313,33 @@ module VolumeConversion =
         Assert.Equal(0.9551250260199833472106577852m<peck>,teaspoonsToPecks(1761.95352m<teaspoon>))
         Assert.Equal(0.985743217457673211776644463m<bushel>,teaspoonsToBushels(7273.743999999993m<teaspoon>))
         Assert.Equal(0.9999582235808064134922286985m<quarter_vl>,teaspoonsToQuarters(59029.085873138m<teaspoon>))
+
+    [<Fact>]
+    let ``Tablespoons to Other`` () =
+         Assert.Equal(3m<teaspoon>,tablespoonsToTeaspoons(1m<tablespoon>)) 
+         Assert.Equal(1m<fluidOunce_us>,tablespoonsToFluidOuncesUs(2m<tablespoon>))
+         Assert.Equal(1m<shot>,tablespoonsToShots(3m<tablespoon>))
+         Assert.Equal(240m<minim_us>,tablespoonsToMinimsUs(1m<tablespoon>))
+         Assert.Equal(4m<fluidDram_us>,tablespoonsToFluidDramUs(1m<tablespoon>))
+         Assert.Equal(1m<gill_us>,tablespoonsToGillsUs(8m<tablespoon>))
+         Assert.Equal(1m<cup>,tablespoonsToCups(16m<tablespoon>))
+         Assert.Equal(1m<pint_us>,tablespoonsToPintsUs(32m<tablespoon>))
+         Assert.Equal(1m<quart_us>,tablespoonsToQuartsUs(64m<tablespoon>))
+         Assert.Equal(1m<pottle>,tablespoonsToPottles(128m<tablespoon>))
+         Assert.Equal(1m<gallon_us>,tablespoonsToGallonsUs(256m<tablespoon>))
+         Assert.Equal(1m<barrel>,tablespoonsToBarrels(8064m<tablespoon>))
+         Assert.Equal(1m<hogshead>,tablespoonsToHogsheads(16128m<tablespoon>))
+         Assert.Equal(0.90234375m<cubicInch>,tablespoonsToCubicInches(1m<tablespoon>))
+         Assert.Equal(249.79184013322231473771856896m<minim_uk>,tablespoonsToMinimsUk(1m<tablespoon>))
+         Assert.Equal(4.163197335553705245628642816m<fluidDrachm_uk>,tablespoonsToFluidDrachmsUk(1m<tablespoon>))
+         Assert.Equal(0.999958368026644462947543712m<fluidOunce_uk>,tablespoonsToFluidOuncesUk(1.92152m<tablespoon>))
+         Assert.Equal(1.0407993338884263114071607008m<gill_uk>,tablespoonsToGillsUk(10m<tablespoon>))
+         Assert.Equal(0.9999479600333055786844296417m<pint_uk>,tablespoonsToPintsUk(38.43m<tablespoon>))
+         Assert.Equal(0.9999583059950041631973355536m<quart_uk>,tablespoonsToQuartsUk(76.860795232m<tablespoon>))
+         Assert.Equal(0.9999583060015091590341382182m<gallon_uk>,tablespoonsToGallonsUk(307.44318093m<tablespoon>))
+         Assert.Equal(0.9999583017724650031223980016m<peck>,tablespoonsToPecks(614.88635925951m<tablespoon>))
+         Assert.Equal(0.9999601569004995836802664446m<bushel>,tablespoonsToBushels(2459.55m<tablespoon>))
+         Assert.Equal(0.9999601569004995836802664445m<quarter_vl>,tablespoonsToQuarters(19676.4m<tablespoon>))
 
 module WeightConversion =
     [<Fact>]
