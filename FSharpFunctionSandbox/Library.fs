@@ -612,6 +612,31 @@ module FSharpFunctionSandbox =
         let fluidOuncesUsToBushels = fluidOuncesUsToPecks >> pecksToBushels
         let fluidOuncesUsToQuarters = fluidOuncesUsToBushels >> bushelsToQuarters
 
+        let fluidOuncesUkToMinimsUs = fluidOuncesUkToFluidDrachmsUk >> fluidDrachmsUkToMinimsUs
+        let fluidOuncesUkToFluidOuncesUs = fluidOuncesUkToMinimsUs >> minimsUsToFluidOuncesUs
+        let fluidOuncesUkToFluidDramsUs = fluidOuncesUkToMinimsUs >> minimsUsToFluidDramsUs
+        let fluidOuncesUkToTeaspoons = fluidOuncesUkToFluidDramsUs >> fluidDramsUsToTeaspoons
+        let fluidOuncesUkToTablespoons = fluidOuncesUkToTeaspoons >> teaspoonsToTablespoons
+        let fluidOuncesUkToShots = fluidOuncesUkToTablespoons >> tablespoonsToShots
+        let fluidOuncesUkToGillsUs = fluidOuncesUkToTablespoons >> tablespoonsToGillsUs
+        let fluidOuncesUkToCups = fluidOuncesUkToGillsUs >> gillsUsToCups
+        let fluidOuncesUkToPintsUs = fluidOuncesUkToCups >> cupsToPintsUs
+        let fluidOuncesUkToQuartsUs = fluidOuncesUkToPintsUs >> pintsUsToQuartsUs
+        let fluidOuncesUkToPottles = fluidOuncesUkToQuartsUs >> quartsUsToPottles
+        let fluidOuncesUkToGallonsUs = fluidOuncesUkToPottles >> pottlesToGallonsUs
+        let fluidOuncesUkToBarrels = fluidOuncesUkToGallonsUs >> gallonsUsToBarrels
+        let fluidOuncesUkToHogsheads = fluidOuncesUkToBarrels >> barrelsToHogsheads
+        let fluidOuncesUkToCubicInches = fluidOuncesUkToGallonsUs >> gallonsUsToCubicInches
+        let fluidOuncesUkToMinimsUk = fluidOuncesUkToFluidDrachmsUk >> fluidDrachmsUkToMinimsUk
+        let fluidOuncesUkToPintsUk = fluidOuncesUkToGillsUk >> gillsUkToPintsUk
+        let fluidOuncesUkToQuartsUk = fluidOuncesUkToPintsUk >> pintsUkToQuartsUk
+        let fluidOuncesUkToGallonsUk = fluidOuncesUkToQuartsUk >> quartsUkToGallonsUk
+        let fluidOuncesUkToPecks = fluidOuncesUkToGallonsUk >> gallonsUkToPecks
+        let fluidOuncesUkToBushels = fluidOuncesUkToPecks >> pecksToBushels
+        let fluidOuncesUkToQuarters = fluidOuncesUkToBushels >> bushelsToQuarters
+
+
+
 
     module LengthConversion =
         //Metric to metric length
