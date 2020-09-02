@@ -658,6 +658,33 @@ module FSharpFunctionSandbox =
         let gillsUsToBushels = gillsUsToPecks >> pecksToBushels
         let gillsUsToQuarters = gillsUsToBushels >> bushelsToQuarters
 
+        //Untested
+        let gillsUkToMinimsUs = gillsUkToFluidOuncesUk >> fluidOuncesUkToMinimsUs
+        let gillsUkToFluidDramsUs = gillsUkToMinimsUs >> minimsUsToFluidDramsUs
+        let gillsUkToTeaspoons = gillsUkToFluidDramsUs >> fluidDramsUsToTeaspoons
+        let gillsUkToTablespoons = gillsUkToTeaspoons >> teaspoonsToTablespoons
+        let gillsUkToFluidOuncesUs = gillsUkToTablespoons >> tablespoonsToFluidOuncesUs
+        let gillsUkToShots = gillsUkToTablespoons >> tablespoonsToShots
+        let gillsUkToGillsUs = gillsUkToTeaspoons >> teaspoonsToGillsUs
+        let gillsUkToCups = gillsUkToGillsUs >> gillsUsToCups
+        let gillsUkToPintsUs = gillsUkToCups >> cupsToPintsUs
+        let gillsUkToQuartsUs = gillsUkToPintsUs >> pintsUsToQuartsUs
+        let gillsUkToPottles = gillsUkToQuartsUs >> quartsUsToPottles
+        let gillsUkToGallonsUs = gillsUkToPottles >> pottlesToGallonsUs
+        let gillsUkToBarrels = gillsUkToGallonsUs >> gallonsUsToBarrels
+        let gillsUkToHogsheads = gillsUkToBarrels >> barrelsToHogsheads
+        let gillsUkToCubicInches = gillsUkToGallonsUs >> gallonsUsToCubicInches
+        let gillsUkToMinimsUk = gillsUkToFluidOuncesUk >> fluidOuncesUkToMinimsUk
+        let gillsUkToFluidDrachmsUk = gillsUkToMinimsUk >> minimsUkToFluidDrachmsUk
+        let gillsUkToQuartsUk = gillsUkToPintsUk >> pintsUkToQuartsUk
+        let gillsUkToGallonsUk = gillsUkToQuartsUk >> quartsUkToGallonsUk
+        let gillsUkToPecks = gillsUkToGallonsUk >> gallonsUkToPecks
+        let gillsUkToBushels = gillsUkToPecks >> pecksToBushels
+        let gillsUkToQuarters = gillsUkToBushels >> bushelsToQuarters
+
+
+
+
     module LengthConversion =
         //Metric to metric length
         let mmPerCm: decimal<millimeter/centimeter> = 10m<millimeter/centimeter>
