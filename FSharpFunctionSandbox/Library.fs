@@ -520,6 +520,8 @@ module FSharpFunctionSandbox =
         let fluidDramsUsToPecks = fluidDramsUsToGallonsUk >> gallonsUkToPecks
         let fluidDramsUsToBushels = fluidDramsUsToPecks >> pecksToBushels
         let fluidDramsUsToQuarters = fluidDramsUsToBushels >> bushelsToQuarters
+        let fluidDramsUsToMilliliters = fluidDramsUsToMinimsUs >> minimsUsToMilliliters
+        let fluidDramsUsToLiters = fluidDramsUsToMilliliters >> millilitersToLiters
 
         let fluidDrachmsUkToMinimsUs = fluidDrachmsUkToMinimsUk >> minimsUkToMinimsUs
         let fluidDrachmsUkToFluidDramsUs = fluidDrachmsUkToMinimsUs >> minimsUsToFluidDramsUs
@@ -543,6 +545,8 @@ module FSharpFunctionSandbox =
         let fluidDrachmsUkToPecks = fluidDrachmsUkToGallonsUk >> gallonsUkToPecks
         let fluidDrachmsUkToBushels = fluidDrachmsUkToPecks >> pecksToBushels
         let fluidDrachmsUkToQuarters = fluidDrachmsUkToBushels >> bushelsToQuarters
+        let fluidDrachmsUkToMilliliters = fluidDrachmsUkToMinimsUk >> minimsUkToMilliliters
+        let fluidDrachmsUkToLiters = fluidDrachmsUkToMilliliters >> millilitersToLiters
 
         let teaspoonsToFluidDramsUs = teaspoonsToMinimsUs >> minimsUsToFluidDramsUs
         let teaspoonsToFluidOuncesUs = teaspoonsToTablespoons >> tablespoonsToFluidOuncesUs
@@ -566,6 +570,8 @@ module FSharpFunctionSandbox =
         let teaspoonsToPecks = teaspoonsToGallonsUk >> gallonsUkToPecks
         let teaspoonsToBushels = teaspoonsToPecks >> pecksToBushels
         let teaspoonsToQuarters = teaspoonsToBushels >> bushelsToQuarters
+        let teaspoonsToMilliliters = teaspoonsToMinimsUs >> minimsUsToMilliliters
+        let teaspoonsToLiters = teaspoonsToMilliliters >> millilitersToLiters
 
         let tablespoonsToMinimsUs = tablespoonsToTeaspoons >> teaspoonsToMinimsUs
         let tablespoonsToFluidDramUs = tablespoonsToMinimsUs >> minimsUsToFluidDramsUs
@@ -588,6 +594,8 @@ module FSharpFunctionSandbox =
         let tablespoonsToPecks = tablespoonsToGallonsUk >> gallonsUkToPecks
         let tablespoonsToBushels = tablespoonsToPecks >> pecksToBushels
         let tablespoonsToQuarters = tablespoonsToBushels >> bushelsToQuarters
+        let tablespoonsToMilliliters = tablespoonsToMinimsUs >> minimsUsToMilliliters
+        let tablespoonsToLiters = tablespoonsToMilliliters >> millilitersToLiters
 
         let fluidOuncesUsToMinimsUs = fluidOuncesUsToTablespoons >> tablespoonsToMinimsUs
         let fluidOuncesUsToFluidDramsUs = fluidOuncesUsToMinimsUs >> minimsUsToFluidDramsUs
@@ -611,6 +619,8 @@ module FSharpFunctionSandbox =
         let fluidOuncesUsToPecks = fluidOuncesUsToGallonsUk >> gallonsUkToPecks
         let fluidOuncesUsToBushels = fluidOuncesUsToPecks >> pecksToBushels
         let fluidOuncesUsToQuarters = fluidOuncesUsToBushels >> bushelsToQuarters
+        let fluidOuncesUsToMilliliters = fluidOuncesUsToMinimsUs >> minimsUsToMilliliters
+        let fluidOuncesUsToLiters = fluidOuncesUsToMilliliters >> millilitersToLiters
 
         let fluidOuncesUkToMinimsUs = fluidOuncesUkToFluidDrachmsUk >> fluidDrachmsUkToMinimsUs
         let fluidOuncesUkToFluidOuncesUs = fluidOuncesUkToMinimsUs >> minimsUsToFluidOuncesUs
@@ -634,6 +644,8 @@ module FSharpFunctionSandbox =
         let fluidOuncesUkToPecks = fluidOuncesUkToGallonsUk >> gallonsUkToPecks
         let fluidOuncesUkToBushels = fluidOuncesUkToPecks >> pecksToBushels
         let fluidOuncesUkToQuarters = fluidOuncesUkToBushels >> bushelsToQuarters
+        let fluidOuncesUkToMilliliters = fluidOuncesUkToMinimsUk >> minimsUkToMilliliters
+        let fluidOuncesUkToLiters = fluidOuncesUkToMilliliters >> millilitersToLiters
 
         let gillsUsToMinimsUs = gillsUsToFluidOuncesUs >> fluidOuncesUsToMinimsUs
         let gillsUsToFluidDramsUs = gillsUsToMinimsUs >> minimsUsToFluidDramsUs
@@ -657,6 +669,8 @@ module FSharpFunctionSandbox =
         let gillsUsToPecks = gillsUsToGallonsUk >> gallonsUkToPecks
         let gillsUsToBushels = gillsUsToPecks >> pecksToBushels
         let gillsUsToQuarters = gillsUsToBushels >> bushelsToQuarters
+        let gillsUsToMilliliters = gillsUsToMinimsUs >> minimsUsToMilliliters
+        let gillsUsToLiters = gillsUsToMilliliters >> millilitersToLiters
 
         let gillsUkToMinimsUs = gillsUkToFluidOuncesUk >> fluidOuncesUkToMinimsUs
         let gillsUkToFluidDramsUs = gillsUkToMinimsUs >> minimsUsToFluidDramsUs
@@ -680,6 +694,8 @@ module FSharpFunctionSandbox =
         let gillsUkToPecks = gillsUkToGallonsUk >> gallonsUkToPecks
         let gillsUkToBushels = gillsUkToPecks >> pecksToBushels
         let gillsUkToQuarters = gillsUkToBushels >> bushelsToQuarters
+        let gillsUkToMilliliters = gillsUkToMinimsUk >> minimsUkToMilliliters
+        let gillsUkToLiters = gillsUkToMilliliters >> millilitersToLiters
 
         let shotsToMinimsUs = shotsToTablespoons >> tablespoonsToMinimsUs
         let shotsToFluidDramsUs = shotsToMinimsUs >> minimsUsToFluidDramsUs
@@ -704,6 +720,8 @@ module FSharpFunctionSandbox =
         let shotsToPecks = shotsToGallonsUk >> gallonsUkToPecks
         let shotsToBushels = shotsToPecks >> pecksToBushels
         let shotsToQuarters = shotsToBushels >> bushelsToQuarters
+        let shotsToMilliliters = shotsToMinimsUs >> minimsUsToMilliliters
+        let shotsToLiters = shotsToMilliliters >> millilitersToLiters
 
         let cupsToMinimsUs = cupsToGillsUs >> gillsUsToMinimsUs
         let cupsToFluidDramsUs = cupsToMinimsUs >> minimsUsToFluidDramsUs
@@ -727,6 +745,8 @@ module FSharpFunctionSandbox =
         let cupsToPecks = cupsToGallonsUk >> gallonsUkToPecks
         let cupsToBushels = cupsToPecks >> pecksToBushels
         let cupsToQuarters = cupsToBushels >> bushelsToQuarters
+        let cupsToMilliliters = cupsToMinimsUs >> minimsUsToMilliliters
+        let cupsToLiters = cupsToMilliliters >> millilitersToLiters
 
         let pintsUsToMinimsUs = pintsUsToCups >> cupsToMinimsUs
         let pintsUsToFluidDramsUs = pintsUsToMinimsUs >> minimsUsToFluidDramsUs
@@ -750,6 +770,8 @@ module FSharpFunctionSandbox =
         let pintsUsToPecks = pintsUsToGallonsUk >> gallonsUkToPecks
         let pintsUsToBushels = pintsUsToPecks >> pecksToBushels
         let pintsUsToQuarters = pintsUsToBushels >> bushelsToQuarters
+        let pintsUsToMilliliters = pintsUsToMinimsUs >> minimsUsToMilliliters
+        let pintsUsToLiters = pintsUsToMilliliters >> millilitersToLiters
 
         let pintsUkToMinimsUs = pintsUkToGillsUk >> gillsUkToMinimsUs
         let pintsUkToFluidDramsUs = pintsUkToMinimsUs >> minimsUsToFluidDramsUs
@@ -773,6 +795,8 @@ module FSharpFunctionSandbox =
         let pintsUkToPecks = pintsUkToGallonsUk >> gallonsUkToPecks
         let pintsUkToBushels = pintsUkToPecks >> pecksToBushels
         let pintsUkToQuarters = pintsUkToBushels >> bushelsToQuarters
+        let pintsUkToMilliliters = pintsUkToMinimsUk >> minimsUkToMilliliters
+        let pintsUkToLiters = pintsUkToMilliliters >> millilitersToLiters
 
         let quartsUsToMinimsUs = quartsUsToPintsUs >> pintsUsToMinimsUs
         let quartsUsToFluidDramsUs = quartsUsToMinimsUs >> minimsUsToFluidDramsUs
@@ -796,6 +820,8 @@ module FSharpFunctionSandbox =
         let quartsUsToPecks = quartsUsToGallonsUk >> gallonsUkToPecks
         let quartsUsToBushels = quartsUsToPecks >> pecksToBushels
         let quartsUsToQuarters = quartsUsToBushels >> bushelsToQuarters
+        let quartsUsToMilliliters = quartsUsToMinimsUs >> minimsUsToMilliliters
+        let quartsUsToLiters = quartsUsToMilliliters >> millilitersToLiters
 
         let quartsUkToMinimsUs = quartsUkToPintsUk >> pintsUkToMinimsUs
         let quartsUkToFluidDramsUs = quartsUkToMinimsUs >> minimsUsToFluidDramsUs
@@ -819,6 +845,8 @@ module FSharpFunctionSandbox =
         let quartsUkToPecks = quartsUkToGallonsUk >> gallonsUkToPecks
         let quartsUkToBushels = quartsUkToPecks >> pecksToBushels
         let quartsUkToQuarters = quartsUkToBushels >> bushelsToQuarters
+        let quartsUkToMilliliters = quartsUkToMinimsUk >> minimsUkToMilliliters
+        let quartsUkToLiters = quartsUkToMilliliters >> millilitersToLiters
 
         let pottlesToMinimsUs = pottlesToQuartsUs >> quartsUsToMinimsUs
         let pottlesToFluidDramsUs = pottlesToMinimsUs >> minimsUsToFluidDramsUs
@@ -842,6 +870,8 @@ module FSharpFunctionSandbox =
         let pottlesToPecks = pottlesToGallonsUk >> gallonsUkToPecks
         let pottlesToBushels = pottlesToPecks >> pecksToBushels
         let pottlesToQuarters = pottlesToBushels >> bushelsToQuarters
+        let pottlesToMilliliters = pottlesToMinimsUs >> minimsUsToMilliliters
+        let pottlesToLiters = pottlesToMilliliters >> millilitersToLiters
 
         let gallonsUsToMinimsUs = gallonsUsToPottles >> pottlesToMinimsUs
         let gallonsUsToFluidDramsUs = gallonsUsToMinimsUs >> minimsUsToFluidDramsUs
@@ -863,6 +893,7 @@ module FSharpFunctionSandbox =
         let gallonsUsToPecks = gallonsUsToGallonsUk >> gallonsUkToPecks
         let gallonsUsToBushels = gallonsUsToPecks >> pecksToBushels
         let gallonsUsToQuarters = gallonsUsToBushels >> bushelsToQuarters
+        let gallonsUsToMilliliters = gallonsUsToLiters >> litersToMilliliters
 
         let gallonsUkToMinimsUs = gallonsUkToGallonsUs >> gallonsUsToMinimsUs
         let gallonsUkToFluidDramsUs = gallonsUkToMinimsUs >> minimsUsToFluidDramsUs
@@ -885,6 +916,7 @@ module FSharpFunctionSandbox =
         let gallonsUkToPintsUk = gallonsUkToGillsUk >> gillsUkToPintsUk
         let gallonsUkToBushels = gallonsUkToPecks >> pecksToBushels
         let gallonsUkToQuarters = gallonsUkToBushels >> bushelsToQuarters
+        let gallonsUkToMilliliters = gallonsUkToLiters >> litersToMilliliters
 
         let cubicInchesToMinimsUs = cubicInchesToGallonsUs >> gallonsUsToMinimsUs
         let cubicInchesToFluidDramsUs = cubicInchesToMinimsUs >> minimsUsToFluidDramsUs
@@ -909,6 +941,8 @@ module FSharpFunctionSandbox =
         let cubicInchesToPecks = cubicInchesToGallonsUk >> gallonsUkToPecks
         let cubicInchesToBushels = cubicInchesToPecks >> pecksToBushels
         let cubicInchesToQuarters = cubicInchesToBushels >> bushelsToQuarters
+        let cubicInchesToMilliliters = cubicInchesToMinimsUs >> minimsUsToMilliliters
+        let cubicInchesToLiters = cubicInchesToMilliliters >> millilitersToLiters
 
 
     module LengthConversion =
