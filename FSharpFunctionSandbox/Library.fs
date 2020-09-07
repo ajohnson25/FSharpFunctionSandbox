@@ -774,7 +774,6 @@ module FSharpFunctionSandbox =
         let pintsUkToBushels = pintsUkToPecks >> pecksToBushels
         let pintsUkToQuarters = pintsUkToBushels >> bushelsToQuarters
 
-        //Untested
         let quartsUsToMinimsUs = quartsUsToPintsUs >> pintsUsToMinimsUs
         let quartsUsToFluidDramsUs = quartsUsToMinimsUs >> minimsUsToFluidDramsUs
         let quartsUsToTeaspoons = quartsUsToFluidDramsUs >> fluidDramsUsToTeaspoons
@@ -783,7 +782,6 @@ module FSharpFunctionSandbox =
         let quartsUsToShots = quartsUsToFluidOuncesUs >> fluidOuncesUsToShots
         let quartsUsToGillsUs = quartsUsToFluidOuncesUs >> fluidOuncesUsToGillsUs
         let quartsUsToCups = quartsUsToGillsUs >> gillsUsToCups
-        let quartsUsToPints = quartsUsToCups >> cupsToPintsUs
         let quartsUsToGallonsUs = quartsUsToPottles >> pottlesToGallonsUs
         let quartsUsToBarrels = quartsUsToGallonsUs >> gallonsUsToBarrels
         let quartsUsToHogsheads = quartsUsToBarrels >> barrelsToHogsheads
@@ -798,6 +796,30 @@ module FSharpFunctionSandbox =
         let quartsUsToPecks = quartsUsToGallonsUk >> gallonsUkToPecks
         let quartsUsToBushels = quartsUsToPecks >> pecksToBushels
         let quartsUsToQuarters = quartsUsToBushels >> bushelsToQuarters
+
+        let quartsUkToMinimsUs = quartsUkToPintsUk >> pintsUkToMinimsUs
+        let quartsUkToFluidDramsUs = quartsUkToMinimsUs >> minimsUsToFluidDramsUs
+        let quartsUkToTeaspoons = quartsUkToFluidDramsUs >> fluidDramsUsToTeaspoons
+        let quartsUkToTablespoons = quartsUkToTeaspoons >> teaspoonsToTablespoons
+        let quartsUkToFluidOuncesUs = quartsUkToTablespoons >> tablespoonsToFluidOuncesUs
+        let quartsUkToShots = quartsUkToFluidOuncesUs >> fluidOuncesUsToShots
+        let quartsUkToGillsUs = quartsUkToFluidOuncesUs >> fluidOuncesUsToGillsUs
+        let quartsUkToCups = quartsUkToGillsUs >> gillsUsToCups
+        let quartsUkToPintsUs = quartsUkToCups >> cupsToPintsUs
+        let quartsUkToQuartsUs = quartsUkToPintsUs >> pintsUsToQuartsUs
+        let quartsUkToPottles = quartsUkToQuartsUs >> quartsUsToPottles
+        let quartsUkToGallonsUs = quartsUkToPottles >> pottlesToGallonsUs
+        let quartsUkToBarrels = quartsUkToGallonsUs >> gallonsUsToBarrels
+        let quartsUkToHogsheads = quartsUkToBarrels >> barrelsToHogsheads
+        let quartsUkToCubicInches = quartsUkToGallonsUs >> gallonsUsToCubicInches
+        let quartsUkToMinimsUk = quartsUkToPintsUk >> pintsUkToMinimsUk
+        let quartsUkToFluidDrachmsUk = quartsUkToMinimsUk >> minimsUkToFluidDrachmsUk
+        let quartsUkToFluidOuncesUk = quartsUkToFluidDrachmsUk >> fluidDrachmsUkToFluidOuncesUk
+        let quartsUkToGillsUk = quartsUkToFluidOuncesUk >> fluidOuncesUkToGillsUk
+        let quartsUkToPecks = quartsUkToGallonsUk >> gallonsUkToPecks
+        let quartsUkToBushels = quartsUkToPecks >> pecksToBushels
+        let quartsUkToQuarters = quartsUkToBushels >> bushelsToQuarters
+
 
 
     module LengthConversion =
