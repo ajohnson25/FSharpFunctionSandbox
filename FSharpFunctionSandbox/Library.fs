@@ -864,6 +864,27 @@ module FSharpFunctionSandbox =
         let gallonsUsToBushels = gallonsUsToPecks >> pecksToBushels
         let gallonsUsToQuarters = gallonsUsToBushels >> bushelsToQuarters
 
+        let gallonsUkToMinimsUs = gallonsUkToGallonsUs >> gallonsUsToMinimsUs
+        let gallonsUkToFluidDramsUs = gallonsUkToMinimsUs >> minimsUsToFluidDramsUs
+        let gallonsUkToTeaspoons = gallonsUkToFluidDramsUs >> fluidDramsUsToTeaspoons
+        let gallonsUkToTablespoons = gallonsUkToTeaspoons >> teaspoonsToTablespoons
+        let gallonsUkToFluidOuncesUs = gallonsUkToTablespoons >> tablespoonsToFluidOuncesUs
+        let gallonsUkToShots = gallonsUkToFluidOuncesUs >> fluidOuncesUsToShots
+        let gallonsUkToGillsUs = gallonsUkToShots >> shotsToGillsUs
+        let gallonsUkToCups = gallonsUkToGillsUs >> gillsUsToCups
+        let gallonsUkToPintsUs = gallonsUkToCups >> cupsToPintsUs
+        let gallonsUkToQuartsUs = gallonsUkToPintsUs >> pintsUsToQuartsUs
+        let gallonsUkToPottles = gallonsUkToQuartsUs >> quartsUsToPottles
+        let gallonsUkToBarrels = gallonsUkToGallonsUs >> gallonsUsToBarrels
+        let gallonsUkToHogsheads = gallonsUkToBarrels >> barrelsToHogsheads
+        let gallonsUkToCubicInches = gallonsUkToGallonsUs >> gallonsUsToCubicInches
+        let gallonsUkToMinimsUk = gallonsUkToMinimsUs >> minimsUsToMinimsUk
+        let gallonsUkToFluidDrachmsUk = gallonsUkToMinimsUk >> minimsUkToFluidDrachmsUk
+        let gallonsUkToFluidOuncesUk = gallonsUkToFluidDrachmsUk >> fluidDrachmsUkToFluidOuncesUk
+        let gallonsUkToGillsUk = gallonsUkToFluidOuncesUk >> fluidOuncesUkToGillsUk
+        let gallonsUkToPintsUk = gallonsUkToGillsUk >> gillsUkToPintsUk
+        let gallonsUkToBushels = gallonsUkToPecks >> pecksToBushels
+        let gallonsUkToQuarters = gallonsUkToBushels >> bushelsToQuarters
 
     module LengthConversion =
         //Metric to metric length
