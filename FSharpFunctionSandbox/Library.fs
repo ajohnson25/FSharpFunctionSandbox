@@ -886,6 +886,31 @@ module FSharpFunctionSandbox =
         let gallonsUkToBushels = gallonsUkToPecks >> pecksToBushels
         let gallonsUkToQuarters = gallonsUkToBushels >> bushelsToQuarters
 
+        let cubicInchesToMinimsUs = cubicInchesToGallonsUs >> gallonsUsToMinimsUs
+        let cubicInchesToFluidDramsUs = cubicInchesToMinimsUs >> minimsUsToFluidDramsUs
+        let cubicInchesToTeaspoons = cubicInchesToFluidDramsUs >> fluidDramsUsToTeaspoons
+        let cubicInchesToTablespoons = cubicInchesToTeaspoons >> teaspoonsToTablespoons
+        let cubicInchesToFluidOuncesUs = cubicInchesToTablespoons >> tablespoonsToFluidOuncesUs
+        let cubicInchesToShots = cubicInchesToFluidOuncesUs >> fluidOuncesUsToShots
+        let cubicInchesToGillsUs = cubicInchesToShots >> shotsToGillsUs
+        let cubicInchesToCups = cubicInchesToGillsUs >> gillsUsToCups
+        let cubicInchesToPintsUs = cubicInchesToCups >> cupsToPintsUs
+        let cubicInchesToQuartsUs = cubicInchesToPintsUs >> pintsUsToQuartsUs
+        let cubicInchesToPottles = cubicInchesToQuartsUs >> quartsUsToPottles
+        let cubicInchesToBarrels = cubicInchesToGallonsUs >> gallonsUsToBarrels
+        let cubicInchesToHogsheads = cubicInchesToBarrels >> barrelsToHogsheads
+        let cubicInchesToMinimsUk = cubicInchesToMinimsUs >> minimsUsToMinimsUk
+        let cubicInchesToFluidDrachmsUk = cubicInchesToMinimsUk >> minimsUkToFluidDrachmsUk
+        let cubicInchesToFluidOuncesUk = cubicInchesToFluidDrachmsUk >> fluidDrachmsUkToFluidOuncesUk
+        let cubicInchesToGillsUk = cubicInchesToFluidOuncesUk >> fluidOuncesUkToGillsUk
+        let cubicInchesToPintsUk = cubicInchesToGillsUk >> gillsUkToPintsUk
+        let cubicInchesToQuartsUk = cubicInchesToPintsUk >> pintsUkToQuartsUk
+        let cubicInchesToGallonsUk = cubicInchesToQuartsUk >> quartsUkToGallonsUk
+        let cubicInchesToPecks = cubicInchesToGallonsUk >> gallonsUkToPecks
+        let cubicInchesToBushels = cubicInchesToPecks >> pecksToBushels
+        let cubicInchesToQuarters = cubicInchesToBushels >> bushelsToQuarters
+
+
     module LengthConversion =
         //Metric to metric length
         let mmPerCm: decimal<millimeter/centimeter> = 10m<millimeter/centimeter>
