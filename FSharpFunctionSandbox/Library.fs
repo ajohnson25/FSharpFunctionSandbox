@@ -751,6 +751,28 @@ module FSharpFunctionSandbox =
         let pintsUsToBushels = pintsUsToPecks >> pecksToBushels
         let pintsUsToQuarters = pintsUsToBushels >> bushelsToQuarters
 
+        let pintsUkToMinimsUs = pintsUkToGillsUk >> gillsUkToMinimsUs
+        let pintsUkToFluidDramsUs = pintsUkToMinimsUs >> minimsUsToFluidDramsUs
+        let pintsUkToTeaspoons = pintsUkToFluidDramsUs >> fluidDramsUsToTeaspoons
+        let pintsUkToTablespoons = pintsUkToTeaspoons >> teaspoonsToTablespoons
+        let pintsUkToFluidOuncesUs = pintsUkToTablespoons >> tablespoonsToFluidOuncesUs
+        let pintsUkToShots = pintsUkToFluidOuncesUs >> fluidOuncesUsToShots
+        let pintsUkToGillsUs = pintsUkToFluidOuncesUs >> fluidOuncesUsToGillsUs
+        let pintsUkToCups = pintsUkToGillsUs >> gillsUsToCups
+        let pintsUkToPintsUs = pintsUkToCups >> cupsToPintsUs
+        let pintsUkToQuartsUs = pintsUkToPintsUs >> pintsUsToQuartsUs
+        let pintsUkToPottles = pintsUkToQuartsUs >> quartsUsToPottles
+        let pintsUkToGallonsUs = pintsUkToPottles >> pottlesToGallonsUs
+        let pintsUkToBarrels = pintsUkToGallonsUs >> gallonsUsToBarrels
+        let pintsUkToHogsheads = pintsUkToBarrels >> barrelsToHogsheads
+        let pintsUkToCubicInches = pintsUkToGallonsUs >> gallonsUsToCubicInches
+        let pintsUkToMinimsUk = pintsUkToGillsUk >> gillsUkToMinimsUk
+        let pintsUkToFluidDrachmsUk = pintsUkToMinimsUk >> minimsUkToFluidDrachmsUk
+        let pintsUkToFluidOuncesUk = pintsUkToFluidDrachmsUk >> fluidDrachmsUkToFluidOuncesUk
+        let pintsUkToGallonsUk = pintsUkToQuartsUk >> quartsUkToGallonsUk
+        let pintsUkToPecks = pintsUkToGallonsUk >> gallonsUkToPecks
+        let pintsUkToBushels = pintsUkToPecks >> pecksToBushels
+        let pintsUkToQuarters = pintsUkToBushels >> bushelsToQuarters
 
     module LengthConversion =
         //Metric to metric length
