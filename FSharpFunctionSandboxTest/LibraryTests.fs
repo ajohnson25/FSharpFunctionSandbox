@@ -71,6 +71,11 @@ module VolumeConversion =
         Assert.Equal(1m<gallon_uk>,usGallonsToUkGallons(1.201m<gallon_us>))
 
     [<Fact>]
+    let ``Convert Volume`` () =
+         Assert.Equal((1m,"Liters"),convertVolume(1000m, "milliliters", "Liters"))
+         Assert.Equal((0.9999995287170585930632269623m,"GallonsUs"),convertVolume(3785.41m,"milliliters","GallonsUs"))
+         Assert.Equal((1m,"GallonsUs"),convertVolume(3.785411784m,"liters","GallonsUs"))
+    [<Fact>]
     let ``Milliliter to Other`` () =
          Assert.Equal(1m<liter>,millilitersToLiters(1000m<milliliter>))
          Assert.Equal(0.9999995287170585930632269623m<gallon_us>,millilitersToGallonsUs(3785.41m<milliliter>))

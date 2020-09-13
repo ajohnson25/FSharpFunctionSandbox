@@ -1071,6 +1071,15 @@ module FSharpFunctionSandbox =
         let quartersToMilliliters = quartersToMinimsUk >> minimsUkToMilliliters
         let quartersToLiters = quartersToMinimsUk >> minimsUkToLiters
 
+        let removeUnit (x:decimal<_>) = decimal x
+        //refer to the others
+        let convertVolume ((x:decimal),fromUnit,toUnit) =
+            match fromUnit + "To" + toUnit with
+            | "millilitersToLiters" -> (millilitersToLiters(x*1m<milliliter>) |> removeUnit,"Liters")
+            | "millilitersToGallonsUs" -> (millilitersToGallonsUs(x*1m<milliliter>) |> removeUnit,"GallonsUs")
+            | "litersToGallonsUs" -> (litersToGallonsUs(x*1m<liter>) |> removeUnit,"Liters")
+            | _ -> (millilitersToLiters(x*1m<milliliter>) |> removeUnit,"Milliliters")
+
     module LengthConversion =
         //Metric to metric length
         let mmPerCm: decimal<millimeter/centimeter> = 10m<millimeter/centimeter>
