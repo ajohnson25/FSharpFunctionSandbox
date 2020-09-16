@@ -1,4 +1,4 @@
-﻿module Units
+﻿module UnitsUOM
 
 open Microsoft.FSharp.Data.UnitSystems.SI
 

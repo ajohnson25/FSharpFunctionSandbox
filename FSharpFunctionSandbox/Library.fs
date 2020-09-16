@@ -1,10 +1,10 @@
-﻿namespace FSharpFunctionSandbox
+﻿namespace FSharpFunctions
 
-open Units.Imperial.UnitNames
-open Units.SI.UnitNames
+open UnitsUOM.Imperial.UnitNames
+open UnitsUOM.SI.UnitNames
 
 
-module FSharpFunctionSandbox =
+module FSharpFunctions =
 
     module Dilution =
         let diluteGetTotalSG startingSg endingSg startingVolume endingVolume = ((startingVolume * startingSg) + (endingVolume * endingSg))/startingVolume+endingVolume
@@ -226,7 +226,6 @@ module FSharpFunctionSandbox =
         let grainsToTonsLng x = grainsToHundredweightsLng x |> hundredweightsLngToTonsLng
         let grainsToTonsMetric x = grainsToKilograms x |> kilogramsToTonsMetric
 
-        let drachmsToMetricTons x = drachmsToKilograms x |> kilogramsToTonsMetric
         let drachmsToPounds x =  drachmsToOunces x |> ouncesToPounds
         let drachmsToGrains x = drachmsToPounds x |> poundsToGrains
         let drachmsToStones x = drachmsToPounds x |> poundsToStones
@@ -410,15 +409,15 @@ module FSharpFunctionSandbox =
         let millilitersToMinimsUs x = millilitersToTeaspoons x |> teaspoonsToMinimsUs
         let millilitersToFluidDramsUs x = millilitersToMinimsUs x |> minimsUsToFluidDramsUs
         let millilitersToBarrels x = millilitersToGallonsUs x |> gallonsUsToBarrels
-        let millilitersToHogshead x = millilitersToBarrels x |> barrelsToHogsheads
+        let millilitersToHogsheads x = millilitersToBarrels x |> barrelsToHogsheads
         let millilitersToCubicInches x = millilitersToGallonsUs x |> gallonsUsToCubicInches
         let millilitersToGallonsUk x = millilitersToLiters x |> litersToGallonsUk
         let millilitersToPecks x = millilitersToGallonsUk x |> gallonsUkToPecks
         let millilitersToQuartsUk x = millilitersToGallonsUk x |> gallonsUkToQuartsUk
         let millilitersToPintsUk x = millilitersToQuartsUk x |> quartsUkToPintsUk
         let millilitersToGillsUk x = millilitersToPintsUk x |> pintsUkToGillsUk
-        let millilitersToBushelsUk x = millilitersToPecks x |> pecksToBushels
-        let millilitersToQuartersUk x = millilitersToBushelsUk x |> bushelsToQuarters 
+        let millilitersToBushels x = millilitersToPecks x |> pecksToBushels
+        let millilitersToQuarters x = millilitersToBushels x |> bushelsToQuarters 
         let millilitersToFluidOuncesUk x = millilitersToGillsUk x |> gillsUkToFluidOuncesUk
         let millilitersToFluidDrachmsUk x = millilitersToFluidOuncesUk x |> fluidOuncesUkToFluidDrachmsUk
         let millilitersToMinimsUk x = millilitersToFluidDrachmsUk x |> fluidDrachmsUkToMinimsUk
@@ -1072,13 +1071,42 @@ module FSharpFunctionSandbox =
         let quartersToLiters = quartersToMinimsUk >> minimsUkToLiters
 
         let removeUnit (x:decimal<_>) = decimal x
-        //refer to the others
+
+        let convertVolumeVerified ((x:decimal),fromUnit,toUnit) =
+            match (fromUnit,toUnit) with
+            | ("milliliters","liters") -> (millilitersToLiters(x*1m<milliliter>) |> removeUnit,"liters")
+            | ("milliliters","minimsUs") -> (millilitersToMinimsUs(x*1m<milliliter>) |> removeUnit,"minimsUs")
+            | ("milliliters","fluidDramsUs") -> (millilitersToFluidDramsUs(x*1m<milliliter>) |> removeUnit,"fluidDramsUs")
+            | ("milliliters","teaspoons") -> (millilitersToTeaspoons(x*1m<milliliter>) |> removeUnit,"teaspoons")
+            | ("milliliters","tablespoons") -> (millilitersToTablespoons(x*1m<milliliter>) |> removeUnit,"tablespoons")
+            | ("milliliters","shots") -> (millilitersToShots(x*1m<milliliter>) |> removeUnit,"shots")
+            | ("milliliters","fluidOuncesUs") -> (millilitersToFluidOuncesUs(x*1m<milliliter>) |> removeUnit,"fluidOuncesUs")
+            | ("milliliters","gillsUs") -> (millilitersToGillsUs(x*1m<milliliter>) |> removeUnit,"gillsUs")
+            | ("milliliters","cups") -> (millilitersToCups(x*1m<milliliter>) |> removeUnit,"cups")
+            | ("milliliters","pintsUs") -> (millilitersToPintsUs(x*1m<milliliter>) |> removeUnit,"pintsUs")
+            | ("milliliters","quartsUs") -> (millilitersToQuartsUs(x*1m<milliliter>) |> removeUnit,"quartsUs")
+            | ("milliliters","pottles") -> (millilitersToPottles(x*1m<milliliter>) |> removeUnit,"pottles")
+            | ("milliliters","gallonsUs") -> (millilitersToGallonsUs(x*1m<milliliter>) |> removeUnit,"gallonsUs")
+            | ("milliliters","barrels") -> (millilitersToBarrels(x*1m<milliliter>) |> removeUnit,"barrels")
+            | ("milliliters","hogsheads") -> (millilitersToHogsheads(x*1m<milliliter>) |> removeUnit,"hogsheads")
+            | ("milliliters","cubicInches") -> (millilitersToCubicInches(x*1m<milliliter>) |> removeUnit,"cubicInches")
+            | ("milliliters","minimsUk") -> (millilitersToMinimsUk(x*1m<milliliter>) |> removeUnit,"mimimsUk")
+            | ("milliliters","fluidDrachmsUk") -> (millilitersToFluidDrachmsUk(x*1m<milliliter>) |> removeUnit,"fluidDrachmsUk")
+            | ("milliliters","fluidOuncesUk") -> (millilitersToFluidOuncesUk(x*1m<milliliter>) |> removeUnit,"fluidOuncesUk")
+            | ("milliliters","gillsUk") -> (millilitersToGillsUk(x*1m<milliliter>) |> removeUnit,"gillsUk")
+            | ("milliliters","pintsUk") -> (millilitersToPintsUk(x*1m<milliliter>) |> removeUnit,"pintsUk")
+            | ("milliliters","quartsUk") -> (millilitersToQuartsUk(x*1m<milliliter>) |> removeUnit,"quartsUk")
+            | ("milliliters","gallonsUk") -> (millilitersToGallonsUk(x*1m<milliliter>) |> removeUnit,"gallonsUk")
+            | ("milliliters","pecks") -> (millilitersToPecks(x*1m<milliliter>) |> removeUnit,"pecks")
+            | ("milliliters","bushels") -> (millilitersToBushels(x*1m<milliliter>) |> removeUnit,"bushels")
+            | ("milliliters","quarters") -> (millilitersToQuarters(x*1m<milliliter>) |> removeUnit,"quarters")
+            | ("liters","gallonsUs") -> (litersToGallonsUs(x*1m<liter>) |> removeUnit,"gallonsUs")
+            | _ -> (0m,"conversionNotImplemented")
+
         let convertVolume ((x:decimal),fromUnit,toUnit) =
-            match fromUnit + "To" + toUnit with
-            | "millilitersToLiters" -> (millilitersToLiters(x*1m<milliliter>) |> removeUnit,"Liters")
-            | "millilitersToGallonsUs" -> (millilitersToGallonsUs(x*1m<milliliter>) |> removeUnit,"GallonsUs")
-            | "litersToGallonsUs" -> (litersToGallonsUs(x*1m<liter>) |> removeUnit,"Liters")
-            | _ -> (millilitersToLiters(x*1m<milliliter>) |> removeUnit,"Milliliters")
+            match List.contains fromUnit UnitsList.volumeList && List.contains toUnit UnitsList.volumeList with
+            | true -> convertVolumeVerified(x,fromUnit,toUnit)
+            | _ -> (0m,"unitNotSupported")
 
     module LengthConversion =
         //Metric to metric length
