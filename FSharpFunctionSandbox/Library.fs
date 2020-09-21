@@ -301,70 +301,70 @@ module FSharpFunctions =
 
     module VolumeConversion =
         //based on international yard
-        let litersPerUKGallon:decimal<liter/gallon_uk> = 4.54609m<liter/gallon_uk>
-        let litersPerUSGallon:decimal<liter/gallon_us> = 3.785411784m<liter/gallon_us>
+        let litersPerUkGallon:decimal<liter/gallon_uk> = 4.54609m<liter/gallon_uk>
+        let litersPerUsGallon:decimal<liter/gallon_us> = 3.785411784m<liter/gallon_us>
         let usGallonsPerUkGallon:decimal<gallon_us/gallon_uk> = 1.201m<gallon_us/gallon_uk>
         let cubicInchesPerGallonUs: decimal<cubicInch/gallon_us> = 231m<cubicInch/gallon_us>
 
         //US Volume
-        let minimPerFluidDramUs = 60m<minim_us/fluidDram_us>
-        let minimPerTeaspoon = 80m<minim_us/teaspoon>
-        let teaspoonsPerTablespoon = 3m<teaspoon/tablespoon>
-        let tablespoonsPerFluidOunceUs = 2m<tablespoon/fluidOunce_us>
-        let tablespoonsPerShot = 3m<tablespoon/shot>
+        let minimsPerFluidDramUs = 60m<minim_us/fluidDram_us>
+        let minimsPerTeaspoonUs = 80m<minim_us/teaspoon_us>
+        let teaspoonsPerTablespoonUs = 3m<teaspoon_us/tablespoon_us>
+        let tablespoonsPerFluidOunceUs = 2m<tablespoon_us/fluidOunce_us>
+        let tablespoonsPerShotUs = 3m<tablespoon_us/shot_us>
         let fluidOuncePerGillUs = 4m<fluidOunce_us/gill_us>
-        let gillsPerCupUs = 2m<gill_us/cup>
-        let cupsPerPintUs = 2m<cup/pint_us>
+        let gillsPerCupUs = 2m<gill_us/cup_us>
+        let cupsPerPintUs = 2m<cup_us/pint_us>
         let pintsPerQuartUs = 2m<pint_us/quart_us>
-        let quartsPerPottleUs = 2m<quart_us/pottle>
-        let pottlesPerGallonUs = 2m<pottle/gallon_us>
-        let gallonsPerBarrel = 31.5m<gallon_us/barrel>
-        let barrelsPerHogshead = 2m<barrel/hogshead>
+        let quartsPerPottleUs = 2m<quart_us/pottle_us>
+        let pottlesPerGallonUs = 2m<pottle_us/gallon_us>
+        let gallonsPerBarrelUs = 31.5m<gallon_us/barrel_us>
+        let barrelsPerHogsheadUs = 2m<barrel_us/hogshead_us>
 
-        let minimsUsToFluidDramsUs (min: decimal<minim_us>) = min / minimPerFluidDramUs
-        let fluidDramsUsToMinimsUs (fldr: decimal<fluidDram_us>) = fldr * minimPerFluidDramUs
-        let minimsUsToTeaspoons (min: decimal<minim_us>) = min / minimPerTeaspoon
-        let teaspoonsToMinimsUs (tsp: decimal<teaspoon>) = tsp * minimPerTeaspoon
-        let teaspoonsToTablespoons (tsp: decimal<teaspoon>) = tsp / teaspoonsPerTablespoon
-        let tablespoonsToTeaspoons (tbsp: decimal<tablespoon>) = tbsp * teaspoonsPerTablespoon
-        let fluidOuncesUsToTablespoons (flozUs: decimal<fluidOunce_us>) = flozUs * tablespoonsPerFluidOunceUs
-        let tablespoonsToFluidOuncesUs (tbsp: decimal<tablespoon>) = tbsp / tablespoonsPerFluidOunceUs
-        let tablespoonsToShots (tbsp: decimal<tablespoon>) = tbsp / tablespoonsPerShot
-        let shotsToTablespoons (shot: decimal<shot>) = shot * tablespoonsPerShot
+        let minimsUsToFluidDramsUs (min: decimal<minim_us>) = min / minimsPerFluidDramUs
+        let fluidDramsUsToMinimsUs (fldr: decimal<fluidDram_us>) = fldr * minimsPerFluidDramUs
+        let minimsUsToTeaspoonsUs (min: decimal<minim_us>) = min / minimsPerTeaspoonUs
+        let teaspoonsUsToMinimsUs (tsp: decimal<teaspoon_us>) = tsp * minimsPerTeaspoonUs
+        let teaspoonsUsToTablespoons (tsp: decimal<teaspoon_us>) = tsp / teaspoonsPerTablespoonUs
+        let tablespoonsUsToTeaspoonsUs (tbsp: decimal<tablespoon_us>) = tbsp * teaspoonsPerTablespoonUs
+        let fluidOuncesUsToTablespoonsUs (flozUs: decimal<fluidOunce_us>) = flozUs * tablespoonsPerFluidOunceUs
+        let tablespoonsUsToFluidOuncesUs (tbsp: decimal<tablespoon_us>) = tbsp / tablespoonsPerFluidOunceUs
+        let tablespoonsUsToShotsUs (tbsp: decimal<tablespoon_us>) = tbsp / tablespoonsPerShotUs
+        let shotsToTablespoonsUs (shot: decimal<shot_us>) = shot * tablespoonsPerShotUs
         let fluidOuncesUsToGillsUs (flOzUs: decimal<fluidOunce_us>) = flOzUs / fluidOuncePerGillUs
         let gillsUsToFluidOuncesUs (gill_us: decimal<gill_us>) = gill_us * fluidOuncePerGillUs
-        let cupsToGillsUs (cup: decimal<cup>) = cup * gillsPerCupUs
-        let gillsUsToCups (gill_us: decimal<gill_us>) = gill_us / gillsPerCupUs
-        let cupsToPintsUs (cup: decimal<cup>) = cup / cupsPerPintUs
-        let pintsUsToCups (pint: decimal<pint_us>) = pint * cupsPerPintUs
+        let cupsUsToGillsUs (cup: decimal<cup_us>) = cup * gillsPerCupUs
+        let gillsUsToCupsUs (gill_us: decimal<gill_us>) = gill_us / gillsPerCupUs
+        let cupsUsToPintsUs (cup: decimal<cup_us>) = cup / cupsPerPintUs
+        let pintsUsToCupsUs (pint: decimal<pint_us>) = pint * cupsPerPintUs
         let pintsUsToQuartsUs (pint: decimal<pint_us>) = pint / pintsPerQuartUs
         let quartsUsToPintsUs (qt: decimal<quart_us>) = qt * pintsPerQuartUs
-        let pottlesToQuartsUs (pot: decimal<pottle>) = pot * quartsPerPottleUs
-        let quartsUsToPottles (qt: decimal<quart_us>) = qt / quartsPerPottleUs
-        let pottlesToGallonsUs (pot: decimal<pottle>) = pot / pottlesPerGallonUs
-        let gallonsUsToPottles (gal: decimal<gallon_us>) = gal * pottlesPerGallonUs
-        let gallonsUsToBarrels (gal: decimal<gallon_us>) = gal / gallonsPerBarrel
-        let barrelsToGallonsUs (bbl: decimal<barrel>) = bbl * gallonsPerBarrel
-        let barrelsToHogsheads (bbl: decimal<barrel>) = bbl / barrelsPerHogshead
-        let hogsheadsToBarrels (hogs: decimal<hogshead>) = hogs * barrelsPerHogshead
+        let pottlesUsToQuartsUs (pot: decimal<pottle_us>) = pot * quartsPerPottleUs
+        let quartsUsToPottlesUs (qt: decimal<quart_us>) = qt / quartsPerPottleUs
+        let pottlesUsToGallonsUs (pot: decimal<pottle_us>) = pot / pottlesPerGallonUs
+        let gallonsUsToPottlesUs (gal: decimal<gallon_us>) = gal * pottlesPerGallonUs
+        let gallonsUsToBarrelsUs (gal: decimal<gallon_us>) = gal / gallonsPerBarrelUs
+        let barrelsUsToGallonsUs (bbl: decimal<barrel_us>) = bbl * gallonsPerBarrelUs
+        let barrelsUsToHogsheadsUs (bbl: decimal<barrel_us>) = bbl / barrelsPerHogsheadUs
+        let hogsheadsUsToBarrelsUs (hogs: decimal<hogshead_us>) = hogs * barrelsPerHogsheadUs
 
         let cubicInchesToGallonsUs (cuin: decimal<cubicInch>) = cuin / cubicInchesPerGallonUs
         let gallonsUsToCubicInches (gal: decimal<gallon_us>) = gal * cubicInchesPerGallonUs
-        let gallonsUsToLiters (gal: decimal<gallon_us>) = gal * litersPerUSGallon
-        let litersToGallonsUs (l: decimal<liter>) = l / litersPerUSGallon
+        let gallonsUsToLiters (gal: decimal<gallon_us>) = gal * litersPerUsGallon
+        let litersToGallonsUs (l: decimal<liter>) = l / litersPerUsGallon
 
         //UK Volume
-        let minimUkPerFluidDrachmUk = 60m<minim_uk/fluidDrachm_uk>
+        let minimPerFluidDrachmUk = 60m<minim_uk/fluidDrachm_uk>
         let fluidDrachmPerFlOzUk = 8m<fluidDrachm_uk/fluidOunce_uk>
         let fluidOuncePerGillUk = 5m<fluidOunce_uk/gill_uk>
         let gillsPerPintUk = 4m<gill_uk/pint_uk>
         let pintsPerQuartUk = 2m<pint_uk/quart_uk>
         let quartsPerGallonUk = 4m<quart_uk/gallon_uk>
-        let gallonsPerPeckUk = 2m<gallon_uk/peck>
-        let pecksPerBushelUk = 4m<peck/bushel>
-        let bushelsPerQuarterUk = 8m<bushel/quarter_vl>
-        let minimsUkToFluidDrachmsUk (min: decimal<minim_uk>) = min / minimUkPerFluidDrachmUk
-        let fluidDrachmsUkToMinimsUk (fldr: decimal<fluidDrachm_uk>) = fldr * minimUkPerFluidDrachmUk
+        let gallonsPerPeckUk = 2m<gallon_uk/peck_uk>
+        let pecksPerBushelUk = 4m<peck_uk/bushel_uk>
+        let bushelsPerQuarterUk = 8m<bushel_uk/quarter_vl_uk>
+        let minimsUkToFluidDrachmsUk (min: decimal<minim_uk>) = min / minimPerFluidDrachmUk
+        let fluidDrachmsUkToMinimsUk (fldr: decimal<fluidDrachm_uk>) = fldr * minimPerFluidDrachmUk
         let fluidDrachmsUkToFluidOuncesUk (flDrUk: decimal<fluidDrachm_uk>) = flDrUk / fluidDrachmPerFlOzUk
         let fluidOuncesUkToFluidDrachmsUk (flOzUk: decimal<fluidOunce_uk>) = flOzUk * fluidDrachmPerFlOzUk
         let fluidOuncesUkToGillsUk (floz: decimal<fluidOunce_uk>) = floz / fluidOuncePerGillUk
@@ -375,14 +375,14 @@ module FSharpFunctions =
         let quartsUkToPintsUk (qt: decimal<quart_uk>) = qt * pintsPerQuartUk
         let quartsUkToGallonsUk (qt: decimal<quart_uk>) = qt / quartsPerGallonUk
         let gallonsUkToQuartsUk (gal: decimal<gallon_uk>) = gal * quartsPerGallonUk
-        let pecksToGallonsUk (pk: decimal<peck>) = pk * gallonsPerPeckUk
-        let gallonsUkToPecks (gal: decimal<gallon_uk>) = gal / gallonsPerPeckUk
-        let pecksToBushels (gal: decimal<peck>) = gal / pecksPerBushelUk
-        let bushelsToPecks (bh: decimal<bushel>) = bh * pecksPerBushelUk
-        let bushelsToQuarters (bh: decimal<bushel>) = bh / bushelsPerQuarterUk
-        let quartersToBushels (qtr: decimal<quarter_vl>) = qtr * bushelsPerQuarterUk
-        let gallonsUkToLiters (gal: decimal<gallon_uk>) = gal * litersPerUKGallon
-        let litersToGallonsUk (l: decimal<liter>) = l / litersPerUKGallon
+        let pecksUkToGallonsUk (pk: decimal<peck_uk>) = pk * gallonsPerPeckUk
+        let gallonsUkToPecksUk (gal: decimal<gallon_uk>) = gal / gallonsPerPeckUk
+        let pecksUkToBushelsUk (gal: decimal<peck_uk>) = gal / pecksPerBushelUk
+        let bushelsUkToPecksUk (bh: decimal<bushel_uk>) = bh * pecksPerBushelUk
+        let bushelsUkToQuartersUk (bh: decimal<bushel_uk>) = bh / bushelsPerQuarterUk
+        let quartersUkToBushelsUk (qtr: decimal<quarter_vl_uk>) = qtr * bushelsPerQuarterUk
+        let gallonsUkToLiters (gal: decimal<gallon_uk>) = gal * litersPerUkGallon
+        let litersToGallonsUk (l: decimal<liter>) = l / litersPerUkGallon
 
         let gallonsUkToGallonsUs (gal: decimal<gallon_uk>) = gal * usGallonsPerUkGallon
         let gallonsUsToGallonsUk (gal: decimal<gallon_us>) = gal / usGallonsPerUkGallon
@@ -397,48 +397,48 @@ module FSharpFunctions =
         let usGallonsToUkGallons (usGallon: decimal<gallon_us>) = usGallon / usGallonsPerUkGallon
 
         let millilitersToGallonsUs x = millilitersToLiters x |> litersToGallonsUs
-        let millilitersToPottles x = millilitersToGallonsUs x |> gallonsUsToPottles
-        let millilitersToQuartsUs x = millilitersToPottles x |> pottlesToQuartsUs
+        let millilitersToPottlesUs x = millilitersToGallonsUs x |> gallonsUsToPottlesUs
+        let millilitersToQuartsUs x = millilitersToPottlesUs x |> pottlesUsToQuartsUs
         let millilitersToPintsUs x = millilitersToQuartsUs x |> quartsUsToPintsUs
-        let millilitersToCups x = millilitersToPintsUs x |> pintsUsToCups
-        let millilitersToGillsUs x = millilitersToCups x |> cupsToGillsUs
+        let millilitersToCupsUs x = millilitersToPintsUs x |> pintsUsToCupsUs
+        let millilitersToGillsUs x = millilitersToCupsUs x |> cupsUsToGillsUs
         let millilitersToFluidOuncesUs x = millilitersToGillsUs x |> gillsUsToFluidOuncesUs
-        let millilitersToTablespoons x = millilitersToFluidOuncesUs x |> fluidOuncesUsToTablespoons
-        let millilitersToShots x = millilitersToTablespoons x |> tablespoonsToShots
-        let millilitersToTeaspoons x = millilitersToTablespoons x |> tablespoonsToTeaspoons
-        let millilitersToMinimsUs x = millilitersToTeaspoons x |> teaspoonsToMinimsUs
+        let millilitersToTablespoonsUs x = millilitersToFluidOuncesUs x |> fluidOuncesUsToTablespoonsUs
+        let millilitersToShotsUs x = millilitersToTablespoonsUs x |> tablespoonsUsToShotsUs
+        let millilitersToTeaspoonsUs x = millilitersToTablespoonsUs x |> tablespoonsUsToTeaspoonsUs
+        let millilitersToMinimsUs x = millilitersToTeaspoonsUs x |> teaspoonsUsToMinimsUs
         let millilitersToFluidDramsUs x = millilitersToMinimsUs x |> minimsUsToFluidDramsUs
-        let millilitersToBarrels x = millilitersToGallonsUs x |> gallonsUsToBarrels
-        let millilitersToHogsheads x = millilitersToBarrels x |> barrelsToHogsheads
+        let millilitersToBarrelsUs x = millilitersToGallonsUs x |> gallonsUsToBarrelsUs
+        let millilitersToHogsheadsUs x = millilitersToBarrelsUs x |> barrelsUsToHogsheadsUs
         let millilitersToCubicInches x = millilitersToGallonsUs x |> gallonsUsToCubicInches
         let millilitersToGallonsUk x = millilitersToLiters x |> litersToGallonsUk
-        let millilitersToPecks x = millilitersToGallonsUk x |> gallonsUkToPecks
+        let millilitersToPecksUk x = millilitersToGallonsUk x |> gallonsUkToPecksUk
         let millilitersToQuartsUk x = millilitersToGallonsUk x |> gallonsUkToQuartsUk
         let millilitersToPintsUk x = millilitersToQuartsUk x |> quartsUkToPintsUk
         let millilitersToGillsUk x = millilitersToPintsUk x |> pintsUkToGillsUk
-        let millilitersToBushels x = millilitersToPecks x |> pecksToBushels
-        let millilitersToQuarters x = millilitersToBushels x |> bushelsToQuarters 
+        let millilitersToBushelsUk x = millilitersToPecksUk x |> pecksUkToBushelsUk
+        let millilitersToQuartersUk x = millilitersToBushelsUk x |> bushelsUkToQuartersUk 
         let millilitersToFluidOuncesUk x = millilitersToGillsUk x |> gillsUkToFluidOuncesUk
         let millilitersToFluidDrachmsUk x = millilitersToFluidOuncesUk x |> fluidOuncesUkToFluidDrachmsUk
         let millilitersToMinimsUk x = millilitersToFluidDrachmsUk x |> fluidDrachmsUkToMinimsUk
         
-        let litersToBarrels x = litersToGallonsUs x |> gallonsUsToBarrels
+        let litersToBarrelsUs x = litersToGallonsUs x |> gallonsUsToBarrelsUs
         let litersToCubicInches x = litersToGallonsUs x |> gallonsUsToCubicInches
-        let litersToPottles x = litersToGallonsUs x |> gallonsUsToPottles
-        let litersToQuartsUs x = litersToPottles x |> pottlesToQuartsUs
+        let litersToPottlesUs x = litersToGallonsUs x |> gallonsUsToPottlesUs
+        let litersToQuartsUs x = litersToPottlesUs x |> pottlesUsToQuartsUs
         let litersToPintsUs x = litersToQuartsUs x |> quartsUsToPintsUs
-        let litersToCups x = litersToPintsUs x |> pintsUsToCups
-        let litersToGillsUs x = litersToCups x |> cupsToGillsUs
+        let litersToCupsUs x = litersToPintsUs x |> pintsUsToCupsUs
+        let litersToGillsUs x = litersToCupsUs x |> cupsUsToGillsUs
         let litersToFluidOuncesUs x = litersToGillsUs x |> gillsUsToFluidOuncesUs
-        let litersToTablespoons x = litersToFluidOuncesUs x |> fluidOuncesUsToTablespoons
-        let litersToShots x = litersToTablespoons x |> tablespoonsToShots
-        let litersToTeaspoons x = litersToTablespoons x |> tablespoonsToTeaspoons
-        let litersToMinimsUs x = litersToTeaspoons x |> teaspoonsToMinimsUs
+        let litersToTablespoonsUs x = litersToFluidOuncesUs x |> fluidOuncesUsToTablespoonsUs
+        let litersToShotsUs x = litersToTablespoonsUs x |> tablespoonsUsToShotsUs
+        let litersToTeaspoonsUs x = litersToTablespoonsUs x |> tablespoonsUsToTeaspoonsUs
+        let litersToMinimsUs x = litersToTeaspoonsUs x |> teaspoonsUsToMinimsUs
         let litersToFluidDramsUs x = litersToMinimsUs x |> minimsUsToFluidDramsUs
-        let litersToHogsheads x = litersToBarrels x |> barrelsToHogsheads
-        let litersToPecks x = litersToGallonsUk x |> gallonsUkToPecks
-        let litersToBushels x = litersToPecks x |> pecksToBushels
-        let litersToQuarters x = litersToBushels x |> bushelsToQuarters
+        let litersToHogsheadsUs x = litersToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let litersToPecksUk x = litersToGallonsUk x |> gallonsUkToPecksUk
+        let litersToBushelsUk x = litersToPecksUk x |> pecksUkToBushelsUk
+        let litersToQuartersUk x = litersToBushelsUk x |> bushelsUkToQuartersUk
         let litersToQuartsUk x = litersToGallonsUk x |> gallonsUkToQuartsUk
         let litersToPintsUk x = litersToQuartsUk x |> quartsUkToPintsUk
         let litersToGillsUk x = litersToPintsUk x |> pintsUkToGillsUk
@@ -447,69 +447,69 @@ module FSharpFunctions =
         let litersToMinimsUk x = litersToFluidDrachmsUk x |> fluidDrachmsUkToMinimsUk
         
 
-        let minimsUsToTablespoons x = minimsUsToTeaspoons x |> teaspoonsToTablespoons
-        let minimsUsToFluidOuncesUs x = minimsUsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let minimsUsToShots x = minimsUsToTablespoons x |> tablespoonsToShots
+        let minimsUsToTablespoonsUs x = minimsUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let minimsUsToFluidOuncesUs x = minimsUsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let minimsUsToShotsUs x = minimsUsToTablespoonsUs x |> tablespoonsUsToShotsUs
         let minimsUsToGillsUs x = minimsUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let minimsUsToCups x = minimsUsToGillsUs x |> gillsUsToCups
-        let minimsUsToPintsUs x = minimsUsToCups x |> cupsToPintsUs
+        let minimsUsToCupsUs x = minimsUsToGillsUs x |> gillsUsToCupsUs
+        let minimsUsToPintsUs x = minimsUsToCupsUs x |> cupsUsToPintsUs
         let minimsUsToQuartsUs x = minimsUsToPintsUs x |> pintsUsToQuartsUs
-        let minimsUsToPottles x = minimsUsToQuartsUs x |> quartsUsToPottles
-        let minimsUsToGallonsUs x = minimsUsToPottles x |> pottlesToGallonsUs
+        let minimsUsToPottlesUs x = minimsUsToQuartsUs x |> quartsUsToPottlesUs
+        let minimsUsToGallonsUs x = minimsUsToPottlesUs x |> pottlesUsToGallonsUs
         let minimsUsToCubicInches x = minimsUsToGallonsUs x |> gallonsUsToCubicInches
-        let minimsUsToBarrels x = minimsUsToGallonsUs x |> gallonsUsToBarrels
+        let minimsUsToBarrelsUs x = minimsUsToGallonsUs x |> gallonsUsToBarrelsUs
         let minimsUsToLiters x = minimsUsToGallonsUs x |> gallonsUsToLiters
         let minimsUsToMilliliters x = minimsUsToLiters x |> litersToMilliliters
         let minimsUsToGallonsUk x = minimsUsToGallonsUs x |> gallonsUsToGallonsUk
-        let minimsUsToPecks x = minimsUsToGallonsUk x |> gallonsUkToPecks
-        let minimsUsToBushels x = minimsUsToPecks x |> pecksToBushels
+        let minimsUsToPecksUk x = minimsUsToGallonsUk x |> gallonsUkToPecksUk
+        let minimsUsToBushelsUk x = minimsUsToPecksUk x |> pecksUkToBushelsUk
         let minimsUsToQuartsUk x = minimsUsToGallonsUk x |> gallonsUkToQuartsUk
         let minimsUsToPintsUk x = minimsUsToQuartsUk x |> quartsUkToPintsUk
         let minimsUsToGillsUk x = minimsUsToPintsUk x |> pintsUkToGillsUk
         let minimsUsToFluidOuncesUk x = minimsUsToGillsUk x |> gillsUkToFluidOuncesUk
         let minimsUsToFluidDrachmsUk x = minimsUsToFluidOuncesUk x |> fluidOuncesUkToFluidDrachmsUk
         let minimsUsToMinimsUk x = minimsUsToFluidDrachmsUk x |> fluidDrachmsUkToMinimsUk
-        let minimsUsToHogsheads x = minimsUsToBarrels x |> barrelsToHogsheads
-        let minimsUsToQuarters x = minimsUsToBushels x |> bushelsToQuarters
+        let minimsUsToHogsheadsUs x = minimsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let minimsUsToQuartersUk x = minimsUsToBushelsUk x |> bushelsUkToQuartersUk
 
         let minimsUkToFluidOuncesUk x = minimsUkToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
         let minimsUkToGillsUk x = minimsUkToFluidOuncesUk x |> fluidOuncesUkToGillsUk
         let minimsUkToPintsUk x = minimsUkToGillsUk x |> gillsUkToPintsUk
         let minimsUkToQuartsUk x = minimsUkToPintsUk x |> pintsUkToQuartsUk
         let minimsUkToGallonsUk x = minimsUkToQuartsUk x |> quartsUkToGallonsUk
-        let minimsUkToPecks x = minimsUkToGallonsUk x |> gallonsUkToPecks
+        let minimsUkToPecksUk x = minimsUkToGallonsUk x |> gallonsUkToPecksUk
         let minimsUkToGallonsUs x = minimsUkToGallonsUk x |> gallonsUkToGallonsUs
         let minimsUkToCubicInches x = minimsUkToGallonsUs x |> gallonsUsToCubicInches
-        let minimsUkToBarrels x = minimsUkToGallonsUs x |> gallonsUsToBarrels
+        let minimsUkToBarrelsUs x = minimsUkToGallonsUs x |> gallonsUsToBarrelsUs
         let minimsUkToLiters x = minimsUkToGallonsUs x |> gallonsUsToLiters
-        let minimsUkToPottles x = minimsUkToGallonsUs x |> gallonsUsToPottles
-        let minimsUkToQuartsUs x = minimsUkToPottles x |> pottlesToQuartsUs
+        let minimsUkToPottlesUs x = minimsUkToGallonsUs x |> gallonsUsToPottlesUs
+        let minimsUkToQuartsUs x = minimsUkToPottlesUs x |> pottlesUsToQuartsUs
         let minimsUkToPintsUs x = minimsUkToQuartsUs x |> quartsUsToPintsUs
-        let minimsUkToCups x = minimsUkToPintsUs x |> pintsUsToCups
-        let minimsUkToGillsUs x = minimsUkToCups x |> cupsToGillsUs
+        let minimsUkToCupsUs x = minimsUkToPintsUs x |> pintsUsToCupsUs
+        let minimsUkToGillsUs x = minimsUkToCupsUs x |> cupsUsToGillsUs
         let minimsUkToFluidOuncesUs x = minimsUkToGillsUs x |> gillsUsToFluidOuncesUs
-        let minimsUkToTablespoons x = minimsUkToFluidOuncesUs x |> fluidOuncesUsToTablespoons
-        let minimsUkToShots x = minimsUkToTablespoons x |> tablespoonsToShots
-        let minimsUkToTeaspoons x = minimsUkToTablespoons x |> tablespoonsToTeaspoons
-        let minimsUkToMinimsUs x = minimsUkToTeaspoons x |> teaspoonsToMinimsUs
+        let minimsUkToTablespoonsUs x = minimsUkToFluidOuncesUs x |> fluidOuncesUsToTablespoonsUs
+        let minimsUkToShotsUs x = minimsUkToTablespoonsUs x |> tablespoonsUsToShotsUs
+        let minimsUkToTeaspoonsUs x = minimsUkToTablespoonsUs x |> tablespoonsUsToTeaspoonsUs
+        let minimsUkToMinimsUs x = minimsUkToTeaspoonsUs x |> teaspoonsUsToMinimsUs
         let minimsUkToFluidDramsUs x = minimsUkToMinimsUs x |> minimsUsToFluidDramsUs
-        let minimsUkToHogshead x = minimsUkToBarrels x |> barrelsToHogsheads
-        let minimsUkToBushels x = minimsUkToPecks x |> pecksToBushels
-        let minimsUkToQuarters x = minimsUkToBushels x |> bushelsToQuarters
+        let minimsUkToHogsheadsUs x = minimsUkToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let minimsUkToBushelsUk x = minimsUkToPecksUk x |> pecksUkToBushelsUk
+        let minimsUkToQuartersUk x = minimsUkToBushelsUk x |> bushelsUkToQuartersUk
         let minimsUkToMilliliters x = minimsUkToLiters x |> litersToMilliliters
 
-        let fluidDramsUsToTeaspoons x = fluidDramsUsToMinimsUs x |> minimsUsToTeaspoons
-        let fluidDramsUsToTablespoons x = fluidDramsUsToTeaspoons x |> teaspoonsToTablespoons
-        let fluidDramsUsToFluidOuncesUs x = fluidDramsUsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let fluidDramsUsToShots x = fluidDramsUsToTablespoons x |> tablespoonsToShots
+        let fluidDramsUsToTeaspoonsUs x = fluidDramsUsToMinimsUs x |> minimsUsToTeaspoonsUs
+        let fluidDramsUsToTablespoonsUs x = fluidDramsUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let fluidDramsUsToFluidOuncesUs x = fluidDramsUsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let fluidDramsUsToShotsUs x = fluidDramsUsToTablespoonsUs x |> tablespoonsUsToShotsUs
         let fluidDramsUsToGillsUs x = fluidDramsUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let fluidDramsUsToCups x = fluidDramsUsToGillsUs x |> gillsUsToCups
-        let fluidDramsUsToPintsUs x = fluidDramsUsToCups x |> cupsToPintsUs
+        let fluidDramsUsToCupsUs x = fluidDramsUsToGillsUs x |> gillsUsToCupsUs
+        let fluidDramsUsToPintsUs x = fluidDramsUsToCupsUs x |> cupsUsToPintsUs
         let fluidDramsUsToQuartsUs x = fluidDramsUsToPintsUs x |> pintsUsToQuartsUs
-        let fluidDramsUsToPottles x = fluidDramsUsToQuartsUs x |> quartsUsToPottles
-        let fluidDramsUsToGallonsUs x = fluidDramsUsToPottles x |> pottlesToGallonsUs
-        let fluidDramsUsToBarrels x = fluidDramsUsToGallonsUs x |> gallonsUsToBarrels
-        let fluidDramsUsToHogsheads x = fluidDramsUsToBarrels x |> barrelsToHogsheads
+        let fluidDramsUsToPottlesUs x = fluidDramsUsToQuartsUs x |> quartsUsToPottlesUs
+        let fluidDramsUsToGallonsUs x = fluidDramsUsToPottlesUs x |> pottlesUsToGallonsUs
+        let fluidDramsUsToBarrelsUs x = fluidDramsUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let fluidDramsUsToHogsheadsUs x = fluidDramsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
         let fluidDramsUsToCubicInches x = fluidDramsUsToGallonsUs x |> gallonsUsToCubicInches
         let fluidDramsUsToMinimsUk x = fluidDramsUsToMinimsUs x |> minimsUsToMinimsUk
         let fluidDramsUsToFluidDrachmsUk x = fluidDramsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
@@ -518,97 +518,97 @@ module FSharpFunctions =
         let fluidDramsUsToPintsUk x = fluidDramsUsToGillsUk x |> gillsUkToPintsUk
         let fluidDramsUsToQuartsUk x = fluidDramsUsToPintsUk x |> pintsUkToQuartsUk
         let fluidDramsUsToGallonsUk x = fluidDramsUsToQuartsUk x |> quartsUkToGallonsUk
-        let fluidDramsUsToPecks x = fluidDramsUsToGallonsUk x |> gallonsUkToPecks
-        let fluidDramsUsToBushels x = fluidDramsUsToPecks x |> pecksToBushels
-        let fluidDramsUsToQuarters x = fluidDramsUsToBushels x |> bushelsToQuarters
+        let fluidDramsUsToPecksUk x = fluidDramsUsToGallonsUk x |> gallonsUkToPecksUk
+        let fluidDramsUsToBushelsUk x = fluidDramsUsToPecksUk x |> pecksUkToBushelsUk
+        let fluidDramsUsToQuartersUk x = fluidDramsUsToBushelsUk x |> bushelsUkToQuartersUk
         let fluidDramsUsToMilliliters x = fluidDramsUsToMinimsUs x |> minimsUsToMilliliters
         let fluidDramsUsToLiters x = fluidDramsUsToMilliliters x |> millilitersToLiters
 
         let fluidDrachmsUkToMinimsUs x = fluidDrachmsUkToMinimsUk x |> minimsUkToMinimsUs
         let fluidDrachmsUkToFluidDramsUs x = fluidDrachmsUkToMinimsUs x |> minimsUsToFluidDramsUs
-        let fluidDrachmsUkToTeaspoons x = fluidDrachmsUkToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let fluidDrachmsUkToTablespoons x = fluidDrachmsUkToTeaspoons x |> teaspoonsToTablespoons
-        let fluidDrachmsUkToFluidOuncesUs x = fluidDrachmsUkToTablespoons x |> tablespoonsToFluidOuncesUs
-        let fluidDrachmsUkToShots x = fluidDrachmsUkToTablespoons x |> tablespoonsToShots
+        let fluidDrachmsUkToTeaspoonsUs x = fluidDrachmsUkToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let fluidDrachmsUkToTablespoonsUs x = fluidDrachmsUkToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let fluidDrachmsUkToFluidOuncesUs x = fluidDrachmsUkToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let fluidDrachmsUkToShotsUs x = fluidDrachmsUkToTablespoonsUs x |> tablespoonsUsToShotsUs
         let fluidDrachmsUkToGillsUs x = fluidDrachmsUkToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let fluidDrachmsUkToCups x = fluidDrachmsUkToGillsUs x |> gillsUsToCups
-        let fluidDrachmsUkToPintsUs x = fluidDrachmsUkToCups x |> cupsToPintsUs
+        let fluidDrachmsUkToCupsUs x = fluidDrachmsUkToGillsUs x |> gillsUsToCupsUs
+        let fluidDrachmsUkToPintsUs x = fluidDrachmsUkToCupsUs x |> cupsUsToPintsUs
         let fluidDrachmsUkToQuartsUs x = fluidDrachmsUkToPintsUs x |> pintsUsToQuartsUs
-        let fluidDrachmsUkToPottles x = fluidDrachmsUkToQuartsUs x |> quartsUsToPottles
-        let fluidDrachmsUkToGallonsUs x = fluidDrachmsUkToPottles x |> pottlesToGallonsUs
-        let fluidDrachmsUkToBarrels x = fluidDrachmsUkToGallonsUs x |> gallonsUsToBarrels
-        let fluidDrachmsUkToHogshead x = fluidDrachmsUkToBarrels x |> barrelsToHogsheads
+        let fluidDrachmsUkToPottlesUs x = fluidDrachmsUkToQuartsUs x |> quartsUsToPottlesUs
+        let fluidDrachmsUkToGallonsUs x = fluidDrachmsUkToPottlesUs x |> pottlesUsToGallonsUs
+        let fluidDrachmsUkToBarrelsUs x = fluidDrachmsUkToGallonsUs x |> gallonsUsToBarrelsUs
+        let fluidDrachmsUkToHogsheadUs x = fluidDrachmsUkToBarrelsUs x |> barrelsUsToHogsheadsUs
         let fluidDrachmsUkToCubicInches x = fluidDrachmsUkToGallonsUs x |> gallonsUsToCubicInches
         let fluidDrachmsUkToGillsUk x = fluidDrachmsUkToFluidOuncesUk x |> fluidOuncesUkToGillsUk
         let fluidDrachmsUkToPintsUk x = fluidDrachmsUkToGillsUk x |> gillsUkToPintsUk
         let fluidDrachmsUkToQuartsUk x = fluidDrachmsUkToPintsUk x |> pintsUkToQuartsUk
         let fluidDrachmsUkToGallonsUk x = fluidDrachmsUkToQuartsUk x |> quartsUkToGallonsUk
-        let fluidDrachmsUkToPecks x = fluidDrachmsUkToGallonsUk x |> gallonsUkToPecks
-        let fluidDrachmsUkToBushels x = fluidDrachmsUkToPecks x |> pecksToBushels
-        let fluidDrachmsUkToQuarters x = fluidDrachmsUkToBushels x |> bushelsToQuarters
+        let fluidDrachmsUkToPecksUk x = fluidDrachmsUkToGallonsUk x |> gallonsUkToPecksUk
+        let fluidDrachmsUkToBushelsUk x = fluidDrachmsUkToPecksUk x |> pecksUkToBushelsUk
+        let fluidDrachmsUkToQuartersUk x = fluidDrachmsUkToBushelsUk x |> bushelsUkToQuartersUk
         let fluidDrachmsUkToMilliliters x = fluidDrachmsUkToMinimsUk x |> minimsUkToMilliliters
         let fluidDrachmsUkToLiters x = fluidDrachmsUkToMilliliters x |> millilitersToLiters
 
-        let teaspoonsToFluidDramsUs x = teaspoonsToMinimsUs x |> minimsUsToFluidDramsUs
-        let teaspoonsToFluidOuncesUs x = teaspoonsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let teaspoonsToShots x = teaspoonsToTablespoons x |> tablespoonsToShots
-        let teaspoonsToGillsUs x = teaspoonsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let teaspoonsToCups x = teaspoonsToGillsUs x |> gillsUsToCups
-        let teaspoonsToPintsUs x = teaspoonsToCups x |> cupsToPintsUs
-        let teaspoonsToQuartsUs x = teaspoonsToPintsUs x |> pintsUsToQuartsUs
-        let teaspoonsToPottles x = teaspoonsToQuartsUs x |> quartsUsToPottles
-        let teaspoonsToGallonsUs x = teaspoonsToPottles x |> pottlesToGallonsUs
-        let teaspoonsToBarrels x = teaspoonsToGallonsUs x |> gallonsUsToBarrels
-        let teaspoonsToHogshead x = teaspoonsToBarrels x |> barrelsToHogsheads
-        let teaspoonsToCubicInches x = teaspoonsToGallonsUs x |> gallonsUsToCubicInches
-        let teaspoonsToMinimsUk x = teaspoonsToMinimsUs x |> minimsUsToMinimsUk
-        let teaspoonsToFluidDrachmsUk x = teaspoonsToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let teaspoonsToFluidOuncesUk x = teaspoonsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let teaspoonsToGillsUk x = teaspoonsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let teaspoonsToPintsUk x = teaspoonsToGillsUk x |> gillsUkToPintsUk
-        let teaspoonsToQuartsUk x = teaspoonsToPintsUk x |> pintsUkToQuartsUk
-        let teaspoonsToGallonsUk x = teaspoonsToQuartsUk x |> quartsUkToGallonsUk
-        let teaspoonsToPecks x = teaspoonsToGallonsUk x |> gallonsUkToPecks
-        let teaspoonsToBushels x = teaspoonsToPecks x |> pecksToBushels
-        let teaspoonsToQuarters x = teaspoonsToBushels x |> bushelsToQuarters
-        let teaspoonsToMilliliters x = teaspoonsToMinimsUs x |> minimsUsToMilliliters
-        let teaspoonsToLiters x = teaspoonsToMilliliters x |> millilitersToLiters
+        let teaspoonsUsToFluidDramsUs x = teaspoonsUsToMinimsUs x |> minimsUsToFluidDramsUs
+        let teaspoonsUsToFluidOuncesUs x = teaspoonsUsToTablespoons x |> tablespoonsUsToFluidOuncesUs
+        let teaspoonsUsToShotsUs x = teaspoonsUsToTablespoons x |> tablespoonsUsToShotsUs
+        let teaspoonsUsToGillsUs x = teaspoonsUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
+        let teaspoonsUsToCupsUs x = teaspoonsUsToGillsUs x |> gillsUsToCupsUs
+        let teaspoonsUsToPintsUs x = teaspoonsUsToCupsUs x |> cupsUsToPintsUs
+        let teaspoonsUsToQuartsUs x = teaspoonsUsToPintsUs x |> pintsUsToQuartsUs
+        let teaspoonsUsToPottlesUs x = teaspoonsUsToQuartsUs x |> quartsUsToPottlesUs
+        let teaspoonsUsToGallonsUs x = teaspoonsUsToPottlesUs x |> pottlesUsToGallonsUs
+        let teaspoonsUsToBarrelsUs x = teaspoonsUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let teaspoonsUsToHogsheadsUs x = teaspoonsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let teaspoonsUsToCubicInches x = teaspoonsUsToGallonsUs x |> gallonsUsToCubicInches
+        let teaspoonsUsToMinimsUk x = teaspoonsUsToMinimsUs x |> minimsUsToMinimsUk
+        let teaspoonsUsToFluidDrachmsUk x = teaspoonsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let teaspoonsUsToFluidOuncesUk x = teaspoonsUsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let teaspoonsUsToGillsUk x = teaspoonsUsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let teaspoonsUsToPintsUk x = teaspoonsUsToGillsUk x |> gillsUkToPintsUk
+        let teaspoonsUsToQuartsUk x = teaspoonsUsToPintsUk x |> pintsUkToQuartsUk
+        let teaspoonsUsToGallonsUk x = teaspoonsUsToQuartsUk x |> quartsUkToGallonsUk
+        let teaspoonsUsToPecksUk x = teaspoonsUsToGallonsUk x |> gallonsUkToPecksUk
+        let teaspoonsUsToBushelsUk x = teaspoonsUsToPecksUk x |> pecksUkToBushelsUk
+        let teaspoonsUsToQuartersUk x = teaspoonsUsToBushelsUk x |> bushelsUkToQuartersUk
+        let teaspoonsUsToMilliliters x = teaspoonsUsToMinimsUs x |> minimsUsToMilliliters
+        let teaspoonsUsToLiters x = teaspoonsUsToMilliliters x |> millilitersToLiters
 
-        let tablespoonsToMinimsUs x = tablespoonsToTeaspoons x |> teaspoonsToMinimsUs
-        let tablespoonsToFluidDramUs x = tablespoonsToMinimsUs x |> minimsUsToFluidDramsUs
-        let tablespoonsToGillsUs x = tablespoonsToFluidDramUs x |> fluidDramsUsToGillsUs
-        let tablespoonsToCups x = tablespoonsToGillsUs x |> gillsUsToCups
-        let tablespoonsToPintsUs x = tablespoonsToCups x |> cupsToPintsUs
-        let tablespoonsToQuartsUs x = tablespoonsToPintsUs x |> pintsUsToQuartsUs
-        let tablespoonsToPottles x = tablespoonsToQuartsUs x |> quartsUsToPottles
-        let tablespoonsToGallonsUs x = tablespoonsToPottles x |> pottlesToGallonsUs
-        let tablespoonsToBarrels x = tablespoonsToGallonsUs x |> gallonsUsToBarrels
-        let tablespoonsToHogsheads x = tablespoonsToBarrels x |> barrelsToHogsheads
-        let tablespoonsToCubicInches x = tablespoonsToGallonsUs x |> gallonsUsToCubicInches
-        let tablespoonsToMinimsUk x = tablespoonsToMinimsUs x |> minimsUsToMinimsUk
-        let tablespoonsToFluidDrachmsUk x = tablespoonsToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let tablespoonsToFluidOuncesUk x = tablespoonsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let tablespoonsToGillsUk x = tablespoonsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let tablespoonsToPintsUk x = tablespoonsToGillsUk x |> gillsUkToPintsUk
-        let tablespoonsToQuartsUk x = tablespoonsToPintsUk x |> pintsUkToQuartsUk
-        let tablespoonsToGallonsUk x = tablespoonsToQuartsUk x |> quartsUkToGallonsUk
-        let tablespoonsToPecks x = tablespoonsToGallonsUk x |> gallonsUkToPecks
-        let tablespoonsToBushels x = tablespoonsToPecks x |> pecksToBushels
-        let tablespoonsToQuarters x = tablespoonsToBushels x |> bushelsToQuarters
-        let tablespoonsToMilliliters x = tablespoonsToMinimsUs x |> minimsUsToMilliliters
-        let tablespoonsToLiters x = tablespoonsToMilliliters x |> millilitersToLiters
+        let tablespoonsUsToMinimsUs x = tablespoonsUsToTeaspoonsUs x |> teaspoonsUsToMinimsUs
+        let tablespoonsUsToFluidDramsUs x = tablespoonsUsToMinimsUs x |> minimsUsToFluidDramsUs
+        let tablespoonsUsToGillsUs x = tablespoonsUsToFluidDramsUs x |> fluidDramsUsToGillsUs
+        let tablespoonsUsToCupsUs x = tablespoonsUsToGillsUs x |> gillsUsToCupsUs
+        let tablespoonsUsToPintsUs x = tablespoonsUsToCupsUs x |> cupsUsToPintsUs
+        let tablespoonsUsToQuartsUs x = tablespoonsUsToPintsUs x |> pintsUsToQuartsUs
+        let tablespoonsUsToPottlesUs x = tablespoonsUsToQuartsUs x |> quartsUsToPottlesUs
+        let tablespoonsUsToGallonsUs x = tablespoonsUsToPottlesUs x |> pottlesUsToGallonsUs
+        let tablespoonsUsToBarrelsUs x = tablespoonsUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let tablespoonsUsToHogsheadsUs x = tablespoonsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let tablespoonsUsToCubicInches x = tablespoonsUsToGallonsUs x |> gallonsUsToCubicInches
+        let tablespoonsUsToMinimsUk x = tablespoonsUsToMinimsUs x |> minimsUsToMinimsUk
+        let tablespoonsUsToFluidDrachmsUk x = tablespoonsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let tablespoonsUsToFluidOuncesUk x = tablespoonsUsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let tablespoonsUsToGillsUk x = tablespoonsUsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let tablespoonsUsToPintsUk x = tablespoonsUsToGillsUk x |> gillsUkToPintsUk
+        let tablespoonsUsToQuartsUk x = tablespoonsUsToPintsUk x |> pintsUkToQuartsUk
+        let tablespoonsUsToGallonsUk x = tablespoonsUsToQuartsUk x |> quartsUkToGallonsUk
+        let tablespoonsUsToPecksUk x = tablespoonsUsToGallonsUk x |> gallonsUkToPecksUk
+        let tablespoonsUsToBushelsUk x = tablespoonsUsToPecksUk x |> pecksUkToBushelsUk
+        let tablespoonsUsToQuartersUk x = tablespoonsUsToBushelsUk x |> bushelsUkToQuartersUk
+        let tablespoonsUsToMilliliters x = tablespoonsUsToMinimsUs x |> minimsUsToMilliliters
+        let tablespoonsUsToLiters x = tablespoonsUsToMilliliters x |> millilitersToLiters
 
-        let fluidOuncesUsToMinimsUs x = fluidOuncesUsToTablespoons x |> tablespoonsToMinimsUs
+        let fluidOuncesUsToMinimsUs x = fluidOuncesUsToTablespoonsUs x |> tablespoonsUsToMinimsUs
         let fluidOuncesUsToFluidDramsUs x = fluidOuncesUsToMinimsUs x |> minimsUsToFluidDramsUs
-        let fluidOuncesUsToTeaspoons x = fluidOuncesUsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let fluidOuncesUsToShots x = fluidOuncesUsToTeaspoons x |> teaspoonsToShots
-        let fluidOuncesUsToCups x = fluidOuncesUsToTablespoons x |> tablespoonsToCups
-        let fluidOuncesUsToPintsUs x = fluidOuncesUsToCups x |> cupsToPintsUs
+        let fluidOuncesUsToTeaspoonsUs x = fluidOuncesUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let fluidOuncesUsToShotsUs x = fluidOuncesUsToTeaspoonsUs x |> teaspoonsUsToShotsUs
+        let fluidOuncesUsToCupsUs x = fluidOuncesUsToTablespoonsUs x |> tablespoonsUsToCupsUs
+        let fluidOuncesUsToPintsUs x = fluidOuncesUsToCupsUs x |> cupsUsToPintsUs
         let fluidOuncesUsToQuartsUs x = fluidOuncesUsToPintsUs x |> pintsUsToQuartsUs
-        let fluidOuncesUsToPottles x = fluidOuncesUsToQuartsUs x |> quartsUsToPottles
-        let fluidOuncesUsToGallonsUs x = fluidOuncesUsToPottles x |> pottlesToGallonsUs
-        let fluidOuncesUsToBarrels x = fluidOuncesUsToGallonsUs x |> gallonsUsToBarrels
-        let fluidOuncesUsToHogsheads x = fluidOuncesUsToBarrels x |> barrelsToHogsheads
+        let fluidOuncesUsToPottlesUs x = fluidOuncesUsToQuartsUs x |> quartsUsToPottlesUs
+        let fluidOuncesUsToGallonsUs x = fluidOuncesUsToPottlesUs x |> pottlesUsToGallonsUs
+        let fluidOuncesUsToBarrelsUs x = fluidOuncesUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let fluidOuncesUsToHogsheadsUs x = fluidOuncesUsToBarrelsUs x |> barrelsUsToHogsheadsUs
         let fluidOuncesUsToCubicInches x = fluidOuncesUsToGallonsUs x |> gallonsUsToCubicInches
         let fluidOuncesUsToMinimsUk x = fluidOuncesUsToMinimsUs x |> minimsUsToMinimsUk
         let fluidOuncesUsToFluidDrachmsUk x = fluidOuncesUsToMinimsUk x |> minimsUkToFluidDrachmsUk
@@ -617,48 +617,48 @@ module FSharpFunctions =
         let fluidOuncesUsToPintsUk x = fluidOuncesUsToGillsUk x |> gillsUkToPintsUk
         let fluidOuncesUsToQuartsUk x = fluidOuncesUsToPintsUk x |> pintsUkToQuartsUk
         let fluidOuncesUsToGallonsUk x = fluidOuncesUsToQuartsUk x |> quartsUkToGallonsUk
-        let fluidOuncesUsToPecks x = fluidOuncesUsToGallonsUk x |> gallonsUkToPecks
-        let fluidOuncesUsToBushels x = fluidOuncesUsToPecks x |> pecksToBushels
-        let fluidOuncesUsToQuarters x = fluidOuncesUsToBushels x |> bushelsToQuarters
+        let fluidOuncesUsToPecksUk x = fluidOuncesUsToGallonsUk x |> gallonsUkToPecksUk
+        let fluidOuncesUsToBushelsUk x = fluidOuncesUsToPecksUk x |> pecksUkToBushelsUk
+        let fluidOuncesUsToQuartersUk x = fluidOuncesUsToBushelsUk x |> bushelsUkToQuartersUk
         let fluidOuncesUsToMilliliters x = fluidOuncesUsToMinimsUs x |> minimsUsToMilliliters
         let fluidOuncesUsToLiters x = fluidOuncesUsToMilliliters x |> millilitersToLiters
 
         let fluidOuncesUkToMinimsUs x = fluidOuncesUkToFluidDrachmsUk x |> fluidDrachmsUkToMinimsUs
         let fluidOuncesUkToFluidOuncesUs x = fluidOuncesUkToMinimsUs x |> minimsUsToFluidOuncesUs
         let fluidOuncesUkToFluidDramsUs x = fluidOuncesUkToMinimsUs x |> minimsUsToFluidDramsUs
-        let fluidOuncesUkToTeaspoons x = fluidOuncesUkToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let fluidOuncesUkToTablespoons x = fluidOuncesUkToTeaspoons x |> teaspoonsToTablespoons
-        let fluidOuncesUkToShots x = fluidOuncesUkToTablespoons x |> tablespoonsToShots
-        let fluidOuncesUkToGillsUs x = fluidOuncesUkToTablespoons x |> tablespoonsToGillsUs
-        let fluidOuncesUkToCups x = fluidOuncesUkToGillsUs x |> gillsUsToCups
-        let fluidOuncesUkToPintsUs x = fluidOuncesUkToCups x |> cupsToPintsUs
+        let fluidOuncesUkToTeaspoonsUs x = fluidOuncesUkToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let fluidOuncesUkToTablespoonsUs x = fluidOuncesUkToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let fluidOuncesUkToShotsUs x = fluidOuncesUkToTablespoonsUs x |> tablespoonsUsToShotsUs
+        let fluidOuncesUkToGillsUs x = fluidOuncesUkToTablespoonsUs x |> tablespoonsUsToGillsUs
+        let fluidOuncesUkToCupsUs x = fluidOuncesUkToGillsUs x |> gillsUsToCupsUs
+        let fluidOuncesUkToPintsUs x = fluidOuncesUkToCupsUs x |> cupsUsToPintsUs
         let fluidOuncesUkToQuartsUs x = fluidOuncesUkToPintsUs x |> pintsUsToQuartsUs
-        let fluidOuncesUkToPottles x = fluidOuncesUkToQuartsUs x |> quartsUsToPottles
-        let fluidOuncesUkToGallonsUs x = fluidOuncesUkToPottles x |> pottlesToGallonsUs
-        let fluidOuncesUkToBarrels x = fluidOuncesUkToGallonsUs x |> gallonsUsToBarrels
-        let fluidOuncesUkToHogsheads x = fluidOuncesUkToBarrels x |> barrelsToHogsheads
+        let fluidOuncesUkToPottlesUs x = fluidOuncesUkToQuartsUs x |> quartsUsToPottlesUs
+        let fluidOuncesUkToGallonsUs x = fluidOuncesUkToPottlesUs x |> pottlesUsToGallonsUs
+        let fluidOuncesUkToBarrelsUs x = fluidOuncesUkToGallonsUs x |> gallonsUsToBarrelsUs
+        let fluidOuncesUkToHogsheadsUs x = fluidOuncesUkToBarrelsUs x |> barrelsUsToHogsheadsUs
         let fluidOuncesUkToCubicInches x = fluidOuncesUkToGallonsUs x |> gallonsUsToCubicInches
         let fluidOuncesUkToMinimsUk x = fluidOuncesUkToFluidDrachmsUk x |> fluidDrachmsUkToMinimsUk
         let fluidOuncesUkToPintsUk x = fluidOuncesUkToGillsUk x |> gillsUkToPintsUk
         let fluidOuncesUkToQuartsUk x = fluidOuncesUkToPintsUk x |> pintsUkToQuartsUk
         let fluidOuncesUkToGallonsUk x = fluidOuncesUkToQuartsUk x |> quartsUkToGallonsUk
-        let fluidOuncesUkToPecks x = fluidOuncesUkToGallonsUk x |> gallonsUkToPecks
-        let fluidOuncesUkToBushels x = fluidOuncesUkToPecks x |> pecksToBushels
-        let fluidOuncesUkToQuarters x = fluidOuncesUkToBushels x |> bushelsToQuarters
+        let fluidOuncesUkToPecksUk x = fluidOuncesUkToGallonsUk x |> gallonsUkToPecksUk
+        let fluidOuncesUkToBushelsUk x = fluidOuncesUkToPecksUk x |> pecksUkToBushelsUk
+        let fluidOuncesUkToQuartersUk x = fluidOuncesUkToBushelsUk x |> bushelsUkToQuartersUk
         let fluidOuncesUkToMilliliters x = fluidOuncesUkToMinimsUk x |> minimsUkToMilliliters
         let fluidOuncesUkToLiters x = fluidOuncesUkToMilliliters x |> millilitersToLiters
 
         let gillsUsToMinimsUs x = gillsUsToFluidOuncesUs x |> fluidOuncesUsToMinimsUs
         let gillsUsToFluidDramsUs x = gillsUsToMinimsUs x |> minimsUsToFluidDramsUs
-        let gillsUsToTeaspoons x = gillsUsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let gillsUsToTablespoons x = gillsUsToTeaspoons x |> teaspoonsToTablespoons
-        let gillsUsToShots x = gillsUsToTablespoons x |> tablespoonsToShots
-        let gillsUsToPintsUs x = gillsUsToCups x |> cupsToPintsUs
+        let gillsUsToTeaspoonsUs x = gillsUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let gillsUsToTablespoonsUs x = gillsUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let gillsUsToShotsUs x = gillsUsToTablespoonsUs x |> tablespoonsUsToShotsUs
+        let gillsUsToPintsUs x = gillsUsToCupsUs x |> cupsUsToPintsUs
         let gillsUsToQuartsUs x = gillsUsToPintsUs x |> pintsUsToQuartsUs
-        let gillsUsToPottles x = gillsUsToQuartsUs x |> quartsUsToPottles
-        let gillsUsToGallonsUs x = gillsUsToPottles x |> pottlesToGallonsUs
-        let gillsUsToBarrels x = gillsUsToGallonsUs x |> gallonsUsToBarrels
-        let gillsUsToHogsheads x = gillsUsToBarrels x |> barrelsToHogsheads
+        let gillsUsToPottlesUs x = gillsUsToQuartsUs x |> quartsUsToPottlesUs
+        let gillsUsToGallonsUs x = gillsUsToPottlesUs x |> pottlesUsToGallonsUs
+        let gillsUsToBarrelsUs x = gillsUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let gillsUsToHogsheadsUs x = gillsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
         let gillsUsToCubicInches x = gillsUsToGallonsUs x |> gallonsUsToCubicInches
         let gillsUsToMinimsUk x = gillsUsToMinimsUs x |> minimsUsToMinimsUk
         let gillsUsToFluidDrachmsUk x = gillsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
@@ -667,99 +667,99 @@ module FSharpFunctions =
         let gillsUsToPintsUk x = gillsUsToGillsUk x |> gillsUkToPintsUk
         let gillsUsToQuartsUk x = gillsUsToPintsUk x |> pintsUkToQuartsUk
         let gillsUsToGallonsUk x = gillsUsToQuartsUk x |> quartsUkToGallonsUk
-        let gillsUsToPecks x = gillsUsToGallonsUk x |> gallonsUkToPecks
-        let gillsUsToBushels x = gillsUsToPecks x |> pecksToBushels
-        let gillsUsToQuarters x = gillsUsToBushels x |> bushelsToQuarters
+        let gillsUsToPecksUk x = gillsUsToGallonsUk x |> gallonsUkToPecksUk
+        let gillsUsToBushelsUk x = gillsUsToPecksUk x |> pecksUkToBushelsUk
+        let gillsUsToQuartersUk x = gillsUsToBushelsUk x |> bushelsUkToQuartersUk
         let gillsUsToMilliliters x = gillsUsToMinimsUs x |> minimsUsToMilliliters
         let gillsUsToLiters x = gillsUsToMilliliters x |> millilitersToLiters
 
         let gillsUkToMinimsUs x = gillsUkToFluidOuncesUk x |> fluidOuncesUkToMinimsUs
         let gillsUkToFluidDramsUs x = gillsUkToMinimsUs x |> minimsUsToFluidDramsUs
-        let gillsUkToTeaspoons x = gillsUkToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let gillsUkToTablespoons x = gillsUkToTeaspoons x |> teaspoonsToTablespoons
-        let gillsUkToFluidOuncesUs x = gillsUkToTablespoons x |> tablespoonsToFluidOuncesUs
-        let gillsUkToShots x = gillsUkToTablespoons x |> tablespoonsToShots
-        let gillsUkToGillsUs x = gillsUkToTeaspoons x |> teaspoonsToGillsUs
-        let gillsUkToCups x = gillsUkToGillsUs x |> gillsUsToCups
-        let gillsUkToPintsUs x = gillsUkToCups x |> cupsToPintsUs
+        let gillsUkToTeaspoonsUs x = gillsUkToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let gillsUkToTablespoonsUs x = gillsUkToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let gillsUkToFluidOuncesUs x = gillsUkToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let gillsUkToShotsUs x = gillsUkToTablespoonsUs x |> tablespoonsUsToShotsUs
+        let gillsUkToGillsUs x = gillsUkToTeaspoonsUs x |> teaspoonsUsToGillsUs
+        let gillsUkToCupsUs x = gillsUkToGillsUs x |> gillsUsToCupsUs
+        let gillsUkToPintsUs x = gillsUkToCupsUs x |> cupsUsToPintsUs
         let gillsUkToQuartsUs x = gillsUkToPintsUs x |> pintsUsToQuartsUs
-        let gillsUkToPottles x = gillsUkToQuartsUs x |> quartsUsToPottles
-        let gillsUkToGallonsUs x = gillsUkToPottles x |> pottlesToGallonsUs
-        let gillsUkToBarrels x = gillsUkToGallonsUs x |> gallonsUsToBarrels
-        let gillsUkToHogsheads x = gillsUkToBarrels x |> barrelsToHogsheads
+        let gillsUkToPottlesUs x = gillsUkToQuartsUs x |> quartsUsToPottlesUs
+        let gillsUkToGallonsUs x = gillsUkToPottlesUs x |> pottlesUsToGallonsUs
+        let gillsUkToBarrelsUs x = gillsUkToGallonsUs x |> gallonsUsToBarrelsUs
+        let gillsUkToHogsheadsUs x = gillsUkToBarrelsUs x |> barrelsUsToHogsheadsUs
         let gillsUkToCubicInches x = gillsUkToGallonsUs x |> gallonsUsToCubicInches
         let gillsUkToMinimsUk x = gillsUkToFluidOuncesUk x |> fluidOuncesUkToMinimsUk
         let gillsUkToFluidDrachmsUk x = gillsUkToMinimsUk x |> minimsUkToFluidDrachmsUk
         let gillsUkToQuartsUk x = gillsUkToPintsUk x |> pintsUkToQuartsUk
         let gillsUkToGallonsUk x = gillsUkToQuartsUk x |> quartsUkToGallonsUk
-        let gillsUkToPecks x = gillsUkToGallonsUk x |> gallonsUkToPecks
-        let gillsUkToBushels x = gillsUkToPecks x |> pecksToBushels
-        let gillsUkToQuarters x = gillsUkToBushels x |> bushelsToQuarters
+        let gillsUkToPecksUk x = gillsUkToGallonsUk x |> gallonsUkToPecksUk
+        let gillsUkToBushelsUk x = gillsUkToPecksUk x |> pecksUkToBushelsUk
+        let gillsUkToQuartersUk x = gillsUkToBushelsUk x |> bushelsUkToQuartersUk
         let gillsUkToMilliliters x = gillsUkToMinimsUk x |> minimsUkToMilliliters
         let gillsUkToLiters x = gillsUkToMilliliters x |> millilitersToLiters
 
-        let shotsToMinimsUs x = shotsToTablespoons x |> tablespoonsToMinimsUs
-        let shotsToFluidDramsUs x = shotsToMinimsUs x |> minimsUsToFluidDramsUs
-        let shotsToTeaspoons x = shotsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let shotsToFluidOunceUs x = shotsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let shotsToGillsUs x = shotsToFluidOunceUs x |> fluidOuncesUsToGillsUs
-        let shotsToCups x = shotsToGillsUs x |> gillsUsToCups
-        let shotsToPintsUs x = shotsToCups x |> cupsToPintsUs
-        let shotsToQuartsUs x = shotsToPintsUs x |> pintsUsToQuartsUs
-        let shotsToPottles x = shotsToQuartsUs x |> quartsUsToPottles
-        let shotsToGallonsUs x = shotsToPottles x |> pottlesToGallonsUs
-        let shotsToBarrels x = shotsToGallonsUs x |> gallonsUsToBarrels
-        let shotsToHogsheads x = shotsToBarrels x |> barrelsToHogsheads
-        let shotsToCubicInches x = shotsToGallonsUs x |> gallonsUsToCubicInches
-        let shotsToMinimsUk x = shotsToMinimsUs x |> minimsUsToMinimsUk
-        let shotsToFluidDrachmsUk x = shotsToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let shotsToFluidOuncesUk x = shotsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let shotsToGillsUk x = shotsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let shotsToPintsUk x = shotsToGillsUk x |> gillsUkToPintsUk
-        let shotsToQuartsUk x = shotsToPintsUk x |> pintsUkToQuartsUk
-        let shotsToGallonsUk x = shotsToQuartsUk x |> quartsUkToGallonsUk
-        let shotsToPecks x = shotsToGallonsUk x |> gallonsUkToPecks
-        let shotsToBushels x = shotsToPecks x |> pecksToBushels
-        let shotsToQuarters x = shotsToBushels x |> bushelsToQuarters
-        let shotsToMilliliters x = shotsToMinimsUs x |> minimsUsToMilliliters
-        let shotsToLiters x = shotsToMilliliters x |> millilitersToLiters
+        let shotsUsToMinimsUs x = shotsToTablespoonsUs x |> tablespoonsUsToMinimsUs
+        let shotsUsToFluidDramsUs x = shotsUsToMinimsUs x |> minimsUsToFluidDramsUs
+        let shotsUsToTeaspoonsUs x = shotsUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let shotsUsToFluidOuncesUs x = shotsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let shotsUsToGillsUs x = shotsUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
+        let shotsUsToCupsUs x = shotsUsToGillsUs x |> gillsUsToCupsUs
+        let shotsUsToPintsUs x = shotsUsToCupsUs x |> cupsUsToPintsUs
+        let shotsUsToQuartsUs x = shotsUsToPintsUs x |> pintsUsToQuartsUs
+        let shotsUsToPottlesUs x = shotsUsToQuartsUs x |> quartsUsToPottlesUs
+        let shotsUsToGallonsUs x = shotsUsToPottlesUs x |> pottlesUsToGallonsUs
+        let shotsUsToBarrelsUs x = shotsUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let shotsUsToHogsheadsUs x = shotsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let shotsUsToCubicInches x = shotsUsToGallonsUs x |> gallonsUsToCubicInches
+        let shotsUsToMinimsUk x = shotsUsToMinimsUs x |> minimsUsToMinimsUk
+        let shotsUsToFluidDrachmsUk x = shotsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let shotsUsToFluidOuncesUk x = shotsUsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let shotsUsToGillsUk x = shotsUsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let shotsUsToPintsUk x = shotsUsToGillsUk x |> gillsUkToPintsUk
+        let shotsUsToQuartsUk x = shotsUsToPintsUk x |> pintsUkToQuartsUk
+        let shotsUsToGallonsUk x = shotsUsToQuartsUk x |> quartsUkToGallonsUk
+        let shotsUsToPecksUk x = shotsUsToGallonsUk x |> gallonsUkToPecksUk
+        let shotsUsToBushelsUk x = shotsUsToPecksUk x |> pecksUkToBushelsUk
+        let shotsUsToQuartersUk x = shotsUsToBushelsUk x |> bushelsUkToQuartersUk
+        let shotsUsToMilliliters x = shotsUsToMinimsUs x |> minimsUsToMilliliters
+        let shotsUsToLiters x = shotsUsToMilliliters x |> millilitersToLiters
 
-        let cupsToMinimsUs x = cupsToGillsUs x |> gillsUsToMinimsUs
-        let cupsToFluidDramsUs x = cupsToMinimsUs x |> minimsUsToFluidDramsUs
-        let cupsToTeaspoons x = cupsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let cupsToTablespoons x = cupsToTeaspoons x |> teaspoonsToTablespoons
-        let cupsToFluidOuncesUs x = cupsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let cupsToShots x = cupsToFluidOuncesUs x |> fluidOuncesUsToShots
-        let cupsToQuartsUs x = cupsToPintsUs x |> pintsUsToQuartsUs
-        let cupsToPottles x = cupsToQuartsUs x |> quartsUsToPottles
-        let cupsToGallonsUs x = cupsToPottles x |> pottlesToGallonsUs
-        let cupsToBarrels x = cupsToGallonsUs x |> gallonsUsToBarrels
-        let cupsToHogsheads x = cupsToBarrels x |> barrelsToHogsheads
-        let cupsToCubicInches x = cupsToGallonsUs x |> gallonsUsToCubicInches
-        let cupsToMinimsUk x = cupsToMinimsUs x |> minimsUsToMinimsUk
-        let cupsToFluidDrachmsUk x = cupsToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let cupsToFluidOuncesUk x = cupsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let cupsToGillsUk x = cupsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let cupsToPintsUk x = cupsToGillsUk x |> gillsUkToPintsUk
-        let cupsToQuartsUk x = cupsToPintsUk x |> pintsUkToQuartsUk
-        let cupsToGallonsUk x = cupsToQuartsUk x |> quartsUkToGallonsUk
-        let cupsToPecks x = cupsToGallonsUk x |> gallonsUkToPecks
-        let cupsToBushels x = cupsToPecks x |> pecksToBushels
-        let cupsToQuarters x = cupsToBushels x |> bushelsToQuarters
-        let cupsToMilliliters x = cupsToMinimsUs x |> minimsUsToMilliliters
-        let cupsToLiters x = cupsToMilliliters x |> millilitersToLiters
+        let cupsUsToMinimsUs x = cupsUsToGillsUs x |> gillsUsToMinimsUs
+        let cupsUsToFluidDramsUs x = cupsUsToMinimsUs x |> minimsUsToFluidDramsUs
+        let cupsUsToTeaspoonsUs x = cupsUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let cupsUsToTablespoonsUs x = cupsUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let cupsUsToFluidOuncesUs x = cupsUsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let cupsUsToShotsUs x = cupsUsToFluidOuncesUs x |> fluidOuncesUsToShotsUs
+        let cupsUsToQuartsUs x = cupsUsToPintsUs x |> pintsUsToQuartsUs
+        let cupsUsToPottlesUs x = cupsUsToQuartsUs x |> quartsUsToPottlesUs
+        let cupsUsToGallonsUs x = cupsUsToPottlesUs x |> pottlesUsToGallonsUs
+        let cupsUsToBarrelsUs x = cupsUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let cupsUsToHogsheadsUs x = cupsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let cupsUsToCubicInches x = cupsUsToGallonsUs x |> gallonsUsToCubicInches
+        let cupsUsToMinimsUk x = cupsUsToMinimsUs x |> minimsUsToMinimsUk
+        let cupsUsToFluidDrachmsUk x = cupsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let cupsUsToFluidOuncesUk x = cupsUsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let cupsUsToGillsUk x = cupsUsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let cupsUsToPintsUk x = cupsUsToGillsUk x |> gillsUkToPintsUk
+        let cupsUsToQuartsUk x = cupsUsToPintsUk x |> pintsUkToQuartsUk
+        let cupsUsToGallonsUk x = cupsUsToQuartsUk x |> quartsUkToGallonsUk
+        let cupsUsToPecksUk x = cupsUsToGallonsUk x |> gallonsUkToPecksUk
+        let cupsUsToBushelsUk x = cupsUsToPecksUk x |> pecksUkToBushelsUk
+        let cupsUsToQuartersUk x = cupsUsToBushelsUk x |> bushelsUkToQuartersUk
+        let cupsUsToMilliliters x = cupsUsToMinimsUs x |> minimsUsToMilliliters
+        let cupsUsToLiters x = cupsUsToMilliliters x |> millilitersToLiters
 
-        let pintsUsToMinimsUs x = pintsUsToCups x |> cupsToMinimsUs
+        let pintsUsToMinimsUs x = pintsUsToCupsUs x |> cupsUsToMinimsUs
         let pintsUsToFluidDramsUs x = pintsUsToMinimsUs x |> minimsUsToFluidDramsUs
-        let pintsUsToTeaspoons x = pintsUsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let pintsUsToTablespoons x = pintsUsToTeaspoons x |> teaspoonsToTablespoons
-        let pintsUsToFluidOuncesUs x = pintsUsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let pintsUsToShots x = pintsUsToTablespoons x |> tablespoonsToShots
+        let pintsUsToTeaspoonsUs x = pintsUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let pintsUsToTablespoonsUs x = pintsUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let pintsUsToFluidOuncesUs x = pintsUsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let pintsUsToShotsUs x = pintsUsToTablespoonsUs x |> tablespoonsUsToShotsUs
         let pintsUsToGillsUs x = pintsUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let pintsUsToPottles x = pintsUsToQuartsUs x |> quartsUsToPottles
-        let pintsUsToGallonsUs x = pintsUsToPottles x |> pottlesToGallonsUs
-        let pintsUsToBarrels x = pintsUsToGallonsUs x |> gallonsUsToBarrels
-        let pintsUsToHogsheads x = pintsUsToBarrels x |> barrelsToHogsheads
+        let pintsUsToPottlesUs x = pintsUsToQuartsUs x |> quartsUsToPottlesUs
+        let pintsUsToGallonsUs x = pintsUsToPottlesUs x |> pottlesUsToGallonsUs
+        let pintsUsToBarrelsUs x = pintsUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let pintsUsToHogsheadsUs x = pintsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
         let pintsUsToCubicInches x = pintsUsToGallonsUs x |> gallonsUsToCubicInches
         let pintsUsToMinimsUk x = pintsUsToMinimsUs x |> minimsUsToMinimsUk
         let pintsUsToFluidDrachmsUk x = pintsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
@@ -768,48 +768,48 @@ module FSharpFunctions =
         let pintsUsToPintsUk x = pintsUsToGillsUk x |> gillsUkToPintsUk
         let pintsUsToQuartsUk x = pintsUsToPintsUk x |> pintsUkToQuartsUk
         let pintsUsToGallonsUk x = pintsUsToQuartsUk x |> quartsUkToGallonsUk
-        let pintsUsToPecks x = pintsUsToGallonsUk x |> gallonsUkToPecks
-        let pintsUsToBushels x = pintsUsToPecks x |> pecksToBushels
-        let pintsUsToQuarters x = pintsUsToBushels x |> bushelsToQuarters
+        let pintsUsToPecksUk x = pintsUsToGallonsUk x |> gallonsUkToPecksUk
+        let pintsUsToBushelsUk x = pintsUsToPecksUk x |> pecksUkToBushelsUk
+        let pintsUsToQuartersUk x = pintsUsToBushelsUk x |> bushelsUkToQuartersUk
         let pintsUsToMilliliters x = pintsUsToMinimsUs x |> minimsUsToMilliliters
         let pintsUsToLiters x = pintsUsToMilliliters x |> millilitersToLiters
 
         let pintsUkToMinimsUs x = pintsUkToGillsUk x |> gillsUkToMinimsUs
         let pintsUkToFluidDramsUs x = pintsUkToMinimsUs x |> minimsUsToFluidDramsUs
-        let pintsUkToTeaspoons x = pintsUkToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let pintsUkToTablespoons x = pintsUkToTeaspoons x |> teaspoonsToTablespoons
-        let pintsUkToFluidOuncesUs x = pintsUkToTablespoons x |> tablespoonsToFluidOuncesUs
-        let pintsUkToShots x = pintsUkToFluidOuncesUs x |> fluidOuncesUsToShots
+        let pintsUkToTeaspoonsUs x = pintsUkToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let pintsUkToTablespoonsUs x = pintsUkToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let pintsUkToFluidOuncesUs x = pintsUkToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let pintsUkToShotsUs x = pintsUkToFluidOuncesUs x |> fluidOuncesUsToShotsUs
         let pintsUkToGillsUs x = pintsUkToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let pintsUkToCups x = pintsUkToGillsUs x |> gillsUsToCups
-        let pintsUkToPintsUs x = pintsUkToCups x |> cupsToPintsUs
+        let pintsUkToCupsUs x = pintsUkToGillsUs x |> gillsUsToCupsUs
+        let pintsUkToPintsUs x = pintsUkToCupsUs x |> cupsUsToPintsUs
         let pintsUkToQuartsUs x = pintsUkToPintsUs x |> pintsUsToQuartsUs
-        let pintsUkToPottles x = pintsUkToQuartsUs x |> quartsUsToPottles
-        let pintsUkToGallonsUs x = pintsUkToPottles x |> pottlesToGallonsUs
-        let pintsUkToBarrels x = pintsUkToGallonsUs x |> gallonsUsToBarrels
-        let pintsUkToHogsheads x = pintsUkToBarrels x |> barrelsToHogsheads
+        let pintsUkToPottlesUs x = pintsUkToQuartsUs x |> quartsUsToPottlesUs
+        let pintsUkToGallonsUs x = pintsUkToPottlesUs x |> pottlesUsToGallonsUs
+        let pintsUkToBarrelsUs x = pintsUkToGallonsUs x |> gallonsUsToBarrelsUs
+        let pintsUkToHogsheadsUs x = pintsUkToBarrelsUs x |> barrelsUsToHogsheadsUs
         let pintsUkToCubicInches x = pintsUkToGallonsUs x |> gallonsUsToCubicInches
         let pintsUkToMinimsUk x = pintsUkToGillsUk x |> gillsUkToMinimsUk
         let pintsUkToFluidDrachmsUk x = pintsUkToMinimsUk x |> minimsUkToFluidDrachmsUk
         let pintsUkToFluidOuncesUk x = pintsUkToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
         let pintsUkToGallonsUk x = pintsUkToQuartsUk x |> quartsUkToGallonsUk
-        let pintsUkToPecks x = pintsUkToGallonsUk x |> gallonsUkToPecks
-        let pintsUkToBushels x = pintsUkToPecks x |> pecksToBushels
-        let pintsUkToQuarters x = pintsUkToBushels x |> bushelsToQuarters
+        let pintsUkToPecksUk x = pintsUkToGallonsUk x |> gallonsUkToPecksUk
+        let pintsUkToBushelsUk x = pintsUkToPecksUk x |> pecksUkToBushelsUk
+        let pintsUkToQuartersUk x = pintsUkToBushelsUk x |> bushelsUkToQuartersUk
         let pintsUkToMilliliters x = pintsUkToMinimsUk x |> minimsUkToMilliliters
         let pintsUkToLiters x = pintsUkToMilliliters x |> millilitersToLiters
 
         let quartsUsToMinimsUs x = quartsUsToPintsUs x |> pintsUsToMinimsUs
         let quartsUsToFluidDramsUs x = quartsUsToMinimsUs x |> minimsUsToFluidDramsUs
-        let quartsUsToTeaspoons x = quartsUsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let quartsUsToTablespoons x = quartsUsToTeaspoons x |> teaspoonsToTablespoons
-        let quartsUsToFluidOuncesUs x = quartsUsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let quartsUsToShots x = quartsUsToFluidOuncesUs x |> fluidOuncesUsToShots
+        let quartsUsToTeaspoonsUs x = quartsUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let quartsUsToTablespoonsUs x = quartsUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let quartsUsToFluidOuncesUs x = quartsUsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let quartsUsToShotsUs x = quartsUsToFluidOuncesUs x |> fluidOuncesUsToShotsUs
         let quartsUsToGillsUs x = quartsUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let quartsUsToCups x = quartsUsToGillsUs x |> gillsUsToCups
-        let quartsUsToGallonsUs x = quartsUsToPottles x |> pottlesToGallonsUs
-        let quartsUsToBarrels x = quartsUsToGallonsUs x |> gallonsUsToBarrels
-        let quartsUsToHogsheads x = quartsUsToBarrels x |> barrelsToHogsheads
+        let quartsUsToCupsUs x = quartsUsToGillsUs x |> gillsUsToCupsUs
+        let quartsUsToGallonsUs x = quartsUsToPottlesUs x |> pottlesUsToGallonsUs
+        let quartsUsToBarrelsUs x = quartsUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let quartsUsToHogsheadsUs x = quartsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
         let quartsUsToCubicInches x = quartsUsToGallonsUs x |> gallonsUsToCubicInches
         let quartsUsToMinimsUk x = quartsUsToMinimsUs x |> minimsUsToMinimsUk
         let quartsUsToFluidDrachmsUk x = quartsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
@@ -818,120 +818,120 @@ module FSharpFunctions =
         let quartsUsToPintsUk x = quartsUsToGillsUk x |> gillsUkToPintsUk
         let quartsUsToQuartsUk x = quartsUsToPintsUk x |> pintsUkToQuartsUk
         let quartsUsToGallonsUk x = quartsUsToQuartsUk x |> quartsUkToGallonsUk
-        let quartsUsToPecks x = quartsUsToGallonsUk x |> gallonsUkToPecks
-        let quartsUsToBushels x = quartsUsToPecks x |> pecksToBushels
-        let quartsUsToQuarters x = quartsUsToBushels x |> bushelsToQuarters
+        let quartsUsToPecksUk x = quartsUsToGallonsUk x |> gallonsUkToPecksUk
+        let quartsUsToBushelsUk x = quartsUsToPecksUk x |> pecksUkToBushelsUk
+        let quartsUsToQuartersUk x = quartsUsToBushelsUk x |> bushelsUkToQuartersUk
         let quartsUsToMilliliters x = quartsUsToMinimsUs x |> minimsUsToMilliliters
         let quartsUsToLiters x = quartsUsToMilliliters x |> millilitersToLiters
 
         let quartsUkToMinimsUs x = quartsUkToPintsUk x |> pintsUkToMinimsUs
         let quartsUkToFluidDramsUs x = quartsUkToMinimsUs x |> minimsUsToFluidDramsUs
-        let quartsUkToTeaspoons x = quartsUkToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let quartsUkToTablespoons x = quartsUkToTeaspoons x |> teaspoonsToTablespoons
-        let quartsUkToFluidOuncesUs x = quartsUkToTablespoons x |> tablespoonsToFluidOuncesUs
-        let quartsUkToShots x = quartsUkToFluidOuncesUs x |> fluidOuncesUsToShots
+        let quartsUkToTeaspoonsUs x = quartsUkToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let quartsUkToTablespoonsUs x = quartsUkToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let quartsUkToFluidOuncesUs x = quartsUkToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let quartsUkToShotsUs x = quartsUkToFluidOuncesUs x |> fluidOuncesUsToShotsUs
         let quartsUkToGillsUs x = quartsUkToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let quartsUkToCups x = quartsUkToGillsUs x |> gillsUsToCups
-        let quartsUkToPintsUs x = quartsUkToCups x |> cupsToPintsUs
+        let quartsUkToCupsUs x = quartsUkToGillsUs x |> gillsUsToCupsUs
+        let quartsUkToPintsUs x = quartsUkToCupsUs x |> cupsUsToPintsUs
         let quartsUkToQuartsUs x = quartsUkToPintsUs x |> pintsUsToQuartsUs
-        let quartsUkToPottles x = quartsUkToQuartsUs x |> quartsUsToPottles
-        let quartsUkToGallonsUs x = quartsUkToPottles x |> pottlesToGallonsUs
-        let quartsUkToBarrels x = quartsUkToGallonsUs x |> gallonsUsToBarrels
-        let quartsUkToHogsheads x = quartsUkToBarrels x |> barrelsToHogsheads
+        let quartsUkToPottlesUs x = quartsUkToQuartsUs x |> quartsUsToPottlesUs
+        let quartsUkToGallonsUs x = quartsUkToPottlesUs x |> pottlesUsToGallonsUs
+        let quartsUkToBarrelsUs x = quartsUkToGallonsUs x |> gallonsUsToBarrelsUs
+        let quartsUkToHogsheadsUs x = quartsUkToBarrelsUs x |> barrelsUsToHogsheadsUs
         let quartsUkToCubicInches x = quartsUkToGallonsUs x |> gallonsUsToCubicInches
         let quartsUkToMinimsUk x = quartsUkToPintsUk x |> pintsUkToMinimsUk
         let quartsUkToFluidDrachmsUk x = quartsUkToMinimsUk x |> minimsUkToFluidDrachmsUk
         let quartsUkToFluidOuncesUk x = quartsUkToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
         let quartsUkToGillsUk x = quartsUkToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let quartsUkToPecks x = quartsUkToGallonsUk x |> gallonsUkToPecks
-        let quartsUkToBushels x = quartsUkToPecks x |> pecksToBushels
-        let quartsUkToQuarters x = quartsUkToBushels x |> bushelsToQuarters
+        let quartsUkToPecksUk x = quartsUkToGallonsUk x |> gallonsUkToPecksUk
+        let quartsUkToBushelsUk x = quartsUkToPecksUk x |> pecksUkToBushelsUk
+        let quartsUkToQuartersUk x = quartsUkToBushelsUk x |> bushelsUkToQuartersUk
         let quartsUkToMilliliters x = quartsUkToMinimsUk x |> minimsUkToMilliliters
         let quartsUkToLiters x = quartsUkToMilliliters x |> millilitersToLiters
 
-        let pottlesToMinimsUs x = pottlesToQuartsUs x |> quartsUsToMinimsUs
-        let pottlesToFluidDramsUs x = pottlesToMinimsUs x |> minimsUsToFluidDramsUs
-        let pottlesToTeaspoons x = pottlesToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let pottlesToTablespoons x = pottlesToTeaspoons x |> teaspoonsToTablespoons
-        let pottlesToFluidOuncesUs x = pottlesToTablespoons x |> tablespoonsToFluidOuncesUs
-        let pottlesToShots x = pottlesToFluidOuncesUs x |> fluidOuncesUsToShots
-        let pottlesToGillsUs x = pottlesToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let pottlesToCups x = pottlesToGillsUs x |> gillsUsToCups
-        let pottlesToPintsUs x = pottlesToCups x |> cupsToPintsUs
-        let pottlesToBarrels x = pottlesToGallonsUs x |> gallonsUsToBarrels
-        let pottlesToHogsheads x = pottlesToBarrels x |> barrelsToHogsheads
-        let pottlesToCubicInches x = pottlesToGallonsUs x |> gallonsUsToCubicInches
-        let pottlesToMinimsUk x = pottlesToMinimsUs x |> minimsUsToMinimsUk
-        let pottlesToFluidDrachmsUk x = pottlesToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let pottlesToFluidOuncesUk x = pottlesToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let pottlesToGillsUk x = pottlesToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let pottlesToPintsUk x = pottlesToGillsUk x |> gillsUkToPintsUk
-        let pottlesToQuartsUk x = pottlesToPintsUk x |> pintsUkToQuartsUk
-        let pottlesToGallonsUk x = pottlesToQuartsUk x |> quartsUkToGallonsUk
-        let pottlesToPecks x = pottlesToGallonsUk x |> gallonsUkToPecks
-        let pottlesToBushels x = pottlesToPecks x |> pecksToBushels
-        let pottlesToQuarters x = pottlesToBushels x |> bushelsToQuarters
-        let pottlesToMilliliters x = pottlesToMinimsUs x |> minimsUsToMilliliters
-        let pottlesToLiters x = pottlesToMilliliters x |> millilitersToLiters
+        let pottlesUsToMinimsUs x = pottlesUsToQuartsUs x |> quartsUsToMinimsUs
+        let pottlesUsToFluidDramsUs x = pottlesUsToMinimsUs x |> minimsUsToFluidDramsUs
+        let pottlesUsToTeaspoonsUs x = pottlesUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let pottlesUsToTablespoonsUs x = pottlesUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let pottlesUsToFluidOuncesUs x = pottlesUsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let pottlesUsToShotsUs x = pottlesUsToFluidOuncesUs x |> fluidOuncesUsToShotsUs
+        let pottlesUsToGillsUs x = pottlesUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
+        let pottlesUsToCupsUs x = pottlesUsToGillsUs x |> gillsUsToCupsUs
+        let pottlesUsToPintsUs x = pottlesUsToCupsUs x |> cupsUsToPintsUs
+        let pottlesUsToBarrelsUs x = pottlesUsToGallonsUs x |> gallonsUsToBarrelsUs
+        let pottlesUsToHogsheadsUs x = pottlesUsToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let pottlesUsToCubicInches x = pottlesUsToGallonsUs x |> gallonsUsToCubicInches
+        let pottlesUsToMinimsUk x = pottlesUsToMinimsUs x |> minimsUsToMinimsUk
+        let pottlesUsToFluidDrachmsUk x = pottlesUsToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let pottlesUsToFluidOuncesUk x = pottlesUsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let pottlesUsToGillsUk x = pottlesUsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let pottlesUsToPintsUk x = pottlesUsToGillsUk x |> gillsUkToPintsUk
+        let pottlesUsToQuartsUk x = pottlesUsToPintsUk x |> pintsUkToQuartsUk
+        let pottlesUsToGallonsUk x = pottlesUsToQuartsUk x |> quartsUkToGallonsUk
+        let pottlesUsToPecksUk x = pottlesUsToGallonsUk x |> gallonsUkToPecksUk
+        let pottlesUsToBushelsUk x = pottlesUsToPecksUk x |> pecksUkToBushelsUk
+        let pottlesUsToQuartersUk x = pottlesUsToBushelsUk x |> bushelsUkToQuartersUk
+        let pottlesUsToMilliliters x = pottlesUsToMinimsUs x |> minimsUsToMilliliters
+        let pottlesUsToLiters x = pottlesUsToMilliliters x |> millilitersToLiters
 
-        let gallonsUsToMinimsUs x = gallonsUsToPottles x |> pottlesToMinimsUs
+        let gallonsUsToMinimsUs x = gallonsUsToPottlesUs x |> pottlesUsToMinimsUs
         let gallonsUsToFluidDramsUs x = gallonsUsToMinimsUs x |> minimsUsToFluidDramsUs
-        let gallonsUsToTeaspoons x = gallonsUsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let gallonsUsToTablespoons x = gallonsUsToTeaspoons x |> teaspoonsToTablespoons
-        let gallonsUsToFluidOuncesUs x = gallonsUsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let gallonsUsToShots x = gallonsUsToFluidOuncesUs x |> fluidOuncesUsToShots
+        let gallonsUsToTeaspoonsUs x = gallonsUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let gallonsUsToTablespoonsUs x = gallonsUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let gallonsUsToFluidOuncesUs x = gallonsUsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let gallonsUsToShotsUs x = gallonsUsToFluidOuncesUs x |> fluidOuncesUsToShotsUs
         let gallonsUsToGillsUs x = gallonsUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let gallonsUsToCups x = gallonsUsToGillsUs x |> gillsUsToCups
-        let gallonsUsToPintsUs x = gallonsUsToCups x |> cupsToPintsUs
+        let gallonsUsToCupsUs x = gallonsUsToGillsUs x |> gillsUsToCupsUs
+        let gallonsUsToPintsUs x = gallonsUsToCupsUs x |> cupsUsToPintsUs
         let gallonsUsToQuartsUs x = gallonsUsToPintsUs x |> pintsUsToQuartsUs
-        let gallonsUsToHogsheads x = gallonsUsToBarrels x |> barrelsToHogsheads
+        let gallonsUsToHogsheadsUs x = gallonsUsToBarrelsUs x |> barrelsUsToHogsheadsUs
         let gallonsUsToMinimsUk x = gallonsUsToMinimsUs x |> minimsUsToMinimsUk
         let gallonsUsToFluidDrachmsUk x = gallonsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
         let gallonsUsToFluidOuncesUk x = gallonsUsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
         let gallonsUsToGillsUk x = gallonsUsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
         let gallonsUsToPintsUk x = gallonsUsToGillsUk x |> gillsUkToPintsUk
         let gallonsUsToQuartsUk x = gallonsUsToPintsUk x |> pintsUkToQuartsUk
-        let gallonsUsToPecks x = gallonsUsToGallonsUk x |> gallonsUkToPecks
-        let gallonsUsToBushels x = gallonsUsToPecks x |> pecksToBushels
-        let gallonsUsToQuarters x = gallonsUsToBushels x |> bushelsToQuarters
+        let gallonsUsToPecksUk x = gallonsUsToGallonsUk x |> gallonsUkToPecksUk
+        let gallonsUsToBushelsUk x = gallonsUsToPecksUk x |> pecksUkToBushelsUk
+        let gallonsUsToQuartersUk x = gallonsUsToBushelsUk x |> bushelsUkToQuartersUk
         let gallonsUsToMilliliters x = gallonsUsToLiters x |> litersToMilliliters
 
         let gallonsUkToMinimsUs x = gallonsUkToGallonsUs x |> gallonsUsToMinimsUs
         let gallonsUkToFluidDramsUs x = gallonsUkToMinimsUs x |> minimsUsToFluidDramsUs
-        let gallonsUkToTeaspoons x = gallonsUkToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let gallonsUkToTablespoons x = gallonsUkToTeaspoons x |> teaspoonsToTablespoons
-        let gallonsUkToFluidOuncesUs x = gallonsUkToTablespoons x |> tablespoonsToFluidOuncesUs
-        let gallonsUkToShots x = gallonsUkToFluidOuncesUs x |> fluidOuncesUsToShots
-        let gallonsUkToGillsUs x = gallonsUkToShots x |> shotsToGillsUs
-        let gallonsUkToCups x = gallonsUkToGillsUs x |> gillsUsToCups
-        let gallonsUkToPintsUs x = gallonsUkToCups x |> cupsToPintsUs
+        let gallonsUkToTeaspoons x = gallonsUkToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let gallonsUkToTablespoons x = gallonsUkToTeaspoons x |> teaspoonsUsToTablespoons
+        let gallonsUkToFluidOuncesUs x = gallonsUkToTablespoons x |> tablespoonsUsToFluidOuncesUs
+        let gallonsUkToShotsUs x = gallonsUkToFluidOuncesUs x |> fluidOuncesUsToShotsUs
+        let gallonsUkToGillsUs x = gallonsUkToShotsUs x |> shotsUsToGillsUs
+        let gallonsUkToCupsUs x = gallonsUkToGillsUs x |> gillsUsToCupsUs
+        let gallonsUkToPintsUs x = gallonsUkToCupsUs x |> cupsUsToPintsUs
         let gallonsUkToQuartsUs x = gallonsUkToPintsUs x |> pintsUsToQuartsUs
-        let gallonsUkToPottles x = gallonsUkToQuartsUs x |> quartsUsToPottles
-        let gallonsUkToBarrels x = gallonsUkToGallonsUs x |> gallonsUsToBarrels
-        let gallonsUkToHogsheads x = gallonsUkToBarrels x |> barrelsToHogsheads
+        let gallonsUkToPottlesUs x = gallonsUkToQuartsUs x |> quartsUsToPottlesUs
+        let gallonsUkToBarrelsUs x = gallonsUkToGallonsUs x |> gallonsUsToBarrelsUs
+        let gallonsUkToHogsheadsUs x = gallonsUkToBarrelsUs x |> barrelsUsToHogsheadsUs
         let gallonsUkToCubicInches x = gallonsUkToGallonsUs x |> gallonsUsToCubicInches
         let gallonsUkToMinimsUk x = gallonsUkToMinimsUs x |> minimsUsToMinimsUk
         let gallonsUkToFluidDrachmsUk x = gallonsUkToMinimsUk x |> minimsUkToFluidDrachmsUk
         let gallonsUkToFluidOuncesUk x = gallonsUkToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
         let gallonsUkToGillsUk x = gallonsUkToFluidOuncesUk x |> fluidOuncesUkToGillsUk
         let gallonsUkToPintsUk x = gallonsUkToGillsUk x |> gillsUkToPintsUk
-        let gallonsUkToBushels x = gallonsUkToPecks x |> pecksToBushels
-        let gallonsUkToQuarters x = gallonsUkToBushels x |> bushelsToQuarters
+        let gallonsUkToBushelsUk x = gallonsUkToPecksUk x |> pecksUkToBushelsUk
+        let gallonsUkToQuartersUk x = gallonsUkToBushelsUk x |> bushelsUkToQuartersUk
         let gallonsUkToMilliliters x = gallonsUkToLiters x |> litersToMilliliters
 
         let cubicInchesToMinimsUs x = cubicInchesToGallonsUs x |> gallonsUsToMinimsUs
         let cubicInchesToFluidDramsUs x = cubicInchesToMinimsUs x |> minimsUsToFluidDramsUs
-        let cubicInchesToTeaspoons x = cubicInchesToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let cubicInchesToTablespoons x = cubicInchesToTeaspoons x |> teaspoonsToTablespoons
-        let cubicInchesToFluidOuncesUs x = cubicInchesToTablespoons x |> tablespoonsToFluidOuncesUs
-        let cubicInchesToShots x = cubicInchesToFluidOuncesUs x |> fluidOuncesUsToShots
-        let cubicInchesToGillsUs x = cubicInchesToShots x |> shotsToGillsUs
-        let cubicInchesToCups x = cubicInchesToGillsUs x |> gillsUsToCups
-        let cubicInchesToPintsUs x = cubicInchesToCups x |> cupsToPintsUs
+        let cubicInchesToTeaspoonsUs x = cubicInchesToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let cubicInchesToTablespoonsUs x = cubicInchesToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let cubicInchesToFluidOuncesUs x = cubicInchesToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let cubicInchesToShotsUs x = cubicInchesToFluidOuncesUs x |> fluidOuncesUsToShotsUs
+        let cubicInchesToGillsUs x = cubicInchesToShotsUs x |> shotsUsToGillsUs
+        let cubicInchesToCupsUs x = cubicInchesToGillsUs x |> gillsUsToCupsUs
+        let cubicInchesToPintsUs x = cubicInchesToCupsUs x |> cupsUsToPintsUs
         let cubicInchesToQuartsUs x = cubicInchesToPintsUs x |> pintsUsToQuartsUs
-        let cubicInchesToPottles x = cubicInchesToQuartsUs x |> quartsUsToPottles
-        let cubicInchesToBarrels x = cubicInchesToGallonsUs x |> gallonsUsToBarrels
-        let cubicInchesToHogsheads x = cubicInchesToBarrels x |> barrelsToHogsheads
+        let cubicInchesToPottlesUs x = cubicInchesToQuartsUs x |> quartsUsToPottlesUs
+        let cubicInchesToBarrelsUs x = cubicInchesToGallonsUs x |> gallonsUsToBarrelsUs
+        let cubicInchesToHogsheadsUs x = cubicInchesToBarrelsUs x |> barrelsUsToHogsheadsUs
         let cubicInchesToMinimsUk x = cubicInchesToMinimsUs x |> minimsUsToMinimsUk
         let cubicInchesToFluidDrachmsUk x = cubicInchesToMinimsUk x |> minimsUkToFluidDrachmsUk
         let cubicInchesToFluidOuncesUk x = cubicInchesToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
@@ -939,138 +939,138 @@ module FSharpFunctions =
         let cubicInchesToPintsUk x = cubicInchesToGillsUk x |> gillsUkToPintsUk
         let cubicInchesToQuartsUk x = cubicInchesToPintsUk x |> pintsUkToQuartsUk
         let cubicInchesToGallonsUk x = cubicInchesToQuartsUk x |> quartsUkToGallonsUk
-        let cubicInchesToPecks x = cubicInchesToGallonsUk x |> gallonsUkToPecks
-        let cubicInchesToBushels x = cubicInchesToPecks x |> pecksToBushels
-        let cubicInchesToQuarters x = cubicInchesToBushels x |> bushelsToQuarters
+        let cubicInchesToPecksUk x = cubicInchesToGallonsUk x |> gallonsUkToPecksUk
+        let cubicInchesToBushelsUk x = cubicInchesToPecksUk x |> pecksUkToBushelsUk
+        let cubicInchesToQuartersUk x = cubicInchesToBushelsUk x |> bushelsUkToQuartersUk
         let cubicInchesToMilliliters x = cubicInchesToMinimsUs x |> minimsUsToMilliliters
         let cubicInchesToLiters x = cubicInchesToMilliliters x |> millilitersToLiters
 
-        let barrelsToMinimsUs x = barrelsToGallonsUs x |> gallonsUsToMinimsUs
-        let barrelsToFluidDramsUs x = barrelsToMinimsUs x |> minimsUsToFluidDramsUs
-        let barrelsToTeaspoons x = barrelsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let barrelsToTablespoons x = barrelsToTeaspoons x |> teaspoonsToTablespoons
-        let barrelsToFluidOuncesUs x = barrelsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let barrelsToShots x = barrelsToFluidOuncesUs x |> fluidOuncesUsToShots
-        let barrelsToGillsUs x = barrelsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let barrelsToCups x = barrelsToGillsUs x |> gillsUsToCups
-        let barrelsToPintsUs x = barrelsToCups x |> cupsToPintsUs
-        let barrelsToQuartsUs x = barrelsToPintsUs x |> pintsUsToQuartsUs
-        let barrelsToPottles x = barrelsToQuartsUs x |> quartsUsToPottles
-        let barrelsToCubicInches x = barrelsToGallonsUs x |> gallonsUsToCubicInches
-        let barrelsToMinimsUk x = barrelsToMinimsUs x |> minimsUsToMinimsUk
-        let barrelsToFluidDrachmsUk x = barrelsToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let barrelsToFluidOuncesUk x = barrelsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let barrelsToGillsUk x = barrelsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let barrelsToPintsUk x = barrelsToGillsUk x |> gillsUkToPintsUk
-        let barrelsToQuartsUk x = barrelsToPintsUk x |> pintsUkToQuartsUk
-        let barrelsToGallonsUk x = barrelsToQuartsUk x |> quartsUkToGallonsUk
-        let barrelsToPecks x = barrelsToGallonsUk x |> gallonsUkToPecks
-        let barrelsToBushels x = barrelsToPecks x |> pecksToBushels
-        let barrelsToQuarters x = barrelsToBushels x |> bushelsToQuarters
-        let barrelsToMilliliters x = barrelsToGallonsUs x |> gallonsUsToMilliliters
-        let barrelsToLiters x = barrelsToGallonsUs x |> gallonsUsToLiters
+        let barrelsUsToMinimsUs x = barrelsUsToGallonsUs x |> gallonsUsToMinimsUs
+        let barrelsUsToFluidDramsUs x = barrelsUsToMinimsUs x |> minimsUsToFluidDramsUs
+        let barrelsUsToTeaspoonsUs x = barrelsUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let barrelsUsToTablespoonsUs x = barrelsUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let barrelsUsToFluidOuncesUs x = barrelsUsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let barrelsUsToShotsUs x = barrelsUsToFluidOuncesUs x |> fluidOuncesUsToShotsUs
+        let barrelsUsToGillsUs x = barrelsUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
+        let barrelsUsToCupsUs x = barrelsUsToGillsUs x |> gillsUsToCupsUs
+        let barrelsUsToPintsUs x = barrelsUsToCupsUs x |> cupsUsToPintsUs
+        let barrelsUsToQuartsUs x = barrelsUsToPintsUs x |> pintsUsToQuartsUs
+        let barrelsUsToPottlesUs x = barrelsUsToQuartsUs x |> quartsUsToPottlesUs
+        let barrelsUsToCubicInches x = barrelsUsToGallonsUs x |> gallonsUsToCubicInches
+        let barrelsUsToMinimsUk x = barrelsUsToMinimsUs x |> minimsUsToMinimsUk
+        let barrelsUsToFluidDrachmsUk x = barrelsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let barrelsUsToFluidOuncesUk x = barrelsUsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let barrelsUsToGillsUk x = barrelsUsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let barrelsUsToPintsUk x = barrelsUsToGillsUk x |> gillsUkToPintsUk
+        let barrelsUsToQuartsUk x = barrelsUsToPintsUk x |> pintsUkToQuartsUk
+        let barrelsUsToGallonsUk x = barrelsUsToQuartsUk x |> quartsUkToGallonsUk
+        let barrelsUsToPecksUk x = barrelsUsToGallonsUk x |> gallonsUkToPecksUk
+        let barrelsUsToBushelsUk x = barrelsUsToPecksUk x |> pecksUkToBushelsUk
+        let barrelsUsToQuartersUk x = barrelsUsToBushelsUk x |> bushelsUkToQuartersUk
+        let barrelsUsToMilliliters x = barrelsUsToGallonsUs x |> gallonsUsToMilliliters
+        let barrelsUsToLiters x = barrelsUsToGallonsUs x |> gallonsUsToLiters
 
-        let hogsheadsToMinimsUs x = hogsheadsToBarrels x |> barrelsToMinimsUs
-        let hogsheadsToFluidDramsUs x = hogsheadsToMinimsUs x |> minimsUsToFluidDramsUs
-        let hogsheadsToTeaspoons x = hogsheadsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let hogsheadsToTablespoons x = hogsheadsToTeaspoons x |> teaspoonsToTablespoons
-        let hogsheadsToFluidOuncesUs x = hogsheadsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let hogsheadsToShots x = hogsheadsToFluidOuncesUs x |> fluidOuncesUsToShots
-        let hogsheadsToGillsUs x = hogsheadsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let hogsheadsToCups x = hogsheadsToGillsUs x |> gillsUsToCups
-        let hogsheadsToPintsUs x = hogsheadsToCups x |> cupsToPintsUs
-        let hogsheadsToQuartsUs x = hogsheadsToPintsUs x |> pintsUsToQuartsUs
-        let hogsheadsToPottles x = hogsheadsToQuartsUs x |> quartsUsToPottles
-        let hogsheadsToGallonsUs x = hogsheadsToPottles x |> pottlesToGallonsUs
-        let hogsheadsToCubicInches x = hogsheadsToGallonsUs x |> gallonsUsToCubicInches
-        let hogsheadsToMinimsUk x = hogsheadsToMinimsUs x |> minimsUsToMinimsUk
-        let hogsheadsToFluidDrachmsUk x = hogsheadsToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let hogsheadsToFluidOuncesUk x = hogsheadsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let hogsheadsToGillsUk x = hogsheadsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let hogsheadsToPintsUk x = hogsheadsToGillsUk x |> gillsUkToPintsUk
-        let hogsheadsToQuartsUk x = hogsheadsToPintsUk x |> pintsUkToQuartsUk
-        let hogsheadsToGallonsUk x = hogsheadsToQuartsUk x |> quartsUkToGallonsUk
-        let hogsheadsToPecks x = hogsheadsToGallonsUk x |> gallonsUkToPecks
-        let hogsheadsToBushels x = hogsheadsToPecks x |> pecksToBushels
-        let hogsheadsToQuarters x = hogsheadsToBushels x |> bushelsToQuarters
-        let hogsheadsToMilliliters x = hogsheadsToMinimsUs x |> minimsUsToMilliliters
-        let hogsheadsToLiters x = hogsheadsToMinimsUs x |> minimsUsToLiters
+        let hogsheadsUsToMinimsUs x = hogsheadsUsToBarrelsUs x |> barrelsUsToMinimsUs
+        let hogsheadsUsToFluidDramsUs x = hogsheadsUsToMinimsUs x |> minimsUsToFluidDramsUs
+        let hogsheadsUsToTeaspoonsUs x = hogsheadsUsToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let hogsheadsUsToTablespoonsUs x = hogsheadsUsToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let hogsheadsUsToFluidOuncesUs x = hogsheadsUsToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let hogsheadsUsToShotsUs x = hogsheadsUsToFluidOuncesUs x |> fluidOuncesUsToShotsUs
+        let hogsheadsUsToGillsUs x = hogsheadsUsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
+        let hogsheadsUsToCupsUs x = hogsheadsUsToGillsUs x |> gillsUsToCupsUs
+        let hogsheadsUsToPintsUs x = hogsheadsUsToCupsUs x |> cupsUsToPintsUs
+        let hogsheadsUsToQuartsUs x = hogsheadsUsToPintsUs x |> pintsUsToQuartsUs
+        let hogsheadsUsToPottlesUs x = hogsheadsUsToQuartsUs x |> quartsUsToPottlesUs
+        let hogsheadsUsToGallonsUs x = hogsheadsUsToPottlesUs x |> pottlesUsToGallonsUs
+        let hogsheadsUsToCubicInches x = hogsheadsUsToGallonsUs x |> gallonsUsToCubicInches
+        let hogsheadsUsToMinimsUk x = hogsheadsUsToMinimsUs x |> minimsUsToMinimsUk
+        let hogsheadsUsToFluidDrachmsUk x = hogsheadsUsToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let hogsheadsUsToFluidOuncesUk x = hogsheadsUsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let hogsheadsUsToGillsUk x = hogsheadsUsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let hogsheadsUsToPintsUk x = hogsheadsUsToGillsUk x |> gillsUkToPintsUk
+        let hogsheadsUsToQuartsUk x = hogsheadsUsToPintsUk x |> pintsUkToQuartsUk
+        let hogsheadsUsToGallonsUk x = hogsheadsUsToQuartsUk x |> quartsUkToGallonsUk
+        let hogsheadsUsToPecksUk x = hogsheadsUsToGallonsUk x |> gallonsUkToPecksUk
+        let hogsheadsUsToBushelsUk x = hogsheadsUsToPecksUk x |> pecksUkToBushelsUk
+        let hogsheadsUsToQuartersUk x = hogsheadsUsToBushelsUk x |> bushelsUkToQuartersUk
+        let hogsheadsToMilliliters x = hogsheadsUsToMinimsUs x |> minimsUsToMilliliters
+        let hogsheadsToLiters x = hogsheadsUsToMinimsUs x |> minimsUsToLiters
 
-        let pecksToMinimsUk x = pecksToGallonsUk x |> gallonsUkToMinimsUk
-        let pecksToMinimsUs x = pecksToMinimsUk x |> minimsUkToMinimsUs
-        let pecksToFluidDramsUs x = pecksToMinimsUs x |> minimsUsToFluidDramsUs
-        let pecksToTeaspoons x = pecksToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let pecksToTablespoons x = pecksToTeaspoons x |> teaspoonsToTablespoons
-        let pecksToFluidOuncesUs x = pecksToTablespoons x |> tablespoonsToFluidOuncesUs
-        let pecksToShots x = pecksToTablespoons x |> tablespoonsToShots
-        let pecksToGillsUs x = pecksToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let pecksToCups x = pecksToGillsUs x |> gillsUsToCups
-        let pecksToPintsUs x = pecksToCups x |> cupsToPintsUs
-        let pecksToQuartsUs x = pecksToPintsUs x |> pintsUsToQuartsUs
-        let pecksToPottles x = pecksToQuartsUs x |> quartsUsToPottles
-        let pecksToGallonsUs x = pecksToPottles x |> pottlesToGallonsUs
-        let pecksToBarrels x = pecksToGallonsUs x |> gallonsUsToBarrels
-        let pecksToHogsheads x = pecksToBarrels x |> barrelsToHogsheads
-        let pecksToCubicInches x = pecksToGallonsUs x |> gallonsUsToCubicInches
-        let pecksToFluidDrachmsUk x = pecksToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let pecksToFluidOuncesUk x = pecksToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let pecksToGillsUk x = pecksToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let pecksToPintsUk x = pecksToGillsUk x |> gillsUkToPintsUk
-        let pecksToQuartsUk x = pecksToPintsUk x |> pintsUkToQuartsUk
-        let pecksToQuarters x = pecksToBushels x |> bushelsToQuarters
-        let pecksToMilliliters x = pecksToMinimsUs x |> minimsUsToMilliliters
-        let pecksToLiters x = pecksToMinimsUs x |> minimsUsToLiters
+        let pecksUkToMinimsUk x = pecksUkToGallonsUk x |> gallonsUkToMinimsUk
+        let pecksUkToMinimsUs x = pecksUkToMinimsUk x |> minimsUkToMinimsUs
+        let pecksUkToFluidDramsUs x = pecksUkToMinimsUs x |> minimsUsToFluidDramsUs
+        let pecksUkToTeaspoonsUs x = pecksUkToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let pecksUkToTablespoonsUs x = pecksUkToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let pecksUkToFluidOuncesUs x = pecksUkToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let pecksUkToShotsUs x = pecksUkToTablespoonsUs x |> tablespoonsUsToShotsUs
+        let pecksUkToGillsUs x = pecksUkToFluidOuncesUs x |> fluidOuncesUsToGillsUs
+        let pecksUkToCupsUs x = pecksUkToGillsUs x |> gillsUsToCupsUs
+        let pecksUkToPintsUs x = pecksUkToCupsUs x |> cupsUsToPintsUs
+        let pecksUkToQuartsUs x = pecksUkToPintsUs x |> pintsUsToQuartsUs
+        let pecksUkToPottlesUs x = pecksUkToQuartsUs x |> quartsUsToPottlesUs
+        let pecksUkToGallonsUs x = pecksUkToPottlesUs x |> pottlesUsToGallonsUs
+        let pecksUkToBarrelsUs x = pecksUkToGallonsUs x |> gallonsUsToBarrelsUs
+        let pecksUkToHogsheadsUs x = pecksUkToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let pecksUkToCubicInches x = pecksUkToGallonsUs x |> gallonsUsToCubicInches
+        let pecksUkToFluidDrachmsUk x = pecksUkToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let pecksUkToFluidOuncesUk x = pecksUkToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let pecksUkToGillsUk x = pecksUkToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let pecksUkToPintsUk x = pecksUkToGillsUk x |> gillsUkToPintsUk
+        let pecksUkToQuartsUk x = pecksUkToPintsUk x |> pintsUkToQuartsUk
+        let pecksUkToQuarters x = pecksUkToBushelsUk x |> bushelsUkToQuartersUk
+        let pecksUkToMilliliters x = pecksUkToMinimsUs x |> minimsUsToMilliliters
+        let pecksUkToLiters x = pecksUkToMinimsUs x |> minimsUsToLiters
 
-        let bushelsToMinimsUk x = bushelsToPecks x |> pecksToMinimsUk
-        let bushelsToMinimsUs x = bushelsToPecks x |> pecksToMinimsUs
-        let bushelsToFluidDramsUs x = bushelsToMinimsUs x |> minimsUsToFluidDramsUs
-        let bushelsToTeaspoons x = bushelsToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let bushelsToTablespoons x = bushelsToTeaspoons x |> teaspoonsToTablespoons
-        let bushelsToFluidOuncesUs x = bushelsToTablespoons x |> tablespoonsToFluidOuncesUs
-        let bushelsToShots x = bushelsToTablespoons x |> tablespoonsToShots
-        let bushelsToGillsUs x = bushelsToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let bushelsToCups x = bushelsToGillsUs x |> gillsUsToCups
-        let bushelsToPintsUs x = bushelsToCups x |> cupsToPintsUs
-        let bushelsToQuartsUs x = bushelsToPintsUs x |> pintsUsToQuartsUs
-        let bushelsToPottles x = bushelsToQuartsUs x |> quartsUsToPottles
-        let bushelsToGallonsUs x = bushelsToPottles x |> pottlesToGallonsUs
-        let bushelsToBarrels x = bushelsToGallonsUs x |> gallonsUsToBarrels
-        let bushelsToHogsheads x = bushelsToBarrels x |> barrelsToHogsheads
-        let bushelsToCubicInches x = bushelsToGallonsUs x |> gallonsUsToCubicInches
-        let bushelsToFluidDrachmsUk x = bushelsToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let bushelsToFluidOuncesUk x = bushelsToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let bushelsToGillsUk x = bushelsToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let bushelsToPintsUk x = bushelsToGillsUk x |> gillsUkToPintsUk
-        let bushelsToQuartsUk x = bushelsToPintsUk x |> pintsUkToQuartsUk
-        let bushelsToGallonsUk x = bushelsToQuartsUk x |> quartsUkToGallonsUk
-        let bushelsToMilliliters x = bushelsToMinimsUk x |> minimsUkToMilliliters
-        let bushelsToLiters x = bushelsToMinimsUk x |> minimsUkToLiters
+        let bushelsUkToMinimsUk x = bushelsUkToPecksUk x |> pecksUkToMinimsUk
+        let bushelsUkToMinimsUs x = bushelsUkToPecksUk x |> pecksUkToMinimsUs
+        let bushelsUkToFluidDramsUs x = bushelsUkToMinimsUs x |> minimsUsToFluidDramsUs
+        let bushelsUkToTeaspoonsUs x = bushelsUkToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let bushelsUkToTablespoonsUs x = bushelsUkToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let bushelsUkToFluidOuncesUs x = bushelsUkToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let bushelsUkToShotsUs x = bushelsUkToTablespoonsUs x |> tablespoonsUsToShotsUs
+        let bushelsUkToGillsUs x = bushelsUkToFluidOuncesUs x |> fluidOuncesUsToGillsUs
+        let bushelsUkToCupsUs x = bushelsUkToGillsUs x |> gillsUsToCupsUs
+        let bushelsUkToPintsUs x = bushelsUkToCupsUs x |> cupsUsToPintsUs
+        let bushelsUkToQuartsUs x = bushelsUkToPintsUs x |> pintsUsToQuartsUs
+        let bushelsUkToPottlesUs x = bushelsUkToQuartsUs x |> quartsUsToPottlesUs
+        let bushelsUkToGallonsUs x = bushelsUkToPottlesUs x |> pottlesUsToGallonsUs
+        let bushelsUkToBarrelsUs x = bushelsUkToGallonsUs x |> gallonsUsToBarrelsUs
+        let bushelsUkToHogsheadsUs x = bushelsUkToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let bushelsUkToCubicInches x = bushelsUkToGallonsUs x |> gallonsUsToCubicInches
+        let bushelsUkToFluidDrachmsUk x = bushelsUkToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let bushelsUkToFluidOuncesUk x = bushelsUkToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let bushelsUkToGillsUk x = bushelsUkToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let bushelsUkToPintsUk x = bushelsUkToGillsUk x |> gillsUkToPintsUk
+        let bushelsUkToQuartsUk x = bushelsUkToPintsUk x |> pintsUkToQuartsUk
+        let bushelsUkToGallonsUk x = bushelsUkToQuartsUk x |> quartsUkToGallonsUk
+        let bushelsUkToMilliliters x = bushelsUkToMinimsUk x |> minimsUkToMilliliters
+        let bushelsUkToLiters x = bushelsUkToMinimsUk x |> minimsUkToLiters
 
-        let quartersToMinimsUk x = quartersToBushels x |> bushelsToMinimsUk
-        let quartersToMinimsUs x = quartersToMinimsUk x |> minimsUkToMinimsUs
-        let quartersToFluidDramsUs x = quartersToMinimsUs x |> minimsUsToFluidDramsUs
-        let quartersToTeaspoons x = quartersToFluidDramsUs x |> fluidDramsUsToTeaspoons
-        let quartersToTablespoons x = quartersToTeaspoons x |> teaspoonsToTablespoons
-        let quartersToFluidOuncesUs x = quartersToTablespoons x |> tablespoonsToFluidOuncesUs
-        let quartersToShots x = quartersToFluidOuncesUs x |> fluidOuncesUsToShots
-        let quartersToGillsUs x = quartersToFluidOuncesUs x |> fluidOuncesUsToGillsUs
-        let quartersToCups x = quartersToGillsUs x |> gillsUsToCups
-        let quartersToPintsUs x = quartersToCups x |> cupsToPintsUs
-        let quartersToQuartsUs x = quartersToPintsUs x |> pintsUsToQuartsUs
-        let quartersToPottles x = quartersToQuartsUs x |> quartsUsToPottles
-        let quartersToGallonsUs x = quartersToPottles x |> pottlesToGallonsUs
-        let quartersToBarrels x = quartersToGallonsUs x |> gallonsUsToBarrels
-        let quartersToHogsheads x = quartersToBarrels x |> barrelsToHogsheads
-        let quartersToCubicInches x = quartersToGallonsUs x |> gallonsUsToCubicInches
-        let quartersToFluidDrachmsUk x = quartersToMinimsUk x |> minimsUkToFluidDrachmsUk
-        let quartersToFluidOuncesUk x = quartersToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
-        let quartersToGillsUk x = quartersToFluidOuncesUk x |> fluidOuncesUkToGillsUk
-        let quartersToPintsUk x = quartersToGillsUk x |> gillsUkToPintsUk
-        let quartersToQuartsUk x = quartersToPintsUk x |> pintsUkToQuartsUk
-        let quartersToGallonsUk x = quartersToQuartsUk x |> quartsUkToGallonsUk
-        let quartersToPecks x = quartersToGallonsUk x |> gallonsUkToPecks
-        let quartersToMilliliters x = quartersToMinimsUk x |> minimsUkToMilliliters
-        let quartersToLiters x = quartersToMinimsUk x |> minimsUkToLiters
+        let quartersUkToMinimsUk x = quartersUkToBushelsUk x |> bushelsUkToMinimsUk
+        let quartersUkToMinimsUs x = quartersUkToMinimsUk x |> minimsUkToMinimsUs
+        let quartersUkToFluidDramsUs x = quartersUkToMinimsUs x |> minimsUsToFluidDramsUs
+        let quartersUkToTeaspoonsUs x = quartersUkToFluidDramsUs x |> fluidDramsUsToTeaspoonsUs
+        let quartersUkToTablespoonsUs x = quartersUkToTeaspoonsUs x |> teaspoonsUsToTablespoons
+        let quartersUkToFluidOuncesUs x = quartersUkToTablespoonsUs x |> tablespoonsUsToFluidOuncesUs
+        let quartersUkToShotsUs x = quartersUkToFluidOuncesUs x |> fluidOuncesUsToShotsUs
+        let quartersUkToGillsUs x = quartersUkToFluidOuncesUs x |> fluidOuncesUsToGillsUs
+        let quartersUkToCupsUs x = quartersUkToGillsUs x |> gillsUsToCupsUs
+        let quartersUkToPintsUs x = quartersUkToCupsUs x |> cupsUsToPintsUs
+        let quartersUkToQuartsUs x = quartersUkToPintsUs x |> pintsUsToQuartsUs
+        let quartersUkToPottlesUs x = quartersUkToQuartsUs x |> quartsUsToPottlesUs
+        let quartersUkToGallonsUs x = quartersUkToPottlesUs x |> pottlesUsToGallonsUs
+        let quartersUkToBarrelsUs x = quartersUkToGallonsUs x |> gallonsUsToBarrelsUs
+        let quartersUkToHogsheadsUs x = quartersUkToBarrelsUs x |> barrelsUsToHogsheadsUs
+        let quartersUkToCubicInches x = quartersUkToGallonsUs x |> gallonsUsToCubicInches
+        let quartersUkToFluidDrachmsUk x = quartersUkToMinimsUk x |> minimsUkToFluidDrachmsUk
+        let quartersUkToFluidOuncesUk x = quartersUkToFluidDrachmsUk x |> fluidDrachmsUkToFluidOuncesUk
+        let quartersUkToGillsUk x = quartersUkToFluidOuncesUk x |> fluidOuncesUkToGillsUk
+        let quartersUkToPintsUk x = quartersUkToGillsUk x |> gillsUkToPintsUk
+        let quartersUkToQuartsUk x = quartersUkToPintsUk x |> pintsUkToQuartsUk
+        let quartersUkToGallonsUk x = quartersUkToQuartsUk x |> quartsUkToGallonsUk
+        let quartersUkToPecksUk x = quartersUkToGallonsUk x |> gallonsUkToPecksUk
+        let quartersUkToMilliliters x = quartersUkToMinimsUk x |> minimsUkToMilliliters
+        let quartersUkToLiters x = quartersUkToMinimsUk x |> minimsUkToLiters
 
         type VolumeUnit = { amount: decimal; unitName: string}
 
@@ -1083,18 +1083,18 @@ module FSharpFunctions =
             | ("milliliters","liters") -> {amount = millilitersToLiters(x*1m<milliliter>) |> removeUnit; unitName = "liters"}
             | ("milliliters","minimsUs") -> {amount = millilitersToMinimsUs(x*1m<milliliter>) |> removeUnit; unitName = "minimsUs"}
             | ("milliliters","fluidDramsUs") -> {amount = millilitersToFluidDramsUs(x*1m<milliliter>) |> removeUnit; unitName = "fluidDramsUs"}
-            | ("milliliters","teaspoons") -> {amount = millilitersToTeaspoons(x*1m<milliliter>) |> removeUnit; unitName = "teaspoons"}
-            | ("milliliters","tablespoons") -> {amount = millilitersToTablespoons(x*1m<milliliter>) |> removeUnit; unitName = "tablespoons"}
-            | ("milliliters","shots") -> {amount = millilitersToShots(x*1m<milliliter>) |> removeUnit; unitName = "shots"}
+            | ("milliliters","teaspoonsUs") -> {amount = millilitersToTeaspoonsUs(x*1m<milliliter>) |> removeUnit; unitName = "teaspoonsUs"}
+            | ("milliliters","tablespoonsUs") -> {amount = millilitersToTablespoonsUs(x*1m<milliliter>) |> removeUnit; unitName = "tablespoonsUs"}
+            | ("milliliters","shotsUs") -> {amount = millilitersToShotsUs(x*1m<milliliter>) |> removeUnit; unitName = "shotsUs"}
             | ("milliliters","fluidOuncesUs") -> {amount = millilitersToFluidOuncesUs(x*1m<milliliter>) |> removeUnit; unitName = "fluidOuncesUs"}
             | ("milliliters","gillsUs") -> {amount = millilitersToGillsUs(x*1m<milliliter>) |> removeUnit; unitName = "gillsUs"}
-            | ("milliliters","cups") -> {amount = millilitersToCups(x*1m<milliliter>) |> removeUnit; unitName = "cups"}
+            | ("milliliters","cupsUs") -> {amount = millilitersToCupsUs(x*1m<milliliter>) |> removeUnit; unitName = "cupsUs"}
             | ("milliliters","pintsUs") -> {amount = millilitersToPintsUs(x*1m<milliliter>) |> removeUnit; unitName = "pintsUs"}
             | ("milliliters","quartsUs") -> {amount = millilitersToQuartsUs(x*1m<milliliter>) |> removeUnit; unitName = "quartsUs"}
-            | ("milliliters","pottles") -> {amount = millilitersToPottles(x*1m<milliliter>) |> removeUnit; unitName = "pottles"}
+            | ("milliliters","pottlesUs") -> {amount = millilitersToPottlesUs(x*1m<milliliter>) |> removeUnit; unitName = "pottlesUs"}
             | ("milliliters","gallonsUs") -> {amount = millilitersToGallonsUs(x*1m<milliliter>) |> removeUnit; unitName = "gallonsUs"}
-            | ("milliliters","barrels") -> {amount = millilitersToBarrels(x*1m<milliliter>) |> removeUnit; unitName = "barrels"}
-            | ("milliliters","hogsheads") -> {amount = millilitersToHogsheads(x*1m<milliliter>) |> removeUnit; unitName = "hogsheads"}
+            | ("milliliters","barrelsUs") -> {amount = millilitersToBarrelsUs(x*1m<milliliter>) |> removeUnit; unitName = "barrelsUs"}
+            | ("milliliters","hogsheadsUs") -> {amount = millilitersToHogsheadsUs(x*1m<milliliter>) |> removeUnit; unitName = "hogsheadsUs"}
             | ("milliliters","cubicInches") -> {amount = millilitersToCubicInches(x*1m<milliliter>) |> removeUnit; unitName = "cubicInches"}
             | ("milliliters","minimsUk") -> {amount = millilitersToMinimsUk(x*1m<milliliter>) |> removeUnit; unitName = "minimsUk"}
             | ("milliliters","fluidDrachmsUk") -> {amount = millilitersToFluidDrachmsUk(x*1m<milliliter>) |> removeUnit; unitName = "fluidDrachmsUk"}
@@ -1103,24 +1103,24 @@ module FSharpFunctions =
             | ("milliliters","pintsUk") -> {amount = millilitersToPintsUk(x*1m<milliliter>) |> removeUnit; unitName = "pintsUk"}
             | ("milliliters","quartsUk") -> {amount = millilitersToQuartsUk(x*1m<milliliter>) |> removeUnit; unitName = "quartsUk"}
             | ("milliliters","gallonsUk") -> {amount = millilitersToGallonsUk(x*1m<milliliter>) |> removeUnit; unitName = "gallonsUk"}
-            | ("milliliters","pecks") -> {amount = millilitersToPecks(x*1m<milliliter>) |> removeUnit; unitName = "pecks"}
-            | ("milliliters","bushels") -> {amount = millilitersToBushels(x*1m<milliliter>) |> removeUnit; unitName = "bushels"}
-            | ("milliliters","quarters") -> {amount = millilitersToQuarters(x*1m<milliliter>) |> removeUnit; unitName = "quarters"}
+            | ("milliliters","pecksUk") -> {amount = millilitersToPecksUk(x*1m<milliliter>) |> removeUnit; unitName = "pecksUk"}
+            | ("milliliters","bushelsUk") -> {amount = millilitersToBushelsUk(x*1m<milliliter>) |> removeUnit; unitName = "bushelsUk"}
+            | ("milliliters","quartersUk") -> {amount = millilitersToQuartersUk(x*1m<milliliter>) |> removeUnit; unitName = "quartersUk"}
             | ("liters","milliliters") -> {amount = litersToMilliliters(x*1m<liter>) |> removeUnit; unitName = "milliliters"}
             | ("liters","minimsUs") -> {amount = litersToMinimsUs(x*1m<liter>) |> removeUnit; unitName = "minimsUs"}
             | ("liters","fluidDramsUs") -> {amount = litersToFluidDramsUs(x*1m<liter>) |> removeUnit; unitName = "fluidDramsUs"}
-            | ("liters","teaspoons") -> {amount = litersToTeaspoons(x*1m<liter>) |> removeUnit; unitName = "teaspoons"}
-            | ("liters","tablespoons") -> {amount = litersToTablespoons(x*1m<liter>) |> removeUnit; unitName = "tablespoons"}
-            | ("liters","shots") -> {amount = litersToShots(x*1m<liter>) |> removeUnit; unitName = "shots"}
+            | ("liters","teaspoonsUs") -> {amount = litersToTeaspoonsUs(x*1m<liter>) |> removeUnit; unitName = "teaspoonsUs"}
+            | ("liters","tablespoonsUs") -> {amount = litersToTablespoonsUs(x*1m<liter>) |> removeUnit; unitName = "tablespoonsUs"}
+            | ("liters","shotsUs") -> {amount = litersToShotsUs(x*1m<liter>) |> removeUnit; unitName = "shotsUs"}
             | ("liters","fluidOuncesUs") -> {amount = litersToFluidOuncesUs(x*1m<liter>) |> removeUnit; unitName = "fluidOuncesUs"}
             | ("liters","gillsUs") -> {amount = litersToGillsUs(x*1m<liter>) |> removeUnit; unitName = "gillsUs"}
-            | ("liters","cups") -> {amount = litersToCups(x*1m<liter>) |> removeUnit; unitName = "cups"}
+            | ("liters","cupsUs") -> {amount = litersToCupsUs(x*1m<liter>) |> removeUnit; unitName = "cupsUs"}
             | ("liters","pintsUs") -> {amount = litersToPintsUs(x*1m<liter>) |> removeUnit; unitName = "pintsUs"}
             | ("liters","quartsUs") -> {amount = litersToQuartsUs(x*1m<liter>) |> removeUnit; unitName = "quartsUs"}
-            | ("liters","pottles") -> {amount = litersToPottles(x*1m<liter>) |> removeUnit; unitName = "pottles"}
+            | ("liters","pottlesUs") -> {amount = litersToPottlesUs(x*1m<liter>) |> removeUnit; unitName = "pottlesUs"}
             | ("liters","gallonsUs") -> {amount = litersToGallonsUs(x*1m<liter>) |> removeUnit; unitName = "gallonsUs"}
-            | ("liters","barrels") -> {amount = litersToBarrels(x*1m<liter>) |> removeUnit; unitName = "barrels"}
-            | ("liters","hogsheads") -> {amount = litersToHogsheads(x*1m<liter>) |> removeUnit; unitName = "hogsheads"}
+            | ("liters","barrelsUs") -> {amount = litersToBarrelsUs(x*1m<liter>) |> removeUnit; unitName = "barrelsUs"}
+            | ("liters","hogsheadsUs") -> {amount = litersToHogsheadsUs(x*1m<liter>) |> removeUnit; unitName = "hogsheadsUs"}
             | ("liters","cubicInches") -> {amount = litersToCubicInches(x*1m<liter>) |> removeUnit; unitName = "cubicInches"}
             | ("liters","minimsUk") -> {amount = litersToMinimsUk(x*1m<liter>) |> removeUnit; unitName = "minimsUk"}
             | ("liters","fluidDrachmsUk") -> {amount = litersToFluidDrachmsUk(x*1m<liter>) |> removeUnit; unitName = "fluidDrachmsUk"}
@@ -1129,25 +1129,25 @@ module FSharpFunctions =
             | ("liters","pintsUk") -> {amount = litersToPintsUk(x*1m<liter>) |> removeUnit; unitName = "pintsUk"}
             | ("liters","quartsUk") -> {amount = litersToQuartsUk(x*1m<liter>) |> removeUnit; unitName = "quartsUk"}
             | ("liters","gallonsUk") -> {amount = litersToGallonsUk(x*1m<liter>) |> removeUnit; unitName = "gallonsUk"}
-            | ("liters","pecks") -> {amount = litersToPecks(x*1m<liter>) |> removeUnit; unitName = "pecks"}
-            | ("liters","bushels") -> {amount = litersToBushels(x*1m<liter>) |> removeUnit; unitName = "bushels"}
-            | ("liters","quarters") -> {amount = litersToQuarters(x*1m<liter>) |> removeUnit; unitName = "quarters"}
+            | ("liters","pecksUk") -> {amount = litersToPecksUk(x*1m<liter>) |> removeUnit; unitName = "pecksUk"}
+            | ("liters","bushelsUk") -> {amount = litersToBushelsUk(x*1m<liter>) |> removeUnit; unitName = "bushelsUk"}
+            | ("liters","quartersUk") -> {amount = litersToQuartersUk(x*1m<liter>) |> removeUnit; unitName = "quartersUk"}
  
             | ("minimsUs","milliliters") -> {amount = minimsUsToMilliliters(x*1m<minim_us>) |> removeUnit; unitName = "milliliters"}
             | ("minimsUs","liters") -> {amount = minimsUsToLiters(x*1m<minim_us>) |> removeUnit; unitName = "liters"}
             | ("minimsUs","fluidDramsUs") -> {amount = minimsUsToFluidDramsUs(x*1m<minim_us>) |> removeUnit; unitName = "fluidDramsUs"}
-            | ("minimsUs","teaspoons") -> {amount = minimsUsToTeaspoons(x*1m<minim_us>) |> removeUnit; unitName = "teaspoons"}
-            | ("minimsUs","tablespoons") -> {amount = minimsUsToTablespoons(x*1m<minim_us>) |> removeUnit; unitName = "tablespoons"}
-            | ("minimsUs","shots") -> {amount = minimsUsToShots(x*1m<minim_us>) |> removeUnit; unitName = "shots"}
+            | ("minimsUs","teaspoonsUs") -> {amount = minimsUsToTeaspoonsUs(x*1m<minim_us>) |> removeUnit; unitName = "teaspoonsUs"}
+            | ("minimsUs","tablespoonsUs") -> {amount = minimsUsToTablespoonsUs(x*1m<minim_us>) |> removeUnit; unitName = "tablespoonsUs"}
+            | ("minimsUs","shotsUs") -> {amount = minimsUsToShotsUs(x*1m<minim_us>) |> removeUnit; unitName = "shotsUs"}
             | ("minimsUs","fluidOuncesUs") -> {amount = minimsUsToFluidOuncesUs(x*1m<minim_us>) |> removeUnit; unitName = "fluidOuncesUs"}
             | ("minimsUs","gillsUs") -> {amount = minimsUsToGillsUs(x*1m<minim_us>) |> removeUnit; unitName = "gillsUs"}
-            | ("minimsUs","cups") -> {amount = minimsUsToCups(x*1m<minim_us>) |> removeUnit; unitName = "cups"}
+            | ("minimsUs","cupsUs") -> {amount = minimsUsToCupsUs(x*1m<minim_us>) |> removeUnit; unitName = "cupsUs"}
             | ("minimsUs","pintsUs") -> {amount = minimsUsToPintsUs(x*1m<minim_us>) |> removeUnit; unitName = "pintsUs"}
             | ("minimsUs","quartsUs") -> {amount = minimsUsToQuartsUs(x*1m<minim_us>) |> removeUnit; unitName = "quartsUs"}
-            | ("minimsUs","pottles") -> {amount = minimsUsToPottles(x*1m<minim_us>) |> removeUnit; unitName = "pottles"}
+            | ("minimsUs","pottlesUs") -> {amount = minimsUsToPottlesUs(x*1m<minim_us>) |> removeUnit; unitName = "pottlesUs"}
             | ("minimsUs","gallonsUs") -> {amount = minimsUsToGallonsUs(x*1m<minim_us>) |> removeUnit; unitName = "gallonsUs"}
-            | ("minimsUs","barrels") -> {amount = minimsUsToBarrels(x*1m<minim_us>) |> removeUnit; unitName = "barrels"}
-            | ("minimsUs","hogsheads") -> {amount = minimsUsToHogsheads(x*1m<minim_us>) |> removeUnit; unitName = "hogsheads"}
+            | ("minimsUs","barrelsUs") -> {amount = minimsUsToBarrelsUs(x*1m<minim_us>) |> removeUnit; unitName = "barrelsUs"}
+            | ("minimsUs","hogsheadsUs") -> {amount = minimsUsToHogsheadsUs(x*1m<minim_us>) |> removeUnit; unitName = "hogsheadsUs"}
             | ("minimsUs","cubicInches") -> {amount = minimsUsToCubicInches(x*1m<minim_us>) |> removeUnit; unitName = "cubicInches"}
             | ("minimsUs","minimsUk") -> {amount = minimsUsToMinimsUk(x*1m<minim_us>) |> removeUnit; unitName = "minimsUk"}
             | ("minimsUs","fluidDrachmsUk") -> {amount = minimsUsToFluidDrachmsUk(x*1m<minim_us>) |> removeUnit; unitName = "fluidDrachmsUk"}
@@ -1156,25 +1156,25 @@ module FSharpFunctions =
             | ("minimsUs","pintsUk") -> {amount = minimsUsToPintsUk(x*1m<minim_us>) |> removeUnit; unitName = "pintsUk"}
             | ("minimsUs","quartsUk") -> {amount = minimsUsToQuartsUk(x*1m<minim_us>) |> removeUnit; unitName = "quartsUk"}
             | ("minimsUs","gallonsUk") -> {amount = minimsUsToGallonsUk(x*1m<minim_us>) |> removeUnit; unitName = "gallonsUk"}
-            | ("minimsUs","pecks") -> {amount = minimsUsToPecks(x*1m<minim_us>) |> removeUnit; unitName = "pecks"}
-            | ("minimsUs","bushels") -> {amount = minimsUsToBushels(x*1m<minim_us>) |> removeUnit; unitName = "bushels"}
-            | ("minimsUs","quarters") -> {amount = minimsUsToQuarters(x*1m<minim_us>) |> removeUnit; unitName = "quarters"}
+            | ("minimsUs","pecksUk") -> {amount = minimsUsToPecksUk(x*1m<minim_us>) |> removeUnit; unitName = "pecksUk"}
+            | ("minimsUs","bushelsUk") -> {amount = minimsUsToBushelsUk(x*1m<minim_us>) |> removeUnit; unitName = "bushelsUk"}
+            | ("minimsUs","quartersUk") -> {amount = minimsUsToQuartersUk(x*1m<minim_us>) |> removeUnit; unitName = "quartersUk"}
 
             | ("fluidDramsUs","milliliters") -> {amount = fluidDramsUsToMilliliters(x*1m<fluidDram_us>) |> removeUnit; unitName = "milliliters"}
             | ("fluidDramsUs","liters") -> {amount = fluidDramsUsToLiters(x*1m<fluidDram_us>) |> removeUnit; unitName = "liters"}
             | ("fluidDramsUs","minimsUs") -> {amount = fluidDramsUsToMinimsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "minimsUs"}
-            | ("fluidDramsUs","teaspoons") -> {amount = fluidDramsUsToTeaspoons(x*1m<fluidDram_us>) |> removeUnit; unitName = "teaspoons"}
-            | ("fluidDramsUs","tablespoons") -> {amount = fluidDramsUsToTablespoons(x*1m<fluidDram_us>) |> removeUnit; unitName = "tablespoons"}
-            | ("fluidDramsUs","shots") -> {amount = fluidDramsUsToShots(x*1m<fluidDram_us>) |> removeUnit; unitName = "shots"}
+            | ("fluidDramsUs","teaspoonsUs") -> {amount = fluidDramsUsToTeaspoonsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "teaspoonsUs"}
+            | ("fluidDramsUs","tablespoonsUs") -> {amount = fluidDramsUsToTablespoonsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "tablespoonsUs"}
+            | ("fluidDramsUs","shotsUs") -> {amount = fluidDramsUsToShotsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "shotsUs"}
             | ("fluidDramsUs","fluidOuncesUs") -> {amount = fluidDramsUsToFluidOuncesUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "fluidOuncesUs"}
             | ("fluidDramsUs","gillsUs") -> {amount = fluidDramsUsToGillsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "gillsUs"}
-            | ("fluidDramsUs","cups") -> {amount = fluidDramsUsToCups(x*1m<fluidDram_us>) |> removeUnit; unitName = "cups"}
+            | ("fluidDramsUs","cupsUs") -> {amount = fluidDramsUsToCupsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "cupsUs"}
             | ("fluidDramsUs","pintsUs") -> {amount = fluidDramsUsToPintsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "pintsUs"}
             | ("fluidDramsUs","quartsUs") -> {amount = fluidDramsUsToQuartsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "quartsUs"}
-            | ("fluidDramsUs","pottles") -> {amount = fluidDramsUsToPottles(x*1m<fluidDram_us>) |> removeUnit; unitName = "pottles"}
+            | ("fluidDramsUs","pottlesUs") -> {amount = fluidDramsUsToPottlesUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "pottlesUs"}
             | ("fluidDramsUs","gallonsUs") -> {amount = fluidDramsUsToGallonsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "gallonsUs"}
-            | ("fluidDramsUs","barrels") -> {amount = fluidDramsUsToBarrels(x*1m<fluidDram_us>) |> removeUnit; unitName = "barrels"}
-            | ("fluidDramsUs","hogsheads") -> {amount = fluidDramsUsToHogsheads(x*1m<fluidDram_us>) |> removeUnit; unitName = "hogsheads"}
+            | ("fluidDramsUs","barrelsUs") -> {amount = fluidDramsUsToBarrelsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "barrelsUs"}
+            | ("fluidDramsUs","hogsheadsUs") -> {amount = fluidDramsUsToHogsheadsUs(x*1m<fluidDram_us>) |> removeUnit; unitName = "hogsheadsUs"}
             | ("fluidDramsUs","cubicInches") -> {amount = fluidDramsUsToCubicInches(x*1m<fluidDram_us>) |> removeUnit; unitName = "cubicInches"}
             | ("fluidDramsUs","minimsUk") -> {amount = fluidDramsUsToMinimsUk(x*1m<fluidDram_us>) |> removeUnit; unitName = "minimsUk"}
             | ("fluidDramsUs","fluidDrachmsUk") -> {amount = fluidDramsUsToFluidDrachmsUk(x*1m<fluidDram_us>) |> removeUnit; unitName = "fluidDrachmsUk"}
@@ -1183,9 +1183,146 @@ module FSharpFunctions =
             | ("fluidDramsUs","pintsUk") -> {amount = fluidDramsUsToPintsUk(x*1m<fluidDram_us>) |> removeUnit; unitName = "pintsUk"}
             | ("fluidDramsUs","quartsUk") -> {amount = fluidDramsUsToQuartsUk(x*1m<fluidDram_us>) |> removeUnit; unitName = "quartsUk"}
             | ("fluidDramsUs","gallonsUk") -> {amount = fluidDramsUsToGallonsUk(x*1m<fluidDram_us>) |> removeUnit; unitName = "gallonsUk"}
-            | ("fluidDramsUs","pecks") -> {amount = fluidDramsUsToPecks(x*1m<fluidDram_us>) |> removeUnit; unitName = "pecks"}
-            | ("fluidDramsUs","bushels") -> {amount = fluidDramsUsToBushels(x*1m<fluidDram_us>) |> removeUnit; unitName = "bushels"}
-            | ("fluidDramsUs","quarters") -> {amount = fluidDramsUsToQuarters(x*1m<fluidDram_us>) |> removeUnit; unitName = "quarters"}            
+            | ("fluidDramsUs","pecksUk") -> {amount = fluidDramsUsToPecksUk(x*1m<fluidDram_us>) |> removeUnit; unitName = "pecksUk"}
+            | ("fluidDramsUs","bushelsUk") -> {amount = fluidDramsUsToBushelsUk(x*1m<fluidDram_us>) |> removeUnit; unitName = "bushelsUk"}
+            | ("fluidDramsUs","quartersUk") -> {amount = fluidDramsUsToQuartersUk(x*1m<fluidDram_us>) |> removeUnit; unitName = "quartersUk"}
+            
+            | ("teaspoonsUs","milliliters") -> {amount = teaspoonsUsToMilliliters(x*1m<teaspoon_us>) |> removeUnit; unitName = "milliliters"}
+            | ("teaspoonsUs","liters") -> {amount = teaspoonsUsToLiters(x*1m<teaspoon_us>) |> removeUnit; unitName = "liters"}
+            | ("teaspoonsUs","minimsUs") -> {amount = teaspoonsUsToMinimsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "minimsUs"}
+            | ("teaspoonsUs","fluidDramsUs") -> {amount = teaspoonsUsToFluidDramsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "fluidDramsUs"}
+            | ("teaspoonsUs","tablespoonsUs") -> {amount = teaspoonsUsToTablespoons(x*1m<teaspoon_us>) |> removeUnit; unitName = "tablespoonsUs"}
+            | ("teaspoonsUs","shotsUs") -> {amount = teaspoonsUsToShotsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "shotsUs"}
+            | ("teaspoonsUs","fluidOuncesUs") -> {amount = teaspoonsUsToFluidOuncesUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "fluidOuncesUs"}
+            | ("teaspoonsUs","gillsUs") -> {amount = teaspoonsUsToGillsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "gillsUs"}
+            | ("teaspoonsUs","cupsUs") -> {amount = teaspoonsUsToCupsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "cupsUs"}
+            | ("teaspoonsUs","pintsUs") -> {amount = teaspoonsUsToPintsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "pintsUs"}
+            | ("teaspoonsUs","quartsUs") -> {amount = teaspoonsUsToQuartsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "quartsUs"}
+            | ("teaspoonsUs","pottlesUs") -> {amount = teaspoonsUsToPottlesUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "pottlesUs"}
+            | ("teaspoonsUs","gallonsUs") -> {amount = teaspoonsUsToGallonsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "gallonsUs"}
+            | ("teaspoonsUs","barrelsUs") -> {amount = teaspoonsUsToBarrelsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "barrelsUs"}
+            | ("teaspoonsUs","hogsheadsUs") -> {amount = teaspoonsUsToHogsheadsUs(x*1m<teaspoon_us>) |> removeUnit; unitName = "hogsheadsUs"}
+            | ("teaspoonsUs","cubicInches") -> {amount = teaspoonsUsToCubicInches(x*1m<teaspoon_us>) |> removeUnit; unitName = "cubicInches"}
+            | ("teaspoonsUs","minimsUk") -> {amount = teaspoonsUsToMinimsUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "minimsUk"}
+            | ("teaspoonsUs","fluidDrachmsUk") -> {amount = teaspoonsUsToFluidDrachmsUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "fluidDrachmsUk"}
+            | ("teaspoonsUs","fluidOuncesUk") -> {amount = teaspoonsUsToFluidOuncesUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "fluidOuncesUk"}
+            | ("teaspoonsUs","gillsUk") -> {amount = teaspoonsUsToGillsUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "gillsUk"}
+            | ("teaspoonsUs","pintsUk") -> {amount = teaspoonsUsToPintsUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "pintsUk"}
+            | ("teaspoonsUs","quartsUk") -> {amount = teaspoonsUsToQuartsUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "quartsUk"}
+            | ("teaspoonsUs","gallonsUk") -> {amount = teaspoonsUsToGallonsUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "gallonsUk"}
+            | ("teaspoonsUs","pecksUk") -> {amount = teaspoonsUsToPecksUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "pecksUk"}
+            | ("teaspoonsUs","bushelsUk") -> {amount = teaspoonsUsToBushelsUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "bushelsUk"}
+            | ("teaspoonsUs","quartersUk") -> {amount = teaspoonsUsToQuartersUk(x*1m<teaspoon_us>) |> removeUnit; unitName = "quartersUk"}
+
+            | ("tablespoonsUs","milliliters") -> {amount = tablespoonsUsToMilliliters(x*1m<tablespoon_us>) |> removeUnit; unitName = "milliliters"}
+            | ("tablespoonsUs","liters") -> {amount = tablespoonsUsToLiters(x*1m<tablespoon_us>) |> removeUnit; unitName = "liters"}
+            | ("tablespoonsUs","minimsUs") -> {amount = tablespoonsUsToMinimsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "minimsUs"}
+            | ("tablespoonsUs","fluidDramsUs") -> {amount = tablespoonsUsToFluidDramsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "fluidDramsUs"}
+            | ("tablespoonsUs","teaspoonsUs") -> {amount = tablespoonsUsToTeaspoonsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "teaspoonsUs"}
+            | ("tablespoonsUs","shotsUs") -> {amount = tablespoonsUsToShotsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "shotsUs"}
+            | ("tablespoonsUs","fluidOuncesUs") -> {amount = tablespoonsUsToFluidOuncesUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "fluidOuncesUs"}
+            | ("tablespoonsUs","gillsUs") -> {amount = tablespoonsUsToGillsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "gillsUs"}
+            | ("tablespoonsUs","cupsUs") -> {amount = tablespoonsUsToCupsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "cupsUs"}
+            | ("tablespoonsUs","pintsUs") -> {amount = tablespoonsUsToPintsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "pintsUs"}
+            | ("tablespoonsUs","quartsUs") -> {amount = tablespoonsUsToQuartsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "quartsUs"}
+            | ("tablespoonsUs","pottlesUs") -> {amount = tablespoonsUsToPottlesUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "pottlesUs"}
+            | ("tablespoonsUs","gallonsUs") -> {amount = tablespoonsUsToGallonsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "gallonsUs"}
+            | ("tablespoonsUs","barrelsUs") -> {amount = tablespoonsUsToBarrelsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "barrelsUs"}
+            | ("tablespoonsUs","hogsheadsUs") -> {amount = tablespoonsUsToHogsheadsUs(x*1m<tablespoon_us>) |> removeUnit; unitName = "hogsheadsUs"}
+            | ("tablespoonsUs","cubicInches") -> {amount = tablespoonsUsToCubicInches(x*1m<tablespoon_us>) |> removeUnit; unitName = "cubicInches"}
+            | ("tablespoonsUs","minimsUk") -> {amount = tablespoonsUsToMinimsUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "minimsUk"}
+            | ("tablespoonsUs","fluidDrachmsUk") -> {amount = tablespoonsUsToFluidDrachmsUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "fluidDrachmsUk"}
+            | ("tablespoonsUs","fluidOuncesUk") -> {amount = tablespoonsUsToFluidOuncesUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "fluidOuncesUk"}
+            | ("tablespoonsUs","gillsUk") -> {amount = tablespoonsUsToGillsUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "gillsUk"}
+            | ("tablespoonsUs","pintsUk") -> {amount = tablespoonsUsToPintsUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "pintsUk"}
+            | ("tablespoonsUs","quartsUk") -> {amount = tablespoonsUsToQuartsUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "quartsUk"}
+            | ("tablespoonsUs","gallonsUk") -> {amount = tablespoonsUsToGallonsUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "gallonsUk"}
+            | ("tablespoonsUs","pecksUk") -> {amount = tablespoonsUsToPecksUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "pecksUk"}
+            | ("tablespoonsUs","bushelsUk") -> {amount = tablespoonsUsToBushelsUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "bushelsUk"}
+            | ("tablespoonsUs","quartersUk") -> {amount = tablespoonsUsToQuartersUk(x*1m<tablespoon_us>) |> removeUnit; unitName = "quartersUk"}
+
+            | ("fluidOuncesUs","milliliters") -> {amount = fluidOuncesUsToMilliliters(x*1m<fluidOunce_us>) |> removeUnit; unitName = "milliliters"}
+            | ("fluidOuncesUs","liters") -> {amount = fluidOuncesUsToLiters(x*1m<fluidOunce_us>) |> removeUnit; unitName = "liters"}
+            | ("fluidOuncesUs","minimsUs") -> {amount = fluidOuncesUsToMinimsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "minimsUs"}
+            | ("fluidOuncesUs","fluidDramsUs") -> {amount = fluidOuncesUsToFluidDramsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "fluidDramsUs"}
+            | ("fluidOuncesUs","teaspoonsUs") -> {amount = fluidOuncesUsToTeaspoonsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "teaspoonsUs"}
+            | ("fluidOuncesUs","shotsUs") -> {amount = fluidOuncesUsToShotsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "shotsUs"}
+            | ("fluidOuncesUs","tablespoonsUs") -> {amount = fluidOuncesUsToTablespoonsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "tablespoonsUs"}
+            | ("fluidOuncesUs","gillsUs") -> {amount = fluidOuncesUsToGillsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "gillsUs"}
+            | ("fluidOuncesUs","cupsUs") -> {amount = fluidOuncesUsToCupsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "cupsUs"}
+            | ("fluidOuncesUs","pintsUs") -> {amount = fluidOuncesUsToPintsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "pintsUs"}
+            | ("fluidOuncesUs","quartsUs") -> {amount = fluidOuncesUsToQuartsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "quartsUs"}
+            | ("fluidOuncesUs","pottlesUs") -> {amount = fluidOuncesUsToPottlesUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "pottlesUs"}
+            | ("fluidOuncesUs","gallonsUs") -> {amount = fluidOuncesUsToGallonsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "gallonsUs"}
+            | ("fluidOuncesUs","barrelsUs") -> {amount = fluidOuncesUsToBarrelsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "barrelsUs"}
+            | ("fluidOuncesUs","hogsheadsUs") -> {amount = fluidOuncesUsToHogsheadsUs(x*1m<fluidOunce_us>) |> removeUnit; unitName = "hogsheadsUs"}
+            | ("fluidOuncesUs","cubicInches") -> {amount = fluidOuncesUsToCubicInches(x*1m<fluidOunce_us>) |> removeUnit; unitName = "cubicInches"}
+            | ("fluidOuncesUs","minimsUk") -> {amount = fluidOuncesUsToMinimsUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "minimsUk"}
+            | ("fluidOuncesUs","fluidDrachmsUk") -> {amount = fluidOuncesUsToFluidDrachmsUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "fluidDrachmsUk"}
+            | ("fluidOuncesUs","fluidOuncesUk") -> {amount = fluidOuncesUsToFluidOuncesUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "fluidOuncesUk"}
+            | ("fluidOuncesUs","gillsUk") -> {amount = fluidOuncesUsToGillsUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "gillsUk"}
+            | ("fluidOuncesUs","pintsUk") -> {amount = fluidOuncesUsToPintsUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "pintsUk"}
+            | ("fluidOuncesUs","quartsUk") -> {amount = fluidOuncesUsToQuartsUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "quartsUk"}
+            | ("fluidOuncesUs","gallonsUk") -> {amount = fluidOuncesUsToGallonsUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "gallonsUk"}
+            | ("fluidOuncesUs","pecksUk") -> {amount = fluidOuncesUsToPecksUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "pecksUk"}
+            | ("fluidOuncesUs","bushelsUk") -> {amount = fluidOuncesUsToBushelsUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "bushelsUk"}
+            | ("fluidOuncesUs","quartersUk") -> {amount = fluidOuncesUsToQuartersUk(x*1m<fluidOunce_us>) |> removeUnit; unitName = "quartersUk"}
+
+            | ("shotsUs","milliliters") -> {amount = shotsUsToMilliliters(x*1m<shot_us>) |> removeUnit; unitName = "milliliters"}
+            | ("shotsUs","liters") -> {amount = shotsUsToLiters(x*1m<shot_us>) |> removeUnit; unitName = "liters"}
+            | ("shotsUs","minimsUs") -> {amount = shotsUsToMinimsUs(x*1m<shot_us>) |> removeUnit; unitName = "minimsUs"}
+            | ("shotsUs","fluidDramsUs") -> {amount = shotsUsToFluidDramsUs(x*1m<shot_us>) |> removeUnit; unitName = "fluidDramsUs"}
+            | ("shotsUs","teaspoonsUs") -> {amount = shotsUsToTeaspoonsUs(x*1m<shot_us>) |> removeUnit; unitName = "teaspoonsUs"}
+            | ("shotsUs","fluidOuncesUs") -> {amount = shotsUsToFluidOuncesUs(x*1m<shot_us>) |> removeUnit; unitName = "fluidOuncesUs"}
+            | ("shotsUs","tablespoonsUs") -> {amount = shotsToTablespoonsUs(x*1m<shot_us>) |> removeUnit; unitName = "tablespoonsUs"}
+            | ("shotsUs","gillsUs") -> {amount = shotsUsToGillsUs(x*1m<shot_us>) |> removeUnit; unitName = "gillsUs"}
+            | ("shotsUs","cupsUs") -> {amount = shotsUsToCupsUs(x*1m<shot_us>) |> removeUnit; unitName = "cupsUs"}
+            | ("shotsUs","pintsUs") -> {amount = shotsUsToPintsUs(x*1m<shot_us>) |> removeUnit; unitName = "pintsUs"}
+            | ("shotsUs","quartsUs") -> {amount = shotsUsToQuartsUs(x*1m<shot_us>) |> removeUnit; unitName = "quartsUs"}
+            | ("shotsUs","pottlesUs") -> {amount = shotsUsToPottlesUs(x*1m<shot_us>) |> removeUnit; unitName = "pottlesUs"}
+            | ("shotsUs","gallonsUs") -> {amount = shotsUsToGallonsUs(x*1m<shot_us>) |> removeUnit; unitName = "gallonsUs"}
+            | ("shotsUs","barrelsUs") -> {amount = shotsUsToBarrelsUs(x*1m<shot_us>) |> removeUnit; unitName = "barrelsUs"}
+            | ("shotsUs","hogsheadsUs") -> {amount = shotsUsToHogsheadsUs(x*1m<shot_us>) |> removeUnit; unitName = "hogsheadsUs"}
+            | ("shotsUs","cubicInches") -> {amount = shotsUsToCubicInches(x*1m<shot_us>) |> removeUnit; unitName = "cubicInches"}
+            | ("shotsUs","minimsUk") -> {amount = shotsUsToMinimsUk(x*1m<shot_us>) |> removeUnit; unitName = "minimsUk"}
+            | ("shotsUs","fluidDrachmsUk") -> {amount = shotsUsToFluidDrachmsUk(x*1m<shot_us>) |> removeUnit; unitName = "fluidDrachmsUk"}
+            | ("shotsUs","fluidOuncesUk") -> {amount = shotsUsToFluidOuncesUk(x*1m<shot_us>) |> removeUnit; unitName = "fluidOuncesUk"}
+            | ("shotsUs","gillsUk") -> {amount = shotsUsToGillsUk(x*1m<shot_us>) |> removeUnit; unitName = "gillsUk"}
+            | ("shotsUs","pintsUk") -> {amount = shotsUsToPintsUk(x*1m<shot_us>) |> removeUnit; unitName = "pintsUk"}
+            | ("shotsUs","quartsUk") -> {amount = shotsUsToQuartsUk(x*1m<shot_us>) |> removeUnit; unitName = "quartsUk"}
+            | ("shotsUs","gallonsUk") -> {amount = shotsUsToGallonsUk(x*1m<shot_us>) |> removeUnit; unitName = "gallonsUk"}
+            | ("shotsUs","pecksUk") -> {amount = shotsUsToPecksUk(x*1m<shot_us>) |> removeUnit; unitName = "pecksUk"}
+            | ("shotsUs","bushelsUk") -> {amount = shotsUsToBushelsUk(x*1m<shot_us>) |> removeUnit; unitName = "bushelsUk"}
+            | ("shotsUs","quartersUk") -> {amount = shotsUsToQuartersUk(x*1m<shot_us>) |> removeUnit; unitName = "quartersUk"}
+
+            | ("gillsUs","milliliters") -> {amount = gillsUsToMilliliters(x*1m<gill_us>) |> removeUnit; unitName = "milliliters"}
+            | ("gillsUs","liters") -> {amount = gillsUsToLiters(x*1m<gill_us>) |> removeUnit; unitName = "liters"}
+            | ("gillsUs","minimsUs") -> {amount = gillsUsToMinimsUs(x*1m<gill_us>) |> removeUnit; unitName = "minimsUs"}
+            | ("gillsUs","fluidDramsUs") -> {amount = gillsUsToFluidDramsUs(x*1m<gill_us>) |> removeUnit; unitName = "fluidDramsUs"}
+            | ("gillsUs","teaspoonsUs") -> {amount = gillsUsToTeaspoonsUs(x*1m<gill_us>) |> removeUnit; unitName = "teaspoonsUs"}
+            | ("gillsUs","fluidOuncesUs") -> {amount = gillsUsToFluidOuncesUs(x*1m<gill_us>) |> removeUnit; unitName = "fluidOuncesUs"}
+            | ("gillsUs","tablespoonsUs") -> {amount = gillsUsToTablespoonsUs(x*1m<gill_us>) |> removeUnit; unitName = "tablespoonsUs"}
+            | ("gillsUs","shotsUs") -> {amount = gillsUsToShotsUs(x*1m<gill_us>) |> removeUnit; unitName = "shotsUs"}
+            | ("gillsUs","cupsUs") -> {amount = gillsUsToCupsUs(x*1m<gill_us>) |> removeUnit; unitName = "cupsUs"}
+            | ("gillsUs","pintsUs") -> {amount = gillsUsToPintsUs(x*1m<gill_us>) |> removeUnit; unitName = "pintsUs"}
+            | ("gillsUs","quartsUs") -> {amount = gillsUsToQuartsUs(x*1m<gill_us>) |> removeUnit; unitName = "quartsUs"}
+            | ("gillsUs","pottlesUs") -> {amount = gillsUsToPottlesUs(x*1m<gill_us>) |> removeUnit; unitName = "pottlesUs"}
+            | ("gillsUs","gallonsUs") -> {amount = gillsUsToGallonsUs(x*1m<gill_us>) |> removeUnit; unitName = "gallonsUs"}
+            | ("gillsUs","barrelsUs") -> {amount = gillsUsToBarrelsUs(x*1m<gill_us>) |> removeUnit; unitName = "barrelsUs"}
+            | ("gillsUs","hogsheadsUs") -> {amount = gillsUsToHogsheadsUs(x*1m<gill_us>) |> removeUnit; unitName = "hogsheadsUs"}
+            | ("gillsUs","cubicInches") -> {amount = gillsUsToCubicInches(x*1m<gill_us>) |> removeUnit; unitName = "cubicInches"}
+            | ("gillsUs","minimsUk") -> {amount = gillsUsToMinimsUk(x*1m<gill_us>) |> removeUnit; unitName = "minimsUk"}
+            | ("gillsUs","fluidDrachmsUk") -> {amount = gillsUsToFluidDrachmsUk(x*1m<gill_us>) |> removeUnit; unitName = "fluidDrachmsUk"}
+            | ("gillsUs","fluidOuncesUk") -> {amount = gillsUsToFluidOuncesUk(x*1m<gill_us>) |> removeUnit; unitName = "fluidOuncesUk"}
+            | ("gillsUs","gillsUk") -> {amount = gillsUsToGillsUk(x*1m<gill_us>) |> removeUnit; unitName = "gillsUk"}
+            | ("gillsUs","pintsUk") -> {amount = gillsUsToPintsUk(x*1m<gill_us>) |> removeUnit; unitName = "pintsUk"}
+            | ("gillsUs","quartsUk") -> {amount = gillsUsToQuartsUk(x*1m<gill_us>) |> removeUnit; unitName = "quartsUk"}
+            | ("gillsUs","gallonsUk") -> {amount = gillsUsToGallonsUk(x*1m<gill_us>) |> removeUnit; unitName = "gallonsUk"}
+            | ("gillsUs","pecksUk") -> {amount = gillsUsToPecksUk(x*1m<gill_us>) |> removeUnit; unitName = "pecksUk"}
+            | ("gillsUs","bushelsUk") -> {amount = gillsUsToBushelsUk(x*1m<gill_us>) |> removeUnit; unitName = "bushelsUk"}
+            | ("gillsUs","quartersUk") -> {amount = gillsUsToQuartersUk(x*1m<gill_us>) |> removeUnit; unitName = "quartersUk"}
+
+
             | _ -> {amount = 0m; unitName = "conversionNotImplemented"}
 
         let convertVolume ((x:decimal),fromUnit,toUnit) =

@@ -4,18 +4,18 @@ module UnitsList =
 
     let volumeList = ["minimsUs";
     "fluidDramsUs";
-    "teaspoons";
-    "tablespoons";
+    "teaspoonsUs";
+    "tablespoonsUs";
     "fluidOuncesUs";
-    "shots";
+    "shotsUs";
     "gillsUs";
-    "cups";
+    "cupsUs";
     "pintsUs";
     "quartsUs";
-    "pottles";
+    "pottlesUs";
     "gallonsUs";
-    "barrels";
-    "hogsheads";
+    "barrelsUs";
+    "hogsheadsUs";
     "cubicInches";
     "minimsUk";
     "fluidDrachmsUk";
@@ -24,9 +24,9 @@ module UnitsList =
     "pintsUk";
     "quartsUk";
     "gallonsUk";
-    "pecks";
-    "bushels";
-    "quarters";
+    "pecksUk";
+    "bushelsUk";
+    "quartersUk";
     "milliliters";
     "liters"]
 
