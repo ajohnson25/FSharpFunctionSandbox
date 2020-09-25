@@ -7,6 +7,7 @@
   <ItemGroup>
     <Compile Include="UnitsList.fs" />
     <Compile Include="UnitsUOM.fs" />
+    <Compile Include="VolumeConversion.fs" />
     <Compile Include="Library.fs" />
   </ItemGroup>
 
