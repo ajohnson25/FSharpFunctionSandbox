@@ -7,6 +7,7 @@ open FSharpFunctions.TemperatureConversion
 open VolumeConversion
 open UnitsUOM.Imperial.UnitNames
 open UnitsUOM.SI.UnitNames
+open UnitsList
 
 module VolumeConversionTests = 
     [<Fact>]
@@ -1497,3 +1498,6 @@ module VolumeConversionTests =
         Assert.Equal(290961.891365376m<milliliter>,quartersUkToMilliliters(1m<quarter_vl_uk>))
         Assert.Equal(290.961891365376m<liter>,quartersUkToLiters(1m<quarter_vl_uk>))
 
+    [<Fact>]
+    let ``volumeListExcept removes a volume unit`` () =
+        Assert.Equal(volumeList.Length - 1,volumeListExcept("gallonsUs").Length)

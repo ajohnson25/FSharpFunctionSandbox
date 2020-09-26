@@ -30,6 +30,8 @@ module UnitsList =
     "milliliters";
     "liters"]
 
+    let volumeListExcept value = List.filter (fun i -> i <> value) volumeList
+
     let weightList = ["grains";
     "drachms";
     "ounces";
