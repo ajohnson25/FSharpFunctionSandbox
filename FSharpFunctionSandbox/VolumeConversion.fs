@@ -1278,6 +1278,32 @@ module VolumeConversion =
         | ("fluidDrachmsUk","pecksUk") -> {amount = fluidDrachmsUkToPecksUk(x*1m<fluidDrachm_uk>) |> removeUnit; unitName = "pecksUk"}
         | ("fluidDrachmsUk","bushelsUk") -> {amount = fluidDrachmsUkToBushelsUk(x*1m<fluidDrachm_uk>) |> removeUnit; unitName = "bushelsUk"}
         | ("fluidDrachmsUk","quartersUk") -> {amount = fluidDrachmsUkToQuartersUk(x*1m<fluidDrachm_uk>) |> removeUnit; unitName = "quartersUk"}
+        | ("fluidOuncesUk","milliliters") -> {amount = fluidOuncesUkToMilliliters(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "milliliters"}
+        | ("fluidOuncesUk","liters") -> {amount = fluidOuncesUkToLiters(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "liters"}
+        | ("fluidOuncesUk","minimsUs") -> {amount = fluidOuncesUkToMinimsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "minimsUs"}
+        | ("fluidOuncesUk","fluidDramsUs") -> {amount = fluidOuncesUkToFluidDramsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "fluidDramsUs"}
+        | ("fluidOuncesUk","teaspoonsUs") -> {amount = fluidOuncesUkToTeaspoonsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "teaspoonsUs"}
+        | ("fluidOuncesUk","fluidOuncesUs") -> {amount = fluidOuncesUkToFluidOuncesUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "fluidOuncesUs"}
+        | ("fluidOuncesUk","tablespoonsUs") -> {amount = fluidOuncesUkToTablespoonsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "tablespoonsUs"}
+        | ("fluidOuncesUk","shotsUs") -> {amount = fluidOuncesUkToShotsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "shotsUs"}
+        | ("fluidOuncesUk","gillsUs") -> {amount = fluidOuncesUkToGillsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "gillsUs"}
+        | ("fluidOuncesUk","cupsUs") -> {amount = fluidOuncesUkToCupsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "cupsUs"}
+        | ("fluidOuncesUk","pintsUs") -> {amount = fluidOuncesUkToPintsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "pintsUs"}
+        | ("fluidOuncesUk","quartsUs") -> {amount = fluidOuncesUkToQuartsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "quartsUs"}
+        | ("fluidOuncesUk","pottlesUs") -> {amount = fluidOuncesUkToPottlesUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "pottlesUs"}
+        | ("fluidOuncesUk","gallonsUs") -> {amount = fluidOuncesUkToGallonsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "gallonsUs"}
+        | ("fluidOuncesUk","barrelsUs") -> {amount = fluidOuncesUkToBarrelsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "barrelsUs"}
+        | ("fluidOuncesUk","hogsheadsUs") -> {amount = fluidOuncesUkToHogsheadsUs(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "hogsheadsUs"}
+        | ("fluidOuncesUk","cubicInches") -> {amount = fluidOuncesUkToCubicInches(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "cubicInches"}
+        | ("fluidOuncesUk","minimsUk") -> {amount = fluidOuncesUkToMinimsUk(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "minimsUk"}
+        | ("fluidOuncesUk","fluidDrachmsUk") -> {amount = fluidOuncesUkToFluidDrachmsUk(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "fluidDrachmsUk"}
+        | ("fluidOuncesUk","gillsUk") -> {amount = fluidOuncesUkToGillsUk(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "gillsUk"}
+        | ("fluidOuncesUk","pintsUk") -> {amount = fluidOuncesUkToPintsUk(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "pintsUk"}
+        | ("fluidOuncesUk","quartsUk") -> {amount = fluidOuncesUkToQuartsUk(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "quartsUk"}
+        | ("fluidOuncesUk","gallonsUk") -> {amount = fluidOuncesUkToGallonsUk(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "gallonsUk"}
+        | ("fluidOuncesUk","pecksUk") -> {amount = fluidOuncesUkToPecksUk(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "pecksUk"}
+        | ("fluidOuncesUk","bushelsUk") -> {amount = fluidOuncesUkToBushelsUk(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "bushelsUk"}
+        | ("fluidOuncesUk","quartersUk") -> {amount = fluidOuncesUkToQuartersUk(x*1m<fluidOunce_uk>) |> removeUnit; unitName = "quartersUk"}
         | ("gillsUk","milliliters") -> {amount = gillsUkToMilliliters(x*1m<gill_uk>) |> removeUnit; unitName = "milliliters"}
         | ("gillsUk","liters") -> {amount = gillsUkToLiters(x*1m<gill_uk>) |> removeUnit; unitName = "liters"}
         | ("gillsUk","minimsUs") -> {amount = gillsUkToMinimsUs(x*1m<gill_uk>) |> removeUnit; unitName = "minimsUs"}
