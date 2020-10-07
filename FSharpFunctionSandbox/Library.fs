@@ -153,7 +153,7 @@ module FSharpFunctions =
 
         let grainsToMilligrams x = grainsToGrams x |> gramsToMilligrams
         let ouncesToMilligrams x = ouncesToGrams x |> gramsToMilligrams
-        let drachmToMilligrams x = drachmsToGrams x |> gramsToMilligrams
+        let drachmsToMilligrams x = drachmsToGrams x |> gramsToMilligrams
         let quartersShrtToMilligrams x = quartersShrtToGrams x |> gramsToMilligrams
         let quartersLngToMilligrams x = quartersLngToGrams x |> gramsToMilligrams
         let hundredweightsShrtToMilligrams x = hundredweightsShrtToGrams x |> gramsToMilligrams
@@ -297,6 +297,49 @@ module FSharpFunctions =
         let tonsLngToGrains x = tonsLngToPounds x |> poundsToGrains
         let tonsLngToDrachms x = tonsLngToPounds x |> poundsToDrachms
         let tonsLngToOunces x = tonsLngToPounds x |> poundsToOunces
+
+        type WeightUnit = { amount: decimal; unitName: string}
+
+        let packageWeightUnit (x, y) = {amount = x; unitName = y}
+        let removeUnit (x:decimal<_>) = decimal x
+
+        let convertWeightVerified ((x:decimal),fromUnit,toUnit) =
+            match (fromUnit,toUnit) with
+            | ("grains","drachms") -> {amount = grainsToDrachms(x*1m<grain>) |> removeUnit; unitName = "drachms"}
+            | ("grains","ounces") -> {amount = grainsToOunces(x*1m<grain>) |> removeUnit; unitName = "ounces"}
+            | ("grains","pounds") -> {amount = grainsToPounds(x*1m<grain>) |> removeUnit; unitName = "pounds"}
+            | ("grains","stones") -> {amount = grainsToStones(x*1m<grain>) |> removeUnit; unitName = "stones"}
+            | ("grains","quartersLng") -> {amount = grainsToQuartersLng(x*1m<grain>) |> removeUnit; unitName = "quartersLng"}
+            | ("grains","quartersShrt") -> {amount = grainsToQuartersShrt(x*1m<grain>) |> removeUnit; unitName = "quartersShrt"}
+            | ("grains","hundredweightsLng") -> {amount = grainsToHundredweightsLng(x*1m<grain>) |> removeUnit; unitName = "hundredweightsLng"}
+            | ("grains","hundredweightsShrt") -> {amount = grainsToHundredweightsShrt(x*1m<grain>) |> removeUnit; unitName = "hundredweightsShrt"}
+            | ("grains","tonsLng") -> {amount = grainsToTonsLng(x*1m<grain>) |> removeUnit; unitName = "tonsLng"}
+            | ("grains","tonsShrt") -> {amount = grainsToTonsShrt(x*1m<grain>) |> removeUnit; unitName = "tonsShrt"}
+            | ("grains","tonsMetric") -> {amount = grainsToTonsMetric(x*1m<grain>) |> removeUnit; unitName = "tonsMetric"}
+            | ("grains","milligrams") -> {amount = grainsToMilligrams(x*1m<grain>) |> removeUnit; unitName = "milligrams"}
+            | ("grains","grams") -> {amount = grainsToGrams(x*1m<grain>) |> removeUnit; unitName = "grams"}
+            | ("grains","kilograms") -> {amount = grainsToKilograms(x*1m<grain>) |> removeUnit; unitName = "kilograms"}
+            | ("drachms","grains") -> {amount = drachmsToGrains(x*1m<drachm>) |> removeUnit; unitName = "grains"}
+            | ("drachms","ounces") -> {amount = drachmsToOunces(x*1m<drachm>) |> removeUnit; unitName = "ounces"}
+            | ("drachms","pounds") -> {amount = drachmsToPounds(x*1m<drachm>) |> removeUnit; unitName = "pounds"}
+            | ("drachms","stones") -> {amount = drachmsToStones(x*1m<drachm>) |> removeUnit; unitName = "stones"}
+            | ("drachms","quartersLng") -> {amount = drachmsToQuartersLng(x*1m<drachm>) |> removeUnit; unitName = "quartersLng"}
+            | ("drachms","quartersShrt") -> {amount = drachmsToQuartersShrt(x*1m<drachm>) |> removeUnit; unitName = "quartersShrt"}
+            | ("drachms","hundredweightsLng") -> {amount = drachmsToHundredweightsLng(x*1m<drachm>) |> removeUnit; unitName = "hundredweightsLng"}
+            | ("drachms","hundredweightsShrt") -> {amount = drachmsToHundredweightsShrt(x*1m<drachm>) |> removeUnit; unitName = "hundredweightsShrt"}
+            | ("drachms","tonsLng") -> {amount = drachmsToTonsLng(x*1m<drachm>) |> removeUnit; unitName = "tonsLng"}
+            | ("drachms","tonsShrt") -> {amount = drachmsToTonsShrt(x*1m<drachm>) |> removeUnit; unitName = "tonsShrt"}
+            | ("drachms","tonsMetric") -> {amount = drachmsToTonsMetric(x*1m<drachm>) |> removeUnit; unitName = "tonsMetric"}
+            | ("drachms","milligrams") -> {amount = drachmsToMilligrams(x*1m<drachm>) |> removeUnit; unitName = "milligrams"}
+            | ("drachms","grams") -> {amount = drachmsToGrams(x*1m<drachm>) |> removeUnit; unitName = "grams"}
+            | ("drachms","kilograms") -> {amount = drachmsToKilograms(x*1m<drachm>) |> removeUnit; unitName = "kilograms"}
+            | _ -> {amount = 0m; unitName = "conversionNotImplemented"}
+
+        let convertWeight ((x:decimal),fromUnit,toUnit) =
+            match List.contains fromUnit UnitsList.weightList && List.contains toUnit UnitsList.weightList with
+            | true -> convertWeightVerified(x,fromUnit,toUnit)
+            | _ -> {amount = 0m; unitName = "unitNotSupported"}
+
 
     module LengthConversion =
         //Metric to metric length
