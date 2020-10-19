@@ -347,6 +347,20 @@ module FSharpFunctions =
             | ("ounces","milligrams") -> {amount = ouncesToMilligrams(x*1m<ounce>) |> removeUnit; unitName = "milligrams"}
             | ("ounces","grams") -> {amount = ouncesToGrams(x*1m<ounce>) |> removeUnit; unitName = "grams"}
             | ("ounces","kilograms") -> {amount = ouncesToKilograms(x*1m<ounce>) |> removeUnit; unitName = "kilograms"}
+            | ("pounds","grains") -> {amount = poundsToGrains(x*1m<pound>) |> removeUnit; unitName = "grains"}
+            | ("pounds","drachms") -> {amount = poundsToDrachms(x*1m<pound>) |> removeUnit; unitName = "drachms"}
+            | ("pounds","ounces") -> {amount = poundsToOunces(x*1m<pound>) |> removeUnit; unitName = "ounces"}
+            | ("pounds","stones") -> {amount = poundsToStones(x*1m<pound>) |> removeUnit; unitName = "stones"}
+            | ("pounds","quartersLng") -> {amount = poundsToQuartersLng(x*1m<pound>) |> removeUnit; unitName = "quartersLng"}
+            | ("pounds","quartersShrt") -> {amount = poundsToQuartersShrt(x*1m<pound>) |> removeUnit; unitName = "quartersShrt"}
+            | ("pounds","hundredweightsLng") -> {amount = poundsToHundredweightsLng(x*1m<pound>) |> removeUnit; unitName = "hundredweightsLng"}
+            | ("pounds","hundredweightsShrt") -> {amount = poundsToHundredweightsShrt(x*1m<pound>) |> removeUnit; unitName = "hundredweightsShrt"}
+            | ("pounds","tonsLng") -> {amount = poundsToTonsLng(x*1m<pound>) |> removeUnit; unitName = "tonsLng"}
+            | ("pounds","tonsShrt") -> {amount = poundsToTonsShrt(x*1m<pound>) |> removeUnit; unitName = "tonsShrt"}
+            | ("pounds","tonsMetric") -> {amount = poundsToTonsMetric(x*1m<pound>) |> removeUnit; unitName = "tonsMetric"}
+            | ("pounds","milligrams") -> {amount = poundsToMilligrams(x*1m<pound>) |> removeUnit; unitName = "milligrams"}
+            | ("pounds","grams") -> {amount = poundsToGrams(x*1m<pound>) |> removeUnit; unitName = "grams"}
+            | ("pounds","kilograms") -> {amount = poundsToKilograms(x*1m<pound>) |> removeUnit; unitName = "kilograms"}
             | _ -> {amount = 0m; unitName = "conversionNotImplemented"}
 
         let convertWeight ((x:decimal),fromUnit,toUnit) =
