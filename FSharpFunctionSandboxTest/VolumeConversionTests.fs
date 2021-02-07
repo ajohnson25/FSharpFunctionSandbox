@@ -1,9 +1,6 @@
 ﻿namespace FSharpFunctions
 
 open Xunit
-open FSharpFunctions.LengthConversion
-open FSharpFunctions.WeightConversion
-open FSharpFunctions.TemperatureConversion
 open VolumeConversion
 open UnitsUOM.Imperial.UnitNames
 open UnitsUOM.SI.UnitNames
